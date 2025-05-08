@@ -1,3 +1,4 @@
+import { classNames } from "../../Tools/Tools"
 import type { linkParameters } from "./Link"
 import Link from "./Link"
 
@@ -13,7 +14,7 @@ const NavBar = ({
     buttons
 }:navBarContent) =>{
 
-    const b = buttons.map((e:linkParameters)=>{
+    buttons.map((e:linkParameters)=>{
         return <Link 
             text={e.text} 
             href={e.href} 
@@ -22,7 +23,7 @@ const NavBar = ({
     })
     
     return <nav className="bg-gray-800 h-24">
-        {b}
+        
     </nav>
 }
 

@@ -14,7 +14,7 @@ function App() {
   ]
 
   return <>
-    <NavBar buttons={buttons}></NavBar>
+    <NavBar></NavBar>
   </>
 }
 

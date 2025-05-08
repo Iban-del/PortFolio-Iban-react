@@ -9,13 +9,13 @@ function App() {
   const buttons:Array<linkParameters> = [
     {
       text:"Accueil",
-      href:"#",
+      href:"#"
     }
   ]
 
   return <>
-    <NavBar buttons={buttons}></NavBar>
-  </>
+    <NavBar></NavBar>
+  </Nav>
 }
 
 export default App

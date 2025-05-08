@@ -18,7 +18,7 @@ const Link = ({
     return <>
         <motion.a
             href={href} 
-            className={classNames("font-medium text-sky-50 dark:text-sky-50 hover:underline",className)}
+            className={classNames("font-medium text-sky-50 dark:text-blue-500 hover:underline",className)}
             whileHover={{scale:1.1}}
             whileTap={{scale:0.9}}
         >

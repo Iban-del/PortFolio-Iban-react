@@ -22,7 +22,7 @@ const NavBar = ({
     })
     
     return <nav className="bg-gray-800 h-24">
-        {b}
+        {buttons}
     </nav>
 }
 
