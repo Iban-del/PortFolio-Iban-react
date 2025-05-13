@@ -1,0 +1,25 @@
+
+@import "tailwindcss";
+
+html,body,.root{
+  background-color:#1B261D;
+}
+
+/* thème app*/
+.bg-green-1        { background-color: var(--green-1); }
+.bg-green-2        { background-color: var(--green-2); }
+.bg-green-3        { background-color: var(--green-3); }
+.bg-green-4        { background-color: var(--green-4); }
+.bg-green-5        { background-color: var(--green-5); }
+.bg-green-6        { background-color: var(--green-6); }
+.bg-green-7        { background-color: var(--green-7); }
+.bg-green-8        { background-color: var(--green-8); }
+.bg-green-9        { background-color: var(--green-9); }
+.bg-green-10       { background-color: var(--green-10); }
+.bg-green-11       { background-color: var(--green-11); }
+.bg-green-12       { background-color: var(--green-12); }
+
+.text-green-contrast { color: var(--green-contrast); }
+.bg-green-surface    { background-color: var(--green-surface); }
+
+.border-green-9      { border-color: var(--green-9); }

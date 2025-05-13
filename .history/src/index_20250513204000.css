@@ -1,0 +1,57 @@
+
+@import "tailwindcss";
+
+html,body,.root{
+  background-color:#1B261D;
+}
+.dark, .dark-theme {
+  --green-1: #000;
+  --green-2: #0f1310;
+  --green-3: #1b261d;
+  --green-4: #243528;
+  --green-5: #2e4333;
+  --green-6: #3a513f;
+  --green-7: #47624d;
+  --green-8: #55755d;
+  --green-9: #80b38c;
+  --green-10: #75a781;
+  --green-11: #93c79f;
+  --green-12: #cbe9d1;
+
+  --green-a1: #00000000;
+  --green-a2: #caffd713;
+  --green-a3: #b6ffc326;
+  --green-a4: #aeffc135;
+  --green-a5: #b0ffc343;
+  --green-a6: #b7ffc751;
+  --green-a7: #b9ffc962;
+  --green-a8: #baffcb75;
+  --green-a9: #b7ffc8b3;
+  --green-a10: #b3ffc5a7;
+  --green-a11: #bdffccc7;
+  --green-a12: #deffe5e9;
+
+  --green-contrast: #fff;
+  --green-surface: #1e262080;
+  --green-indicator: #80b38c;
+  --green-track: #80b38c;
+}
+
+/* thème app*/
+.bg-green-1        { background-color: var(--green-1); }
+.bg-green-2        { background-color: var(--green-2); }
+.bg-green-3        { background-color: var(--green-3); }
+.bg-green-4        { background-color: var(--green-4); }
+.bg-green-5        { background-color: var(--green-5); }
+.bg-green-6        { background-color: var(--green-6); }
+.bg-green-7        { background-color: var(--green-7); }
+.bg-green-8        { background-color: var(--green-8); }
+.bg-green-9        { background-color: var(--green-9); }
+.bg-green-10       { background-color: var(--green-10); }
+.bg-green-11       { background-color: var(--green-11); }
+.bg-green-12       { background-color: var(--green-12); }
+
+.text-green-contrast { color: var(--green-contrast); }
+.bg-green-surface    { background-color: var(--green-surface); }
+
+.border-green-9      { border-color: var(--green-9); }
