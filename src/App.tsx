@@ -1,12 +1,28 @@
 import NavBar from "./Components/UI/NavBar"
-import Button from "./Components/UI/Button"
+import { type LinkInterface } from "./Components/UI/Link"
+import { useEffect } from "react"
+
+
 
 function App() {
 
+  const buttons:Array<LinkInterface> = [
+    {text:'Accueil',key:'home'},
+    {text:"Qui je suis",key:'HowIAm'}
+  ]
+
+
+  useEffect(()=>{
+    const audio = new Audio("/public/backgroungMusic.mp3")
+    audio.play()
+  })
+
+
+
   return (
     <>
-      <NavBar></NavBar>
-      <Button></Button>
+      <NavBar buttons={buttons}></NavBar>
+
     </>
   )
 }

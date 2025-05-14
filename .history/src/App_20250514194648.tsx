@@ -1,0 +1,14 @@
+import NavBar from "./Components/UI/NavBar"
+import Button from "./Components/UI/Button"
+
+function App() {
+
+  return (
+    <>
+      <NavBar></NavBar>
+      <Button text="Continu"></Button>
+    </>
+  )
+}
+
+export default App
