@@ -1,16 +1,14 @@
 
 /** interface du boutton */
 export interface ButtonInterface {
-    text:string
+
 }
 
 
-const Button = ({
-    
-}) =>{
+const Button = () =>{
 
-    return <button type="button">
-        
+    return <button>
+qsq
     </button>
 }
 

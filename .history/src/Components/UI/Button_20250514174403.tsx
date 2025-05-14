@@ -1,16 +1,16 @@
 
 /** interface du boutton */
 export interface ButtonInterface {
-    text:string
+    
 }
 
 
 const Button = ({
-    
+    children
 }) =>{
 
     return <button type="button">
-        
+        children 
     </button>
 }
 
