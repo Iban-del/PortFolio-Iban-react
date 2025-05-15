@@ -2,18 +2,16 @@ import { motion } from "motion/react"
 
 export interface LinkInterface{
     text:string,
-    key?:string,
     onClick?: () => void
 }
 
 const Link = ({
     text,
-    onClick
+    onClick?:
 }:LinkInterface)=>{
 
     return <motion.a
-        onClick={onClick}
-        className="font-medium text-xl cursor-pointer"
+        className="font-medium text-xl"
         whileHover={{
             color:'#ffffff63'
         }}

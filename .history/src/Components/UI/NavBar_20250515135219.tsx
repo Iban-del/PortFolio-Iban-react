@@ -53,7 +53,7 @@ const NavBar = ({
                     className="relative flex space-x-4  text-sm items-center justify-around"
                 >
                     {buttons.map((e)=>{
-                        return <Link key={e.key} onClick={e.onClick} text={e.text}></Link>
+                        return <Link key={e.key} text={e.text} href={e.href}></Link>
                     })}
                 </motion.div>
                 }

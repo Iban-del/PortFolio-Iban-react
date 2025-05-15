@@ -1,7 +1,6 @@
 import NavBar from "./Components/UI/NavBar"
 import { type LinkInterface } from "./Components/UI/Link"
 import { useEffect } from "react"
-import Background from "./Components/Three/Background"
 
 
 
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <>
-      <Background></Background>
       <NavBar buttons={buttons}></NavBar>
 
     </>

@@ -1,20 +1,19 @@
 import NavBar from "./Components/UI/NavBar"
 import { type LinkInterface } from "./Components/UI/Link"
 import { useEffect } from "react"
-import Background from "./Components/Three/Background"
 
 
 
 function App() {
 
   const music = () =>{
-    const audio = new Audio("/backgroungMusic.mp3")
+    const audio = new Audio("/public/backgroungMusic.mp3")
     audio.loop = true;
     audio.play()
   }
 
   const buttons:Array<LinkInterface> = [
-    {text:'Musique',key:'music',onClick:music},
+    {text:'Accueil',key:'home',onClick:music},
     {text:"Qui je suis",key:'HowIAm'}
   ]
 
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <>
-      <Background></Background>
       <NavBar buttons={buttons}></NavBar>
 
     </>

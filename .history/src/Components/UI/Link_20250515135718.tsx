@@ -13,7 +13,7 @@ const Link = ({
 
     return <motion.a
         onClick={onClick}
-        className="font-medium text-xl cursor-pointer"
+        className="font-medium text-xl"
         whileHover={{
             color:'#ffffff63'
         }}

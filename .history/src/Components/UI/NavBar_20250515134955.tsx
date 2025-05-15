@@ -35,7 +35,8 @@ const NavBar = ({
                 <motion.svg 
                     onHoverStart={()=>onHoverStart()}
                     onTap={()=>setShowButton((e)=>!e)}
-                    whileHover={{rotate:30}}
+                    initial={{left:0}}
+                    whileHover={{left:-50}}
                     className="cursor-pointer relative " 
                     width="50" 
                     height="50" 
@@ -53,7 +54,7 @@ const NavBar = ({
                     className="relative flex space-x-4  text-sm items-center justify-around"
                 >
                     {buttons.map((e)=>{
-                        return <Link key={e.key} onClick={e.onClick} text={e.text}></Link>
+                        return <Link key={e.key} text={e.text} href={e.href}></Link>
                     })}
                 </motion.div>
                 }
