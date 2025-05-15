@@ -25,8 +25,7 @@ const Background = () =>{
             <Torus
                 color='red'
                 onFrame={(mesh,state,delta)=>{
-                    mesh.rotation.x += delta
-                    mesh.rotation.y += delta
+
                 }}
             />
             

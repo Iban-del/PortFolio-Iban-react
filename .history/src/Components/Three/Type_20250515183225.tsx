@@ -65,23 +65,6 @@ export type CylinderGeometryArgs = [
     thetaLength?: number
 ];
 
-export type RingGeometryArgs = [
-    innerRadius?: number,
-    outerRadius?: number,
-    thetaSegments?: number,
-    phiSegments?: number,
-    thetaStart?: number,
-    thetaLength?: number
-];
-
-export type TorusGeometryArgs = [
-    radius?: number,
-    tube?: number,
-    radialSegments?: number,
-    tubularSegments?: number,
-    arc?: number
-];
-
 
 export type DefaultGeometry = {
     position?:[x: number, y: number, z: number]

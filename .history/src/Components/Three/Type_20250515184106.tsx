@@ -74,15 +74,6 @@ export type RingGeometryArgs = [
     thetaLength?: number
 ];
 
-export type TorusGeometryArgs = [
-    radius?: number,
-    tube?: number,
-    radialSegments?: number,
-    tubularSegments?: number,
-    arc?: number
-];
-
-
 export type DefaultGeometry = {
     position?:[x: number, y: number, z: number]
     color?:string,

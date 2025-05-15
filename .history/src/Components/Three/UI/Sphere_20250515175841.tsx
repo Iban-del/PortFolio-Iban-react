@@ -10,7 +10,7 @@ interface SphereInterface extends MeshEventHandlers, DefaultGeometry{
 }
 
 const Sphere: React.FC<SphereInterface> = ({
-    args = [1,32,16,0,Math.PI*2,0,Math.PI],
+    args = [1,1,1],
     color = 'black',
     position = [0,0,0],
     onFrame,

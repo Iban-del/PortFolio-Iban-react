@@ -3,31 +3,26 @@ import Box from './UI/Box';
 import Sphere from './UI/Sphere';
 import { CatmullRomCurve3, Vector3 } from 'three';
 import Tube from './UI/Tube';
-import Cone from './UI/Cone';
-import Cylinder from './UI/Cylinder';
-import Ring from './UI/Ring';
-import Torus from './UI/Torus';
 
 
 
 const Background = () =>{
 
     const path = new CatmullRomCurve3([
+        new Vector3(-10, 0, 10),
+        new Vector3(-5, 5, 5),
         new Vector3(0, 0, 0),
-        new Vector3(2, 2, 2),
-        
+        new Vector3(5, -5, 5),
+        new Vector3(10, 0, 10),
     ]);
 
     return <div className='fixed w-[100%] h-[100%] z-[-1] top-0 '> 
         <Canvas>
             <color attach="background" args={["#101218"]}></color>
 
-            <Torus
+            <Tube 
                 color='red'
-                onFrame={(mesh,state,delta)=>{
-                    mesh.rotation.x += delta
-                    mesh.rotation.y += delta
-                }}
+                args={[path]}
             />
             
         </Canvas>

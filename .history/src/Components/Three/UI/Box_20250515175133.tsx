@@ -1,16 +1,16 @@
-import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useFrame, type RootState } from "@react-three/fiber";
+import { useRef } from "react";
 import type { Mesh } from "three";
 import type { BoxGeometryArgs, DefaultGeometry, MeshEventHandlers } from "../Type";
 
 
 
 export interface BoxInterface extends MeshEventHandlers,DefaultGeometry{
-    args?:BoxGeometryArgs
+
 }
 
 const Box: React.FC<BoxInterface>  = ({
-    args = [1,1,1],
+    size = [1,1,1],
     color = 'black',
     position = [0,0,0],
     onFrame,
@@ -27,7 +27,7 @@ const Box: React.FC<BoxInterface>  = ({
         }
     })
 
-    useEffect(()=>{
+    useFrame(()=>{
         if(refMesh.current){
             beforeRender && beforeRender(refMesh.current)
         }
@@ -39,7 +39,7 @@ const Box: React.FC<BoxInterface>  = ({
             {...propsEvent}
             ref={refMesh}            
         >
-            <boxGeometry args={args}></boxGeometry>
+            <boxGeometry args={size}></boxGeometry>
             <meshBasicMaterial color={color}></meshBasicMaterial>
         </mesh>
     )

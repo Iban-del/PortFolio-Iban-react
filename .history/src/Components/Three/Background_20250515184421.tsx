@@ -22,13 +22,7 @@ const Background = () =>{
         <Canvas>
             <color attach="background" args={["#101218"]}></color>
 
-            <Torus
-                color='red'
-                onFrame={(mesh,state,delta)=>{
-                    mesh.rotation.x += delta
-                    mesh.rotation.y += delta
-                }}
-            />
+            <Torus color='red'/>
             
         </Canvas>
     </div>

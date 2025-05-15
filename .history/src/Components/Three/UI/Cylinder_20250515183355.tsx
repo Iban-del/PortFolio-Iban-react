@@ -1,16 +1,16 @@
 import type React from "react"
-import type { DefaultGeometry, MeshEventHandlers, SphereGeometryArgs } from "../Type"
+import type { CylinderGeometryArgs, DefaultGeometry, MeshEventHandlers } from "../Type"
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import type { Mesh } from "three";
 
 
-interface SphereInterface extends MeshEventHandlers, DefaultGeometry{
-    args?:SphereGeometryArgs
+interface CylinderInterface extends MeshEventHandlers, DefaultGeometry{
+    args?:CylinderGeometryArgs
 }
 
-const Sphere: React.FC<SphereInterface> = ({
-    args = [1,32,16,0,Math.PI*2,0,Math.PI],
+const Cylinder: React.FC<CylinderInterface> = ({
+    args =[1,1,1,1],
     color = 'black',
     position = [0,0,0],
     onFrame,
@@ -38,12 +38,12 @@ const Sphere: React.FC<SphereInterface> = ({
             {...propsEvent}
             ref={refMesh}
         >
-
-            <sphereGeometry args={args} ></sphereGeometry>
+            
+            <cylinderGeometry args={args} ></cylinderGeometry>
             <meshBasicMaterial color={color} ></meshBasicMaterial>
         </mesh>
     )
 
 }
 
-export default Sphere
+export default Cylinder

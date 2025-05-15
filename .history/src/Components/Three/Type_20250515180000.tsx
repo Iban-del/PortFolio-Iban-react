@@ -1,5 +1,5 @@
 import type { RootState, ThreeEvent } from "@react-three/fiber";
-import type { Curve, Mesh, Object3D } from "three";
+import type { Mesh, Object3D } from "three";
 
 export type MeshEventHandlers  = {
     onClick?: (e: ThreeEvent<MouseEvent>) => void;
@@ -35,53 +35,6 @@ export type SphereGeometryArgs = [
     thetaStart?: number,
     thetaLength?: number,
 ]
-
-export type TubeGeometryArgs = [
-    path: Curve<any>,
-    tubularSegments?: number,
-    radius?: number,
-    radialSegments?: number,
-    closed?: boolean,
-]
-
-export type ConeGeometryArgs = [
-    radius?: number,
-    height?: number,
-    radialSegments?: number,
-    heightSegments?: number,
-    openEnded?: boolean,
-    thetaStart?: number,
-    thetaLength?: number
-];
-
-export type CylinderGeometryArgs = [
-    radiusTop?: number,
-    radiusBottom?: number,
-    height?: number,
-    radialSegments?: number,
-    heightSegments?: number,
-    openEnded?: boolean,
-    thetaStart?: number,
-    thetaLength?: number
-];
-
-export type RingGeometryArgs = [
-    innerRadius?: number,
-    outerRadius?: number,
-    thetaSegments?: number,
-    phiSegments?: number,
-    thetaStart?: number,
-    thetaLength?: number
-];
-
-export type TorusGeometryArgs = [
-    radius?: number,
-    tube?: number,
-    radialSegments?: number,
-    tubularSegments?: number,
-    arc?: number
-];
-
 
 export type DefaultGeometry = {
     position?:[x: number, y: number, z: number]

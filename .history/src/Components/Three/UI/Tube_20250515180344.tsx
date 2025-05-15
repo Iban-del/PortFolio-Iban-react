@@ -9,7 +9,7 @@ interface SphereInterface extends MeshEventHandlers, DefaultGeometry{
     args?:SphereGeometryArgs
 }
 
-const Sphere: React.FC<SphereInterface> = ({
+const Tube: React.FC<SphereInterface> = ({
     args = [1,32,16,0,Math.PI*2,0,Math.PI],
     color = 'black',
     position = [0,0,0],
@@ -39,11 +39,11 @@ const Sphere: React.FC<SphereInterface> = ({
             ref={refMesh}
         >
 
-            <sphereGeometry args={args} ></sphereGeometry>
+            <tubeGeometry args={args} ></tubeGeometry>
             <meshBasicMaterial color={color} ></meshBasicMaterial>
         </mesh>
     )
 
 }
 
-export default Sphere
+export default Tube

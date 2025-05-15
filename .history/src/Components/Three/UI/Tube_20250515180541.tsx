@@ -1,16 +1,16 @@
 import type React from "react"
-import type { DefaultGeometry, MeshEventHandlers, SphereGeometryArgs } from "../Type"
+import type { DefaultGeometry, MeshEventHandlers, TubeGeometryArgs } from "../Type"
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import type { Mesh } from "three";
 
 
-interface SphereInterface extends MeshEventHandlers, DefaultGeometry{
-    args?:SphereGeometryArgs
+interface TubeInterface extends MeshEventHandlers, DefaultGeometry{
+    args?:TubeGeometryArgs
 }
 
-const Sphere: React.FC<SphereInterface> = ({
-    args = [1,32,16,0,Math.PI*2,0,Math.PI],
+const Tube: React.FC<TubeInterface> = ({
+    args = [1,1,1],
     color = 'black',
     position = [0,0,0],
     onFrame,
@@ -39,11 +39,11 @@ const Sphere: React.FC<SphereInterface> = ({
             ref={refMesh}
         >
 
-            <sphereGeometry args={args} ></sphereGeometry>
+            <tubeGeometry args={args} ></tubeGeometry>
             <meshBasicMaterial color={color} ></meshBasicMaterial>
         </mesh>
     )
 
 }
 
-export default Sphere
+export default Tube

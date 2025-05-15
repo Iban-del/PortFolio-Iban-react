@@ -6,7 +6,6 @@ import Tube from './UI/Tube';
 import Cone from './UI/Cone';
 import Cylinder from './UI/Cylinder';
 import Ring from './UI/Ring';
-import Torus from './UI/Torus';
 
 
 
@@ -22,13 +21,7 @@ const Background = () =>{
         <Canvas>
             <color attach="background" args={["#101218"]}></color>
 
-            <Torus
-                color='red'
-                onFrame={(mesh,state,delta)=>{
-                    mesh.rotation.x += delta
-                    mesh.rotation.y += delta
-                }}
-            />
+            <Ring color='red'/>
             
         </Canvas>
     </div>

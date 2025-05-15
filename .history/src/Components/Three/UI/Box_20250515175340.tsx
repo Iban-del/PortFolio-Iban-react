@@ -1,25 +1,26 @@
-import type React from "react"
-import type { DefaultGeometry, MeshEventHandlers, SphereGeometryArgs } from "../Type"
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import type { Mesh } from "three";
+import type { DefaultGeometry, MeshEventHandlers } from "../Type";
 
 
-interface SphereInterface extends MeshEventHandlers, DefaultGeometry{
-    args?:SphereGeometryArgs
+
+export interface BoxInterface extends MeshEventHandlers,DefaultGeometry{
+
 }
 
-const Sphere: React.FC<SphereInterface> = ({
-    args = [1,32,16,0,Math.PI*2,0,Math.PI],
+const Box: React.FC<BoxInterface>  = ({
+    size = [1,1,1],
     color = 'black',
     position = [0,0,0],
     onFrame,
     beforeRender,
     ...propsEvent
-}) => {
+},
+) =>{
 
     const refMesh = useRef<Mesh|null>(null);
-    
+
     useFrame((state, delta) => {
         if(refMesh.current){
             onFrame && onFrame(refMesh.current,state,delta)
@@ -36,14 +37,13 @@ const Sphere: React.FC<SphereInterface> = ({
         <mesh
             position={position}
             {...propsEvent}
-            ref={refMesh}
+            ref={refMesh}            
         >
-
-            <sphereGeometry args={args} ></sphereGeometry>
-            <meshBasicMaterial color={color} ></meshBasicMaterial>
+            <boxGeometry args={size}></boxGeometry>
+            <meshBasicMaterial color={color}></meshBasicMaterial>
         </mesh>
     )
 
 }
 
-export default Sphere
+export default Box
