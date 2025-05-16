@@ -1,0 +1,24 @@
+import GroupComponent from "../UI/GroupComponent"
+import TextComponent from "../UI/Text"
+
+
+
+const Home = () =>{
+
+    return (
+        <GroupComponent>
+            <directionalLight position={[0,0,2]} color={"#2c3e50"} intensity={15} />
+            <TextComponent
+                text="Hello World"
+                color="##2c3e50"
+            />
+
+            <GroupComponent>
+                
+            </GroupComponent>
+        </GroupComponent>
+    )
+
+}
+
+export default Home
