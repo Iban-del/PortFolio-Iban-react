@@ -28,7 +28,12 @@ const ScrollPoints: React.FC<ScrollPointsIntertface> = ({
         return points
     },[state])
 
-    
+
+    useEffect(()=>{
+        window.addEventListener("scroll",(e)=>{
+            setState((e)=>e+1)
+        })
+    })
 
     return (
         <div className="fixed w-[100%] h-[100%] flex justify-end top-[0px] z-[-1]">

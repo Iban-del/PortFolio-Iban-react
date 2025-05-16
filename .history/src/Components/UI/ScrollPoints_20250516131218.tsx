@@ -28,6 +28,11 @@ const ScrollPoints: React.FC<ScrollPointsIntertface> = ({
         return points
     },[state])
 
+
+
+    window.addEventListener("scroll",(e)=>{
+        setState((e)=>e+1)
+    })
     
 
     return (
