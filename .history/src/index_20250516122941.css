@@ -1,0 +1,45 @@
+
+@import "tailwindcss";
+
+html,body,.root{
+  background-color:#ffffff00;
+  color: #ffffff;
+}
+
+
+/* thème app*/
+.bg-green-1        { background-color: #000000; }
+.bg-green-2        { background-color: #0f1310; }
+.bg-green-3        { background-color: #1b261d; }
+.bg-green-4        { background-color: #243528; }
+.bg-green-5        { background-color: #2e4333; }
+.bg-green-6        { background-color: #3a513f; }
+.bg-green-7        { background-color: #47624d; }
+.bg-green-8        { background-color: #55755d; }
+.bg-green-9        { background-color: #80b38c; }
+.bg-green-10       { background-color: #75a781; }
+.bg-green-11       { background-color: #93c79f; }
+.bg-green-12       { background-color: #cbe9d1; }
+
+.text-green-1      { color: #000000; }
+.text-green-2      { color: #0f1310; }
+.text-green-3      { color: #1b261d; }
+.text-green-4      { color: #243528; }
+.text-green-5      { color: #2e4333; }
+.text-green-6      { color: #3a513f; }
+.text-green-7      { color: #47624d; }
+.text-green-8      { color: #55755d; }
+.text-green-9      { color: #80b38c; }
+.text-green-10     { color: #75a781; }
+.text-green-11     { color: #93c79f; }
+.text-green-12     { color: #cbe9d1; }
+
+.bg-green-contrast { background-color: #ffffff; }
+.bg-green-contrast-a { background-color: #ffffff25; }
+.text-green-contrast { color: #ffffff; }
+
+.bg-green-surface  { background-color: rgba(30, 38, 32, 0.5); }
+.bg-green-track    { background-color: #80b38c; }
+.text-green-track  { color: #80b38c; }
+
+.bg-transparent    { background-color: #00000000;}
