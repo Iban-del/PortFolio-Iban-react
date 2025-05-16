@@ -11,7 +11,6 @@ import Line from './UI/Line';
 import TextComponent from './UI/Text';
 import { Suspense } from 'react';
 import Loder from '../Pages/Loader';
-import Home from './pages/Home';
 
 
 
@@ -28,7 +27,8 @@ const Background = () =>{
     return <div className='fixed w-[100%] h-[100%] z-[-1] top-0 '> 
         <Canvas>
             <color attach="background" args={["#101218"]}></color>
-            <Home></Home>
+        
+            <directionalLight position={[0,0,2]} color={"#f5f"} intensity={9} />
         </Canvas>
     </div>
 }

@@ -6,7 +6,7 @@ const Home = () =>{
 
     return (
         <group>
-            <directionalLight position={[0,0,2]} color={"#fff"} intensity={9} />
+            <directionalLight position={[0,0,2]} color={"#141929"} intensity={90} />
 
             <TextComponent
                 text="Hello World"
