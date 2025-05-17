@@ -1,0 +1,47 @@
+import NavBar from "./Components/UI/NavBar"
+import { type LinkInterface } from "./Components/UI/Link"
+import Background from "./Components/Three/Background"
+import './index.css'
+import { ApplicationRenderContext, BackgroundRenderContext, GenericRenderContext } from "./Core/RenderContext"
+//import ScrollPoints from "./Components/UI/ScrollPoints"
+import ApplicationHook from "./hooks/ApplicationHook"
+import { lazy, Suspense } from "react"
+import Loader from "./Components/Three/pages/Loader"
+
+
+
+function App() {
+
+
+  const {numberScrollELements} = ApplicationHook()
+
+  const buttons:Array<LinkInterface> = [
+    {text:'Musique',key:'music'},
+    {text:"Me contacter",key:'contact'},
+  ]
+
+  const ScrollPointsLazy = lazy(()=>import("./Components/UI/ScrollPoints"))
+
+  return (
+    <>
+      <GenericRenderContext>
+        {/** fond d'écran */}
+        <BackgroundRenderContext>
+          <div className='fixed w-[100%] h-[100%] z-[-1] top-0'>
+            <Background></Background>
+          </div>
+        </BackgroundRenderContext>
+        
+        {/** application */}
+        <ApplicationRenderContext>
+          <Suspense fallback={<Loader/>}>
+            <NavBar buttons={buttons}></NavBar>
+            <ScrollPointsLazy numberELements={numberScrollELements} ></ScrollPointsLazy>
+          </Suspense>
+        </ApplicationRenderContext>
+      </GenericRenderContext>
+    </>
+  )
+}
+
+export default App

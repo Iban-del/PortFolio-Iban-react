@@ -1,0 +1,30 @@
+import ParticleLine from "../Custom/ParticleLine"
+import GroupComponent from "../UI/GroupComponent"
+import TextComponent from "../UI/Text"
+
+
+
+const Home = () =>{
+
+    return (
+        <GroupComponent>
+            <directionalLight position={[0,0,2]} color={"#17202a"} intensity={15} />
+            <TextComponent
+                text="Hello World"
+                color="#fff"
+                scale={[0.5,0.5,0.5]}
+            />
+            <GroupComponent>
+
+            </GroupComponent>
+            
+            <GroupComponent>
+                <ParticleLine position={[2,-1,-1]}/>
+                <ParticleLine position={[-3,-1.2,-1.5]}/>
+            </GroupComponent>
+        </GroupComponent>
+    )
+
+}
+
+export default Home
