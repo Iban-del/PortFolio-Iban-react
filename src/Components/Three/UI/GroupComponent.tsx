@@ -2,6 +2,7 @@ import { useFrame, useThree, type RootState } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, type JSX } from "react"
 import type { Group } from "three";
 import { getScale } from "../Tools/GenericFunction";
+import BackgroundHook from "../../../hooks/BackgroundHook";
 
 type GroupProps = JSX.IntrinsicElements['group'];
 
@@ -21,6 +22,7 @@ const GroupComponent:React.FC<GroupInterface>= ({
 
     const groupRef = useRef<Group>(null);
     const { size } = useThree()
+    const {scale} = BackgroundHook()
 
     useFrame((state, delta) => {
         if(groupRef.current){
@@ -34,16 +36,17 @@ const GroupComponent:React.FC<GroupInterface>= ({
         }
     })
 
-    const scale = useMemo(()=>{
-            if(!responsive) return 1;
-            const sizePx = size.width * size.height;
-            return getScale(sizePx)
-            
-    },[size])
+    const sc = useMemo(()=>{
+        if(!responsive || !scale) return 1;
+        const sizePx = size.width * size.height;
+        const percentage = getScale(sizePx)
+        scale.setState(percentage)
+        return percentage
+    },[size,scale])
 
     return (
         <group
-            scale={[scale,scale,scale]}
+            scale={[sc,sc,sc]}
             ref={groupRef}
             {...props}
         >

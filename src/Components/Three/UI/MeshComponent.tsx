@@ -2,6 +2,7 @@ import { useFrame, useThree, type RootState } from "@react-three/fiber";
 import React, { useEffect, useMemo, useRef, type JSX } from "react"
 import type { Mesh, MeshStandardMaterialParameters } from "three"
 import { getScale } from "../Tools/GenericFunction";
+import BackgroundHook from "../../../hooks/BackgroundHook";
 
 type MeshType = JSX.IntrinsicElements['mesh'];
 
@@ -24,6 +25,7 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
     
     const { size } = useThree()
     const refMesh = useRef<Mesh>(null)
+    const {scale} = BackgroundHook()
 
     useFrame((state,delta)=>{
         if(refMesh.current){
@@ -37,17 +39,17 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
         }
     })
 
-    const scale = useMemo(()=>{
-        if(!responsive) return 1;
-
+    const sc = useMemo(()=>{
+        if(!responsive || !scale) return 1;
         const sizePx = size.width * size.height;
-        return getScale(sizePx)
-        
-    },[size])
+        const percentage = getScale(sizePx)
+        scale.setState(percentage)
+        return percentage
+    },[size,scale])
 
 
     return <mesh 
-        scale={[scale,scale,scale]}
+        scale={[sc,sc,sc]}
         ref={refMesh}
         {...meshProps}
     >

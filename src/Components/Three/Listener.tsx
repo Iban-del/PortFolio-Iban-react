@@ -1,46 +1,68 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ApplicationHook from "../../hooks/ApplicationHook";
 import { useThree } from "@react-three/fiber";
-import { sleep } from "../../Core/Tools";
-import type { Camera } from "three";
-import { cameraAnnimation } from "./Annimation";
+import { moveComponent } from "./Annimation";
+
+const cameraDelta = 15;
+
 /**
- * cette fonction vas gérer les listeners générale
+ * cette fonction vas gérer les listeners générale de three fiber
  */
 const Listener = () =>{
 
     const {scroll,numberScrollELements} = ApplicationHook()
     const {camera} = useThree()
+    const [activeScroll,setActiveScroll] = useState(true);
 
-    useEffect(() => {
-        const onWheel = async (e: WheelEvent) => {
-            if (scroll) {
+    useEffect(()  => {
+        const onWheel = (e: WheelEvent) => {
+            if (scroll && activeScroll) {
+                setActiveScroll(false)
                 const delta = e.deltaY;
-                const newValue = ScrollDirection(delta, numberScrollELements, scroll.state);
+
+                const newValue = ScrollDirection(delta,numberScrollELements, scroll.state,()=>{
+                    moveComponent({
+                        component:camera,
+                        delta: delta < 0 ? cameraDelta : -cameraDelta,
+                        onFinish:()=>setActiveScroll(true)
+                    })
+                },()=>{
+                    setActiveScroll(true)
+                });
+                
                 scroll.setState(newValue);
-                cameraAnnimation({component:camera,delta:1})
             }
         };
-
         const mouseMove = async (e:MouseEvent) =>{
             
         }
 
+        
         window.addEventListener("wheel", onWheel);
         window.addEventListener("mousemove",mouseMove)
-
         return () => {
             window.removeEventListener("wheel", onWheel);
         };
-    }, [scroll, numberScrollELements]);
+    }, [scroll,numberScrollELements,activeScroll,camera]);
 
     return null;
 }
 
-const ScrollDirection = (delta:number,max:number,value:number) =>{
+
+
+const ScrollDirection = (delta:number,max:number,value:number,onChange?:()=>void,onNotChange?:()=>void) =>{
     let returnValue = delta > 0 ? value+1 : value-1;
-    if(returnValue < 0) returnValue = 0;
-    if(returnValue > max) returnValue = max;
+
+    if(returnValue < 0){
+        returnValue = 0
+        onNotChange && onNotChange()
+    }else if(returnValue > max){
+        returnValue = max
+        onNotChange && onNotChange()
+    }else if(onChange){
+        onChange()
+    }
+
     return returnValue;
 }
 

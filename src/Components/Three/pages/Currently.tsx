@@ -1,39 +1,39 @@
 import { useMemo } from "react"
-import ParticleLine from "../Custom/ParticleLine"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
 import { topDown } from "../Annimation"
 import ParticleGroup from "../Custom/ParticleGroup"
-import Primitive from "../UI/Primitive"
+import SolarSystem from "../Custom/SolarSystem"
+import Sphere from "../UI/Sphere"
+import Rocket from "../Custom/Rocket"
 
 
-const Home = () =>{
+
+const systemSize = 1
+
+const Currently = () =>{
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
 
 
-
     return (
         <GroupComponent
+            position={[0,-30,0]}
             beforeRender={(group)=>{
                 topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
             }}
         >
-            
-            <TextComponent
-                text="Welcome"
-                color="#fff"
-                
-            />
-            {particleGroup}
-            <GroupComponent>
-                <ParticleLine position={[4,-4,-3]}/>
-                <ParticleLine position={[-4,-6,-4]}/>
-            </GroupComponent>
 
-            {/* <Primitive position={[0,-0.5,9]} link="/Forest/scene.gltf"></Primitive> */}
+            <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}}  />
+            <Rocket R={2} position={[0,0,-1]}/>
+
+            <TextComponent responsive={true} text="Developpeur" position={[0,-2,0]}/>
+            <TextComponent responsive={true} text="d'application" position={[0,-3,0]}/>
+
+            {particleGroup}
+            
                 
         </GroupComponent>
     )
@@ -41,5 +41,4 @@ const Home = () =>{
 }
 
 
-
-export default Home
+export default Currently

@@ -19,7 +19,7 @@ export const topDown = ({
     duration =defaultDuration,
     repeat = -1,
     ease = "power2.inOut",
-    onFinish = undefined,
+    onFinish,
 }:Annimationinterface) =>{
     gsap.to(component.position,{
         y:'+='+delta,
@@ -28,19 +28,18 @@ export const topDown = ({
         yoyo:true,
         ease:ease,
         onComplete:()=>{
-            delta = -delta;
             onFinish && onFinish()
         },
     })
 }
 
-export const cameraAnnimation = ({
+export const moveComponent = ({
     component,
     delta = 0.5,
     duration =defaultDuration,
     repeat = 0,
     ease = "power2.inOut",
-    onFinish = undefined,
+    onFinish,
 }:Annimationinterface) =>{
     gsap.to(component.position,{
         y:'+='+delta,

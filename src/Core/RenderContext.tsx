@@ -5,6 +5,8 @@
 import type React from "react"
 import type { Props } from "./GenericType"
 import { ScrollProvider } from "../context/ScrollContext"
+import { ScaleProvider } from "../context/BackgroundContext"
+
 
 
 
@@ -27,9 +29,10 @@ export const BackgroundRenderContext: React.FC<Props> = ({
 }) =>{
 
     return <>
-        {children}
+        <ScaleProvider>
+            {children}
+        </ScaleProvider>
     </>
-
 }
 
 export const GenericRenderContext: React.FC<Props> = ({
