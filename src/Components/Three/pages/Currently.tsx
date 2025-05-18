@@ -29,7 +29,7 @@ const Currently = () =>{
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}}  />
             <Rocket R={2} position={[0,0,-1]}/>
 
-            <TextComponent responsive={true} text="Developpeur" position={[0,-2,0]}/>
+            <TextComponent responsive={true} text="Développeur" position={[0,-2,0]}/>
             <TextComponent responsive={true} text="d'application" position={[0,-3,0]}/>
 
             {particleGroup}
