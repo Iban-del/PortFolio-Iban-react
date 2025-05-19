@@ -2,13 +2,13 @@ import { useMemo, useRef } from "react"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
-import Sphere from "../UI/Sphere"
 import Rocket from "../Custom/Rocket"
+import Astronaut from "../Custom/Astronaut"
 
 
-const Currently = () =>{
+const RocketState = () =>{
     const speed = 0.005;
-    const R = 2;
+    const R = 3.5;
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
@@ -18,31 +18,25 @@ const Currently = () =>{
 
     return (
         <GroupComponent
-            position={[0,-30,0]}
+            position={[0,-45,0]}
         >
-
-            <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />
-
-            <Rocket
-                position={[0,0,-1]}
+            <Rocket scale={9} position={[0,-2,0]}/>
+            <Astronaut 
+                scale={0.5} 
                 onFrame={(mesh,state,delta)=>{
                     angle.current += speed;
                     mesh.position.y = Math.cos(angle.current) * R;
                     mesh.rotateZ(Math.cos(angle.current) * 0.01 > 0 ?Math.cos(angle.current) * 0.01:-Math.cos(angle.current) * 0.01)
-                    mesh.position.x = Math.sin(angle.current) * R;
+                    mesh.position.z = Math.sin(angle.current) * R;
+                    mesh.position.x = Math.cos(angle.current) * R;
                 }}
             />
 
-            <TextComponent responsive={true} text="Développeur" position={[0,-2,0]}/>
-            <TextComponent responsive={true} text="d'application" position={[0,-3,0]}/>
-
             {particleGroup}
-            
-                
         </GroupComponent>
     )
 
 }
 
 
-export default Currently
+export default RocketState

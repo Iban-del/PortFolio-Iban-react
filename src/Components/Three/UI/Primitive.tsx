@@ -1,10 +1,11 @@
 
-import { useEffect, type JSX } from "react";
+import { useEffect, useRef, type JSX } from "react";
 import type {  DefaultGeometry } from "../Type";
 import MeshComponent, { type MeshComponentInterface } from "./MeshComponent";
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { clone } from "three/examples/jsm/utils/SkeletonUtils.js";
 type PrimitiveProps = JSX.IntrinsicElements['group'];
 
 export interface BoxInterface extends MeshComponentInterface,DefaultGeometry{
@@ -25,20 +26,23 @@ const Primitive: React.FC<BoxInterface>  = ({
 
 
     const gltf = useLoader(GLTFLoader,link)
-    
+    const primitiveRef = useRef(null)
+    const newInstance = clone(gltf.scene);
+
     useEffect(()=>{
-        gltf.scene.traverse((child)=>{
+        
+        newInstance.traverse((child)=>{
             if((child as any).isMesh){
                 (child as any).material = new MeshStandardMaterial({ color: colorObject,...materialArgs})
             }
         })
-    })
+    },[gltf,colorObject,materialArgs,newInstance])
 
     return (
         <MeshComponent
             {...propsEvent}          
         >
-            <primitive scale={scalePrimitive} object={gltf.scene} castShadow receiveShadow {...primitiveArgs}/>
+            <primitive ref={primitiveRef} scale={scalePrimitive} object={newInstance} castShadow receiveShadow {...primitiveArgs}/>
         </MeshComponent>
     )
 

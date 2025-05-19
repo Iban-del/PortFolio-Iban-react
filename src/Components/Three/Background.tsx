@@ -8,7 +8,8 @@ import Listener from './Listener';
 import HowIAm from './pages/HowIAm';
 import { PerspectiveCamera } from '@react-three/drei';
 import Currently from './pages/Currently';
-import CurrentlyScoll from './pages/CurrentlyScoll';
+import RocketState from './pages/RocketState';
+import MoonState from './pages/MoonState';
 
 
 
@@ -34,7 +35,8 @@ const Background = () =>{
                     <Home/>
                     <HowIAm/>
                     <Currently/>
-                    <CurrentlyScoll/>
+                    <RocketState/>
+                    <MoonState/>
                 </GroupComponent>
             </Suspense>
         </Canvas>
