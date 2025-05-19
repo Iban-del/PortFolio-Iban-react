@@ -21,9 +21,6 @@ const Currently = () =>{
     return (
         <GroupComponent
             position={[0,-30,0]}
-            beforeRender={(group)=>{
-                topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
-            }}
         >
 
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}}  />

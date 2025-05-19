@@ -2,6 +2,7 @@ import { MathUtils } from "three";
 import Particle from "./Particle";
 import GroupComponent from "../UI/GroupComponent";
 import type { JSX } from "react";
+import { topDown } from "../Annimation";
 
 
 
@@ -22,7 +23,11 @@ const ParticleGroup = (
     }   
     
 
-    return <GroupComponent>
+    return <GroupComponent
+        beforeRender={(group)=>{
+                topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
+        }}
+    >
         {particles}
     </GroupComponent>
 }

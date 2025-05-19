@@ -16,11 +16,7 @@ const Home = () =>{
 
 
     return (
-        <GroupComponent
-            beforeRender={(group)=>{
-                topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
-            }}
-        >
+        <GroupComponent>
             
             <TextComponent
                 text="Welcome"
@@ -33,7 +29,7 @@ const Home = () =>{
                 <ParticleLine position={[-4,-6,-4]}/>
             </GroupComponent>
 
-            {/* <Primitive position={[0,-0.5,9]} link="/Forest/scene.gltf"></Primitive> */}
+            {/* <Primitive  scale={0.1} position={[0,0,9]} link="/Astronaut/scene.gltf"></Primitive> */}
                 
         </GroupComponent>
     )

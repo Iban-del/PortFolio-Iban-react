@@ -18,9 +18,6 @@ const HowIAm = () =>{
     return (
         <GroupComponent
             position={[0,-15,0]}
-            beforeRender={(group)=>{
-                topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
-            }}
         >
             <TextComponent responsive={true} text="Iban" position={[0,3,0]}/>
             <TextComponent responsive={true} text="Deletoille-Elizalde" position={[0,2,0]}/>
