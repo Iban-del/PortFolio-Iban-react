@@ -18,6 +18,7 @@ const Rocket = ({
 }:rocketInterface) =>{
 
     const angle = useRef<number>(0);
+    const rocketRef = useRef<Mesh>(null)
 
     return <MeshComponent
         position={position}
