@@ -4,9 +4,12 @@ import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Rocket from "../Custom/Rocket"
 import Astronaut from "../Custom/Astronaut"
+import type { PagesProps } from "../Interface"
 
 
-const RocketState = () =>{
+const RocketState = ({
+    position = 0
+}:PagesProps) =>{
     const speed = 0.005;
     const R = 3.5;
 
@@ -18,7 +21,7 @@ const RocketState = () =>{
 
     return (
         <GroupComponent
-            position={[0,-45,0]}
+            position={[0,position,0]}
         >
             <Rocket scale={9} position={[0,-2,0]}/>
             <Astronaut 

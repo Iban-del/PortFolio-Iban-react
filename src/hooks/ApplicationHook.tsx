@@ -6,10 +6,12 @@ const ApplicationHook = () =>{
 
     const scroll = useContext(ScrollContext)
     const numberScrollELements = 9
+    const scrollStep = 40;
 
     return {
         scroll,
-        numberScrollELements
+        numberScrollELements,
+        scrollStep
     }
 }
 

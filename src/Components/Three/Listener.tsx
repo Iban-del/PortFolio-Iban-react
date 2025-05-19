@@ -3,14 +3,13 @@ import ApplicationHook from "../../hooks/ApplicationHook";
 import { useThree } from "@react-three/fiber";
 import { moveComponent } from "./Annimation";
 
-const cameraDelta = 15;
 
 /**
  * cette fonction vas gérer les listeners générale de three fiber
  */
 const Listener = () =>{
 
-    const {scroll,numberScrollELements} = ApplicationHook()
+    const {scroll,numberScrollELements,scrollStep} = ApplicationHook()
     const {camera} = useThree()
     const [activeScroll,setActiveScroll] = useState(true);
 
@@ -23,7 +22,7 @@ const Listener = () =>{
                 const newValue = ScrollDirection(delta,numberScrollELements, scroll.state,()=>{
                     moveComponent({
                         component:camera,
-                        delta: delta < 0 ? cameraDelta : -cameraDelta,
+                        delta: delta < 0 ? scrollStep : -scrollStep,
                         onFinish:()=>setActiveScroll(true)
                     })
                 },()=>{
@@ -38,10 +37,14 @@ const Listener = () =>{
         }
 
         
+        
         window.addEventListener("wheel", onWheel);
         window.addEventListener("mousemove",mouseMove)
+        if(!activeScroll)window.removeEventListener("wheel", onWheel);
+
         return () => {
             window.removeEventListener("wheel", onWheel);
+            window.removeEventListener("mousemove",mouseMove);
         };
     }, [scroll,numberScrollELements,activeScroll,camera]);
 

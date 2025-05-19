@@ -11,7 +11,7 @@ interface Annimationinterface{
 }
 
 
-const defaultDuration = 1;
+const defaultDuration = 2;
 
 export const topDown = ({
     component,
@@ -38,7 +38,7 @@ export const moveComponent = ({
     delta = 0.5,
     duration =defaultDuration,
     repeat = 0,
-    ease = "power2.inOut",
+    ease = "sine.inOut",
     onFinish,
 }:Annimationinterface) =>{
     gsap.to(component.position,{

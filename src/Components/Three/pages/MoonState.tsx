@@ -7,9 +7,12 @@ import Astronaut from "../Custom/Astronaut"
 import MoonSurface from "../Custom/MoonSurface"
 import type { Mesh } from "three"
 import Eart from "../Custom/Eart"
+import type { PagesProps } from "../Interface"
 
 
-const MoonState = () =>{
+const MoonState = ({
+    position = 0
+}:PagesProps) =>{
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
@@ -25,7 +28,7 @@ const MoonState = () =>{
 
     return (
         <GroupComponent
-            position={[0,-60,0]}
+            position={[0,position,0]}
         >
             <pointLight intensity={1} position={[8,0,-7]}/>
 

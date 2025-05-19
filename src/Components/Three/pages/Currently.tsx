@@ -4,9 +4,12 @@ import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Sphere from "../UI/Sphere"
 import Rocket from "../Custom/Rocket"
+import type { PagesProps } from "../Interface"
 
 
-const Currently = () =>{
+const Currently = ({
+    position = 0
+}:PagesProps) =>{
     const speed = 0.005;
     const R = 2;
 
@@ -18,7 +21,7 @@ const Currently = () =>{
 
     return (
         <GroupComponent
-            position={[0,-30,0]}
+            position={[0,position,0]}
         >
 
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />

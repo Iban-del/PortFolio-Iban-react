@@ -78,3 +78,4 @@ export type RectAreaLightArgs = [
     width?: number,
     height?: number
 ];
+

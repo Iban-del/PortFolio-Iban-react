@@ -5,9 +5,12 @@ import TextComponent from "../UI/Text"
 import { topDown } from "../Annimation"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Primitive from "../UI/Primitive"
+import type { PagesProps } from "../Interface"
 
 
-const Home = () =>{
+const Home  = ({
+    position = 0
+}:PagesProps) =>{
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
@@ -16,7 +19,9 @@ const Home = () =>{
 
 
     return (
-        <GroupComponent>
+        <GroupComponent
+            position={[0,position,0]}
+        >
             
             <TextComponent
                 text="Welcome"

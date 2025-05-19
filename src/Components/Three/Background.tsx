@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import Home from './pages/Home';
-import { Suspense, useEffect, useRef } from 'react';
+import { Suspense, useEffect, useMemo, useRef } from 'react';
 import Loader from './pages/Loader';
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 import GroupComponent from './UI/GroupComponent';
@@ -10,6 +10,8 @@ import { PerspectiveCamera } from '@react-three/drei';
 import Currently from './pages/Currently';
 import RocketState from './pages/RocketState';
 import MoonState from './pages/MoonState';
+import ApplicationHook from '../../hooks/ApplicationHook';
+import type { PagesProps } from './Interface';
 
 
 
@@ -17,9 +19,21 @@ import MoonState from './pages/MoonState';
 
 const Background = () =>{
 
+    const {scrollStep} = ApplicationHook();
+    const pagesList: React.FC<PagesProps>[] = [Home, HowIAm, Currently, RocketState, MoonState];
+
     useEffect(()=>{
         RectAreaLightUniformsLib.init()
     })
+
+    const pages = useMemo(()=>{
+        let y = 0;
+        return pagesList.map((Component, key) => {
+            const c = <Component position={y} key={key} />;
+            y -= scrollStep;
+            return c;
+        });
+    },[scrollStep])
 
     return(
         <Canvas 
@@ -32,11 +46,7 @@ const Background = () =>{
                     <directionalLight position={[0,0,10]} color={"#bbbbbb"} intensity={1} />
                     <PerspectiveCamera makeDefault position={[0,0,10]} />
                     <Listener/>
-                    <Home/>
-                    <HowIAm/>
-                    <Currently/>
-                    <RocketState/>
-                    <MoonState/>
+                    {pages}
                 </GroupComponent>
             </Suspense>
         </Canvas>
