@@ -46,6 +46,7 @@ const Background = () =>{
                     <directionalLight position={[0,0,10]} color={"#bbbbbb"} intensity={1} />
                     <PerspectiveCamera makeDefault position={[0,0,10]} />
                     <Listener/>
+                    
                     {pages}
                 </GroupComponent>
             </Suspense>
