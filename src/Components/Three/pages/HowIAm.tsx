@@ -23,7 +23,7 @@ const HowIAm = () =>{
             <TextComponent responsive={true} text="Deletoille-Elizalde" position={[0,2,0]}/>
 
             {particleGroup}
-            <SolarSystem  size={[systemSize,systemSize,systemSize]}/>
+            <SolarSystem size={[systemSize,systemSize,systemSize]}/>
                 
         </GroupComponent>
     )

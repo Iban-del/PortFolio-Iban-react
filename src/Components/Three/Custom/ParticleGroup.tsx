@@ -7,8 +7,8 @@ import { topDown } from "../Annimation";
 
 
 const ParticleGroup = (
-    numberParticle = 90,
-    delta = 8,
+    numberParticle = 120,
+    delta = 15,
     particleSize= 10*Math.pow(10,-2.7)
 ) =>{
     
