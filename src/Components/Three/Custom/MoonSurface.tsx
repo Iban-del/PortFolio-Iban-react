@@ -3,16 +3,16 @@ import MeshComponent, { type MeshComponentInterface } from "../UI/MeshComponent"
 import Primitive from "../UI/Primitive"
 import type { Mesh } from "three"
 
-const link = "/Rocket/scene.gltf"
+const link = "/MoonSurface/scene.gltf"
 
-interface rocketInterface extends MeshComponentInterface{
+interface moonSurfaceInterface extends MeshComponentInterface{
     position?:[number,number,number],
 }
 
-const Rocket = ({
+const MoonSurface = ({
     position = [0,0,0],
     ...props
-}:rocketInterface) =>{
+}:moonSurfaceInterface) =>{
 
     const rocketRef = useRef<Mesh>(null)
 
@@ -25,4 +25,4 @@ const Rocket = ({
     </MeshComponent>
 }
 
-export default Rocket
+export default MoonSurface

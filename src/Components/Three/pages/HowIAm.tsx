@@ -4,11 +4,14 @@ import TextComponent from "../UI/Text"
 import { topDown } from "../Annimation"
 import ParticleGroup from "../Custom/ParticleGroup"
 import SolarSystem from "../Custom/SolarSystem"
+import type { PagesProps } from "../Interface"
 
 
 const systemSize = 1
 
-const HowIAm = () =>{
+const HowIAm = ({
+    position = 0
+}:PagesProps) =>{
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
@@ -17,16 +20,13 @@ const HowIAm = () =>{
 
     return (
         <GroupComponent
-            position={[0,-15,0]}
-            beforeRender={(group)=>{
-                topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
-            }}
+            position={[0,position,0]}
         >
             <TextComponent responsive={true} text="Iban" position={[0,3,0]}/>
             <TextComponent responsive={true} text="Deletoille-Elizalde" position={[0,2,0]}/>
 
             {particleGroup}
-            <SolarSystem  size={[systemSize,systemSize,systemSize]}/>
+            <SolarSystem size={[systemSize,systemSize,systemSize]}/>
                 
         </GroupComponent>
     )
