@@ -27,7 +27,7 @@ const SolarSystem = ({
 
     const planets = useMemo(()=>{
         const planetsList = []
-        for(let i = 0; i < numberPlanet;i++){
+        for(let i = 1; i <= numberPlanet;i++){
             planetsList.push(<Planet key={i} R={maxSize/i} speed={i/200} intensity={i/100} />)
         }
         return planetsList

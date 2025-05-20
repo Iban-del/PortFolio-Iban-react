@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ApplicationHook from "../../hooks/ApplicationHook";
 import { useThree } from "@react-three/fiber";
-import { moveComponent } from "./Annimation";
+import { scrollAnnimation } from "./Annimation";
+
 
 
 /**
@@ -18,16 +19,15 @@ const Listener = () =>{
             if (scroll && activeScroll) {
                 setActiveScroll(false)
                 const delta = e.deltaY;
-
                 const newValue = ScrollDirection(delta,numberScrollELements, scroll.state,()=>{
-                    moveComponent({
+                    scrollAnnimation({
+                        coordinate:[0,delta < 0 ? scrollStep : -scrollStep,0],
                         component:camera,
-                        delta: delta < 0 ? scrollStep : -scrollStep,
                         onFinish:()=>setActiveScroll(true)
-                    })
-                },()=>{
-                    setActiveScroll(true)
-                });
+                    })},
+                    ()=>{
+                        setActiveScroll(true)
+                    });
                 
                 scroll.setState(newValue);
             }

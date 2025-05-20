@@ -1,9 +1,10 @@
 import { motion } from "motion/react"
+import type { SyntheticEvent } from "react"
 
 export interface LinkInterface{
     text:string,
     key?:string,
-    onClick?: () => void
+    onClick?: (e:SyntheticEvent)=> void
 }
 
 const Link = ({

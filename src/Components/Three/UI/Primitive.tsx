@@ -30,7 +30,6 @@ const Primitive: React.FC<BoxInterface>  = ({
     const newInstance = clone(gltf.scene);
 
     useEffect(()=>{
-        
         newInstance.traverse((child)=>{
             if((child as any).isMesh){
                 (child as any).material = new MeshStandardMaterial({ color: colorObject,...materialArgs})
