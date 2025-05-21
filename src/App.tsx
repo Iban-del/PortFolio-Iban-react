@@ -15,7 +15,7 @@ function App() {
   const {numberScrollELements} = ApplicationHook()
 
   const buttons:Array<LinkInterface> = [
-    {text:'Musique',key:'music',onClick:(e)=>{console.log(e)}},
+    {text:'Musique',key:'music',onClick:(e,r)=>{}},
     {text:"Me contacter",key:'contact'},
   ]
 

@@ -1,10 +1,10 @@
 import { motion } from "motion/react"
-import type { SyntheticEvent } from "react"
+import { useEffect, useRef, type SyntheticEvent } from "react"
 
 export interface LinkInterface{
     text:string,
     key?:string,
-    onClick?: (e:SyntheticEvent)=> void
+    onClick?: (e:MouseEvent,r:HTMLAnchorElement)=> void
 }
 
 const Link = ({
@@ -12,8 +12,18 @@ const Link = ({
     onClick
 }:LinkInterface)=>{
 
+    const linkRef = useRef<HTMLAnchorElement>(null)
+
+    useEffect(()=>{
+        if(linkRef.current){
+            linkRef.current.addEventListener("click",(e)=>{
+                onClick && onClick(e,linkRef.current as HTMLAnchorElement)
+            })
+        }
+    },[linkRef])
+
     return <motion.a
-        onClick={onClick}
+        ref={linkRef}
         className="font-medium text-xl cursor-pointer"
         whileHover={{
             color:'#5454547e'
