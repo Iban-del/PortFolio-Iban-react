@@ -25,7 +25,7 @@ const ParticleGroup = (
 
     return <GroupComponent
         beforeRender={(group)=>{
-                topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
+            //topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
         }}
     >
         {particles}

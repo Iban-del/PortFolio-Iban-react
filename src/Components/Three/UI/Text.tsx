@@ -4,10 +4,14 @@ import {  useThree, type Vector3 } from "@react-three/fiber";
 import { Text } from '@react-three/drei';
 import type { MeshComponentInterface } from "./MeshComponent";
 import MeshComponent from "./MeshComponent";
+import BackgroundHook from "../../../hooks/BackgroundHook";
+import { useMemo } from "react";
+import { getScale } from "../Tools/GenericFunction";
 
 interface TextInterface extends MeshComponentInterface, DefaultGeometry{
     text:string,
     textScale?:Vector3,
+    maxWidth?:number
 }
 
 const TextComponent: React.FC<TextInterface> = ({
@@ -17,6 +21,8 @@ const TextComponent: React.FC<TextInterface> = ({
     color = '#fff',
     metalness = 0.9,
     roughness = 0.5,
+    maxWidth = window.innerWidth/2,
+    responsive = false,
     ...propsEvent
 }) => {
 
@@ -25,7 +31,7 @@ const TextComponent: React.FC<TextInterface> = ({
         <MeshComponent
             {...propsEvent}
         >
-            <Text scale={textScale}>
+            <Text scale={textScale}  maxWidth={20} >
                 {text}
                 <meshStandardMaterial {...materialArgs} color={color} metalness={metalness} roughness={roughness}  ></meshStandardMaterial>
             </Text>

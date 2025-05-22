@@ -21,14 +21,15 @@ const Home  = ({
 
     return (
         <GroupComponent
+    
             position={[0,position,0]}
         >
-            <TextCard
-                title="À propos de moi"
-                body="Actuellement âgé de 17 ans, je suis élève au lycée Charles Tillon en Systèmes Numériques, spécialisation RISC."
-                position={[0, -1.5, 0]}
+            
 
+            <TextCard
+                content="Actuellement âgé de 17 ans, je suis élève au lycée Charles Tillon, où je poursuis une formation en Systèmes Numériques avec une spécialisation en RISC (Réseaux Informatiques et Systèmes Communicants). Passionné par le développement informatique, je souhaite approfondir mes connaissances et poursuivre mes études dans ce domaine afin de devenir développeur en intelligence artificielle et l'analyse de données."
             />
+        
 
             {particleGroup}
             <GroupComponent>
