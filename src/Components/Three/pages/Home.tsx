@@ -6,6 +6,7 @@ import { topDown } from "../Annimation"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Primitive from "../UI/Primitive"
 import type { PagesProps } from "../Interface"
+import TextCard from "../UI/TextCard"
 
 
 const Home  = ({
@@ -22,12 +23,13 @@ const Home  = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            
-            <TextComponent
-                text="Welcome"
-                color="#fff"
-                
+            <TextCard
+                title="À propos de moi"
+                body="Actuellement âgé de 17 ans, je suis élève au lycée Charles Tillon en Systèmes Numériques, spécialisation RISC."
+                position={[0, -1.5, 0]}
+
             />
+
             {particleGroup}
             <GroupComponent>
                 <ParticleLine position={[4,-4,-3]}/>
