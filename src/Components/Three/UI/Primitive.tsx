@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, type JSX } from "react";
+import { useEffect, useMemo, useRef, type JSX } from "react";
 import type {  DefaultGeometry } from "../Type";
 import MeshComponent, { type MeshComponentInterface } from "./MeshComponent";
 import { useLoader } from '@react-three/fiber'
@@ -27,7 +27,7 @@ const Primitive: React.FC<BoxInterface>  = ({
 
     const gltf = useLoader(GLTFLoader,link)
     const primitiveRef = useRef(null)
-    const newInstance = clone(gltf.scene);
+    const newInstance = useMemo(() => clone(gltf.scene), [gltf.scene]);
 
     useEffect(()=>{
         newInstance.traverse((child)=>{
@@ -35,7 +35,7 @@ const Primitive: React.FC<BoxInterface>  = ({
                 (child as any).material = new MeshStandardMaterial({ color: colorObject,...materialArgs})
             }
         })
-    },[gltf,colorObject,materialArgs,newInstance])
+    },[colorObject,materialArgs,newInstance])
 
     return (
         <MeshComponent

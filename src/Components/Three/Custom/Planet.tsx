@@ -24,7 +24,7 @@ const Planet = ({
                 angle.current += speed;
                 mesh.position.y = Math.cos(angle.current) * R;
                 mesh.position.x = Math.sin(angle.current) * R;
-                if(angle.current >= 360) angle.current = 0;
+                
             }}
         />
         <Torus torusArgs={[R,.01]} />

@@ -1,38 +1,29 @@
-import { motion } from "motion/react"
 import type React from "react"
-import { useEffect, useMemo, useState, type JSX } from "react"
+import { useMemo } from "react"
 import { classNames } from "../../Core/Tools"
 import ApplicationHook from "../../hooks/ApplicationHook"
 
 
-interface ScrollPointsIntertface {
-    numberELements:number,
-}
 
 interface PointInterface{
     active?:boolean
+    onClick:()=>void
 }
 
-const ScrollPoints: React.FC<ScrollPointsIntertface> = ({
-    numberELements,
-}) =>{
+const ScrollPoints = () =>{
 
     
-    const {scroll} = ApplicationHook()
+    const {scrollValue,updateScroll} = ApplicationHook()
 
     const points = useMemo(()=>{
         const points = [];
-        if(scroll){
-            for(let i = 0; i <= numberELements; i++){
-                const current = scroll.state === i;
-                points.push(<Point active={current} key={i}></Point>)
-            }
+        for(let i = 0; i <= scrollValue.numberScrollELements; i++){
+            const current = scrollValue.state === i;
+            points.push(<Point active={current} key={i} onClick={()=>{updateScroll("state",i)}} ></Point>)
         }
-
         return points
-    },[scroll?.state])
+    },[scrollValue.state])
 
-    
 
     return (
         <div className="fixed w-[100%] h-[100%] flex justify-end top-[0px] z-[-1]">
@@ -46,9 +37,10 @@ const ScrollPoints: React.FC<ScrollPointsIntertface> = ({
 }
 
 const Point: React.FC<PointInterface> = ({
-    active = false
+    active = false,
+    onClick,
 }) =>{
-    return <div className={classNames("w-[13px] h-[13px] rounded-[90px] m-2 flex justify-center items-center",active? "bg-green-contrast" : "bg-green-contrast-a")}>
+    return <div onClick={onClick} className={classNames("w-[13px] h-[13px] rounded-[90px] m-2 flex justify-center items-center",active? "bg-green-contrast" : "bg-green-contrast-a")}>
         <div className={classNames("w-[5px] h-[5px] rounded-[90px] bg-green-contrast-a flex justify-center items-center")}>
             
         </div>

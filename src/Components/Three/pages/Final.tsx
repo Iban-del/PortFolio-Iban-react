@@ -2,46 +2,32 @@ import { useMemo } from "react"
 import ParticleLine from "../Custom/ParticleLine"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
-import { topDown } from "../Annimation"
 import ParticleGroup from "../Custom/ParticleGroup"
-import Primitive from "../UI/Primitive"
 import type { PagesProps } from "../Interface"
 import CameraScroll from "../CameraScroll"
+import Ground from "../Custom/Ground"
 import ApplicationHook from "../../../hooks/ApplicationHook"
 
 
 
-const Home  = ({
+const Final  = ({
     position = 0,
     scrollState
 }:PagesProps) =>{
 
     const {scrollValue} = ApplicationHook()
 
-    const particleGroup = useMemo(()=>{
-        return ParticleGroup()
-    },[])
-
-
-
     return (
         <GroupComponent
-            position={[0,position,0]}
+            position={[-2,position+scrollValue.scrollStep-4,position+scrollValue.scrollStep+90]}
         >
-            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-scrollValue.scrollStep,10]} stateScroll={scrollState}/>
+            <CameraScroll coordinate={[0,position+scrollValue.scrollStep-2,-50]} coordinateDown={[0,position+scrollValue.scrollStep-2,-90]} stateScroll={scrollState}/>
             <TextComponent
                 text="Welcome"
                 color="#fff"
                 
             />
-
-            {particleGroup}
-            <GroupComponent>
-                <ParticleLine position={[4,-4,-3]}/>
-                <ParticleLine position={[-4,-6,-4]}/>
-            </GroupComponent>
-
-            {/* <Primitive  scale={0.1} position={[0,0,9]} link="/Astronaut/scene.gltf"></Primitive> */}
+            <Ground/>
                 
         </GroupComponent>
     )
@@ -50,4 +36,4 @@ const Home  = ({
 
 
 
-export default Home
+export default Final

@@ -3,12 +3,17 @@ import React, { useEffect, useMemo, useRef, type JSX } from "react"
 import type { Mesh, MeshStandardMaterialParameters } from "three"
 import { getScale } from "../Tools/GenericFunction";
 import BackgroundHook from "../../../hooks/BackgroundHook";
+import ScrollListener from "../ScrollListener";
+import ApplicationHook from "../../../hooks/ApplicationHook";
 
 type MeshType = JSX.IntrinsicElements['mesh'];
 
 export interface MeshComponentInterface extends MeshType{
     onFrame?: (mesh:Mesh,state:RootState,delta:number) => void,
     beforeRender?:(mesh:Mesh) => void,
+    onScrollDown?:(mesh:Mesh)=>void,
+    onScrollUp?:(mesh:Mesh)=>void,
+    stepScroll?:number,
     responsive?:boolean,
     materialArgs?:MeshStandardMaterialParameters
 } 
@@ -19,6 +24,7 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
     onFrame,
     beforeRender,
     children,
+    stepScroll = -1,
     responsive = false,
     ...meshProps
 }) => {
@@ -26,6 +32,7 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
     const { size } = useThree()
     const refMesh = useRef<Mesh>(null)
     const {scale} = BackgroundHook()
+
 
     useFrame((state,delta)=>{
         if(refMesh.current){
@@ -46,6 +53,8 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
         scale.setState(percentage)
         return percentage
     },[size,scale])
+
+    
 
 
     return <mesh 

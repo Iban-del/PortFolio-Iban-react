@@ -5,13 +5,17 @@ import ParticleGroup from "../Custom/ParticleGroup"
 import Rocket from "../Custom/Rocket"
 import Astronaut from "../Custom/Astronaut"
 import type { PagesProps } from "../Interface"
+import CameraScroll from "../CameraScroll"
+import ApplicationHook from "../../../hooks/ApplicationHook"
 
 
 const RocketState = ({
-    position = 0
+    position = 0,
+    scrollState
 }:PagesProps) =>{
     const speed = 0.005;
     const R = 3.5;
+    const {scrollValue} = ApplicationHook()
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
@@ -23,6 +27,7 @@ const RocketState = ({
         <GroupComponent
             position={[0,position,0]}
         >
+            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-scrollValue.scrollStep,10]} stateScroll={scrollState}/>
             <Rocket scale={9} position={[0,-2,0]}/>
             <Astronaut 
                 scale={0.5} 

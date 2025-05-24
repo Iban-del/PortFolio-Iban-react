@@ -1,17 +1,24 @@
-import { useContext } from "react"
-import { ScrollContext } from "../context/ScrollContext"
+import { useScroll, useScrollDispatch, type ScrollIndex, type ScrollValuesInterface } from "../context/ScrollContext"
+
+
 
 
 const ApplicationHook = () =>{
 
-    const scroll = useContext(ScrollContext)
-    const numberScrollELements = 9
-    const scrollStep = 40;
+    const scrollValue = useScroll()
+    const scrollDispatch = useScrollDispatch()
+
+    
+    /** permet de mettre à jour les données du scroll */
+    const updateScroll = (index:ScrollIndex,value:any) => {
+        if (scrollDispatch) {
+            scrollDispatch(prev => ({ ...prev, [index]: value }));
+        }
+    }
 
     return {
-        scroll,
-        numberScrollELements,
-        scrollStep
+        scrollValue,
+        updateScroll
     }
 }
 

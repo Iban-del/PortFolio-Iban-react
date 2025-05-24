@@ -14,11 +14,11 @@ interface Annimationinterface{
 export interface scrollAnnimationInterface {
     coordinate:Coordinate,
     component:Object3D|PerspectiveCamera,
-    onFinish?:()=>void
+    onFinish:()=>void
 }
 
 
-const defaultDuration = 1.5;
+const defaultDuration = 1;
 
 export const topDown = ({
     component,
@@ -66,15 +66,15 @@ export const scrollAnnimation = ({
     onFinish
 }:scrollAnnimationInterface) => {
     gsap.to(component.position,{
-        x:'+='+coordinate[0],
-        y:'+='+coordinate[1],
-        z:'+='+coordinate[2],
+        x:coordinate[0],
+        y:coordinate[1],
+        z:coordinate[2],
         duration:defaultDuration,
         repeat:0,
-        yoyo:true,
+        yoyo: false,
         ease:"power1.inOut",
         onComplete:()=>{
-            onFinish && onFinish()
+            onFinish()
         },
     })
 }

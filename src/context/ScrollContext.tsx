@@ -1,13 +1,56 @@
-import { createContext, useState } from "react";
-import type { Context, StateContextInterface } from "../Core/GenericType";
+import { createContext, useContext, useState, type Dispatch, type SetStateAction } from "react";
+import type { Context } from "../Core/GenericType";
 
 
-export const ScrollContext = createContext<StateContextInterface | undefined>(undefined);
+export type ScrollIndex = 'state'|'direction'|'numberScrollELements'|'scrollStep'|'activeScroll'
+
+export interface ScrollValuesInterface {
+    state:number,
+    direction:number,
+    numberScrollELements:number,
+    scrollStep:number,
+    activeScroll:0|1
+}
+
+const ScrollValues:ScrollValuesInterface = {
+    state:0,
+    direction:0,
+    numberScrollELements:6,
+    scrollStep:40,
+    activeScroll:1
+}
+
+export const ScrollContextValue = createContext<ScrollValuesInterface>(ScrollValues);
+export const ScrollContextDispatch = createContext<Dispatch<SetStateAction<ScrollValuesInterface>>|undefined>(undefined);
 
 export const ScrollProvider = ({children}:Context) =>{
-    const [state,setState] = useState<number>(0)
+    const [value,setValue] = useState<ScrollValuesInterface>(ScrollValues)
 
-    return <ScrollContext.Provider value={{state,setState}}>
-        {children}
-    </ScrollContext.Provider>
+    return (
+        
+        
+        <ScrollContextValue.Provider value={value}>
+            <ScrollContextDispatch.Provider value={setValue}>
+                {children}
+            </ScrollContextDispatch.Provider>
+        </ScrollContextValue.Provider>
+        
+        
+    )
+}
+
+export const useScroll = () =>{
+    const context = useContext(ScrollContextValue)
+    if(!context){
+        throw new Error("Impossible de charger le scroll")
+    }
+    return context
+}
+
+export const useScrollDispatch = () =>{
+    const dispatch = useContext(ScrollContextDispatch)
+    if(!dispatch){
+        throw new Error("Impossible de charger le scroll")
+    }
+    return dispatch
 }

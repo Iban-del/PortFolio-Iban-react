@@ -1,9 +1,12 @@
 import { createContext, useState } from "react";
-import type { Context, StateContextInterface } from "../Core/GenericType";
+import type { Context } from "../Core/GenericType";
 
+export interface BackgroundContextInterface{
+    state:number,
+    setState:(c:number)=>void
+}
 
-
-export const ScaleContext = createContext<undefined | StateContextInterface>(undefined)
+export const ScaleContext = createContext<undefined | BackgroundContextInterface>(undefined)
 
 export const ScaleProvider = ({children}:Context) =>{
 

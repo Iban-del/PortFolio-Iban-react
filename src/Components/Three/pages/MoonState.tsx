@@ -6,30 +6,37 @@ import Rocket from "../Custom/Rocket"
 import Astronaut from "../Custom/Astronaut"
 import MoonSurface from "../Custom/MoonSurface"
 import type { Mesh } from "three"
-import Eart from "../Custom/Eart"
 import type { PagesProps } from "../Interface"
+import CameraScroll from "../CameraScroll"
+import ApplicationHook from "../../../hooks/ApplicationHook"
 
 
 const MoonState = ({
-    position = 0
+    position = 0,
+    scrollState
 }:PagesProps) =>{
+    const {scrollValue} = ApplicationHook()
+    const astronautRef = useRef<Mesh>(null)
+
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
 
-    const astronautRef = useRef<Mesh>(null)
+    
+    
 
     useEffect(()=>{
         if(astronautRef.current){
             astronautRef.current.rotateY(90)
         }
-    })
+    },[])
 
     return (
         <GroupComponent
             position={[0,position,0]}
-        >
+        >   
+            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-2,-50]} stateScroll={scrollState}/>
             <pointLight intensity={1} position={[8,0,-7]}/>
 
             <Astronaut

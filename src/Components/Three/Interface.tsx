@@ -1,3 +1,4 @@
 export interface PagesProps {
-    position?:number
+    scrollState:number,
+    position?:number,
 }

@@ -5,13 +5,18 @@ import ParticleGroup from "../Custom/ParticleGroup"
 import Sphere from "../UI/Sphere"
 import Rocket from "../Custom/Rocket"
 import type { PagesProps } from "../Interface"
+import CameraScroll from "../CameraScroll"
+import { useThree } from "@react-three/fiber"
+import ApplicationHook from "../../../hooks/ApplicationHook"
 
 
 const Currently = ({
-    position = 0
+    position = 0,
+    scrollState
 }:PagesProps) =>{
     const speed = 0.005;
     const R = 2;
+    const {scrollValue} = ApplicationHook()
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
@@ -23,7 +28,7 @@ const Currently = ({
         <GroupComponent
             position={[0,position,0]}
         >
-
+            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-scrollValue.scrollStep,10]} stateScroll={scrollState}/>
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />
 
             <Rocket

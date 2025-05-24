@@ -23,7 +23,7 @@ const SolarSystem = ({
             systemRef.current.rotateX(90)
             systemRef.current.rotateY(30)
         }
-    })
+    },[])
 
     const planets = useMemo(()=>{
         const planetsList = []
