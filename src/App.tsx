@@ -3,10 +3,9 @@ import { type LinkInterface } from "./Components/UI/Link"
 import Background from "./Components/Three/Background"
 import './index.css'
 import { ApplicationRenderContext, BackgroundRenderContext, GenericRenderContext } from "./Core/RenderContext"
-//import ScrollPoints from "./Components/UI/ScrollPoints"
-import ApplicationHook from "./hooks/ApplicationHook"
-import { lazy, Suspense } from "react"
+import { Suspense } from "react"
 import ScrollPoints from "./Components/UI/ScrollPoints"
+import Page from "./Components/Pages/Page"
 
 
 
@@ -32,8 +31,11 @@ function App() {
         {/** application */}
         <ApplicationRenderContext>
           <Suspense>
-            <NavBar buttons={buttons}></NavBar>
-            <ScrollPoints></ScrollPoints>
+            <div className="fixed w-full h-full">
+              <NavBar buttons={buttons}></NavBar>
+              <ScrollPoints></ScrollPoints>
+              <Page/>
+            </div>
           </Suspense>
         </ApplicationRenderContext>
       </GenericRenderContext>

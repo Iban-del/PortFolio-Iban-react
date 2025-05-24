@@ -7,6 +7,8 @@ import type { PagesProps } from "../Interface"
 import CameraScroll from "../CameraScroll"
 import Ground from "../Custom/Ground"
 import ApplicationHook from "../../../hooks/ApplicationHook"
+import Sphere from "../UI/Sphere"
+import { topDown } from "../Annimation"
 
 
 
@@ -27,6 +29,7 @@ const Final  = ({
                 color="#fff"
                 
             />
+            <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} position={[+2,4,0]} />
             <Ground/>
                 
         </GroupComponent>
