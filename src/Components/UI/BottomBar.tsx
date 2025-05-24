@@ -1,10 +1,24 @@
 import { motion } from "motion/react"
 import ApplicationHook from "../../hooks/ApplicationHook"
 import { SlArrowDown } from "react-icons/sl";
-/** page avec tous le protFolio en 2d */
-const BottomBar = () =>{
+import { SlArrowUp } from "react-icons/sl";
+import { useState } from "react";
+
+interface BottomBarInterface{
+    click:(deploy:boolean)=>void
+}
+
+const BottomBar = ({
+    click
+}:BottomBarInterface) =>{
 
     const {scrollValue} = ApplicationHook()
+    const [deploy,setDeploy] = useState(false)
+
+    const onClick = () =>{
+        setDeploy(!deploy)
+        click(deploy)
+    }
 
     return (
         <motion.div
@@ -12,7 +26,10 @@ const BottomBar = () =>{
             initial={{bottom:0}}
             whileInView={{bottom:95}}
         >
-            <SlArrowDown/>
+            <div className="flex w-full h-full justify-center items-center">
+                {deploy && <SlArrowDown onClick={onClick} className="cursor-pointer" size={50} />}
+                {!deploy && <SlArrowUp onClick={onClick} className="cursor-pointer" size={50} />}
+            </div>
         </motion.div>
     )
 }
