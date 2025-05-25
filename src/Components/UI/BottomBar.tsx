@@ -15,7 +15,7 @@ const BottomBar = ({
 
     return (
         <motion.div
-            className="w-screen h-30 absolute inset-x-0 bg-gray-100/20 border-t-8 border-b-gray-50 z-100"
+            className="w-screen h-30 absolute inset-x-0 bg-gray-100/20 z-100"
             initial={{bottom:-90}}
             animate={{bottom:0}}
             exit={{bottom:-90}}

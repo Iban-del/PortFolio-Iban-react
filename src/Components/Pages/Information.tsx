@@ -2,6 +2,15 @@ import { AnimatePresence, motion } from "motion/react"
 import ApplicationHook from "../../hooks/ApplicationHook"
 import { SlSizeActual } from "react-icons/sl";
 import { useApplication } from "../../context/ApplicationContext";
+import Card from "../UI/Card";
+import Skills from "./Skills";
+import AboutMe from "./AboutMe";
+import Project from "./Project";
+
+
+
+
+
 /** page avec tous le protFolio en 2d */
 const Information = () =>{
 
@@ -17,6 +26,7 @@ const Information = () =>{
             >
                 <div className="flex flex-col w-full h-screen">
                     <div className="flex row-span-1 h-[57px] p-4">
+                        <h1 className="text-5xl font-extrabold ">Informations</h1>
                         <div className="flex justify-end w-full">
                             <motion.div 
                                 className="cursor-pointer text-gray-900" 
@@ -28,21 +38,16 @@ const Information = () =>{
                             </motion.div>
                         </div>
                     </div>
-                    <div className="overflow-auto h-[95%]">
-                        <div className="row-span-8 h-[2000px] flex justify-center">
-                            <div className="sm:w-1/2 w-[95%] h-full">
-                                <div className="h-[90px] w-full">
-                                    <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">Mes informations</h1>
-                                    <hr className="h-px my-8 w-1/2 border-0 bg-gray-700"></hr>
-                                </div>
-                                <div className="h-[1900px] w-full grid grid-cols-1 grid-rows-3">
-                                    <div>
-
-                                    </div>
-                                    <div>
-
-                                    </div>
-                                </div>
+                    <div className="overflow-auto flex justify-center">
+                        <div className="sm:w-1/2 w-full">
+                            <div className="h-[400px] flex flex-col justify-center items-center">
+                                <AboutMe></AboutMe>
+                            </div>
+                            <div>
+                                <Skills></Skills>
+                            </div>
+                            <div>
+                                <Project></Project>
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,8 @@ const Page = () =>{
                 {
                     view && <Information/>
                 }
+            </AnimatePresence>
+            <AnimatePresence>
                 {
                     (scrollValue.state === scrollValue.numberScrollELements && !view) && <BottomBar click={()=>updateApplication('view',!view)}/> 
                 }
