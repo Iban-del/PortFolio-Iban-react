@@ -6,6 +6,7 @@ import Card from "../UI/Card";
 import Skills from "./Skills";
 import AboutMe from "./AboutMe";
 import Project from "./Project";
+import Contact from "./Contact";
 
 
 
@@ -48,6 +49,9 @@ const Information = () =>{
                             </div>
                             <div>
                                 <Project></Project>
+                            </div>
+                            <div>
+                                <Contact></Contact>
                             </div>
                         </div>
                     </div>

@@ -14,14 +14,14 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { FaLinesLeaning } from "react-icons/fa6";
 import { IoLeafSharp } from "react-icons/io5";
 import { TbCircleDashedLetterC } from "react-icons/tb";
-
-
+import { RiTailwindCssFill } from "react-icons/ri";
+import { GoProjectRoadmap } from "react-icons/go";
 
 
 interface ProjectInterface {
     title:string,
     content:JSX.Element|string,
-
+    popUpContent:string,
 }
 
 
@@ -30,17 +30,34 @@ const Project = () =>{
 
     const cardSize = [300,300]
 
-    const SkillsList:Array<ProjectInterface> = [
-    {title:"Gestion Enseigants",content:<ProjetDescription text="Gestionnaire d'enseignement pour les personnelles d'une fac" languages={[<IoLeafSharp/>,<FaLinesLeaning/>]} />},
-    {title:"Coeur Applicatif",content:<FaReact />},
-    {title:"PortFolio",content:<FaReact />},
-    {title:"ServerRoomFan",content:<FaReact />},
-]
+    const SkillsList: Array<ProjectInterface> = [
+        {
+            title: "Gestion Enseigants",
+            content: <ProjetDescription text="Création d’un outil numérique pour la gestion des activités d’enseignement du personnel universitaire." languages={[<IoLeafSharp />, <FaLinesLeaning />, <GrMysql />, <IoLogoJavascript />]} />,
+            popUpContent: "Ce projet vise à faciliter la gestion des plannings, des cours et des affectations des enseignants dans un cadre universitaire à l’aide de technologies web robustes et dynamiques."
+        },
+        {
+            title: "Coeur Applicatif",
+            content: <ProjetDescription text="Conception d’un noyau applicatif réutilisable pour initier de nouveaux projets." languages={[<FaReact />, <FaLinesLeaning />, <GrMysql />, <RiTailwindCssFill />]} />,
+            popUpContent: "Développement d’un socle applicatif modulaire et maintenable, conçu pour accélérer la mise en place de futurs projets tout en assurant une base solide et cohérente."
+        },
+        {
+            title: "PortFolio",
+            content: <ProjetDescription text="Création d’un portfolio personnel pour présenter mes compétences et projets, dans un univers visuel qui me correspond." languages={[<FaReact />, <SiTypescript />, <RiTailwindCssFill />]} />,
+            popUpContent: "Un site web personnel conçu pour refléter mes compétences techniques, mon identité visuelle et mes réalisations, avec une navigation fluide et une interface moderne."
+        },
+        {
+            title: "ServerRoomFan",
+            content: <ProjetDescription text="Conception d’un système automatisé de refroidissement pour salle serveur, accompagné d’une interface de contrôle." languages={[<DiRedis />, <FaPython />, <IoLogoJavascript />, <ImHtmlFive />, <SiCss3 />]} />,
+            popUpContent: "Système intelligent combinant automatisation physique et interface web pour surveiller et réguler la température d’une salle serveur, garantissant sécurité et efficacité énergétique."
+        }
+    ]
+
 
     const skills = useMemo(()=>{
         const list:Array<JSX.Element> = []
-        SkillsList.forEach(skill => {
-            list.push(<Card key={skill.title} size={cardSize} title={skill.title} >{skill.content}</Card>)
+        SkillsList.forEach(project => {
+            list.push(<Card usePopUp={true} popUpContent={project.popUpContent} popUpIcon={<GoProjectRoadmap />}  key={project.title} size={cardSize} title={project.title} >{project.content}</Card>)
         })
         return list
     },[])
