@@ -7,19 +7,19 @@ import ApplicationHook from "../../hooks/ApplicationHook"
 
 interface PointInterface{
     active?:boolean
-
+    onClick:()=>void
 }
 
 const ScrollPoints = () =>{
 
     
-    const {scrollValue,updateScroll} = ApplicationHook()
+    const {scrollValue,updateState} = ApplicationHook()
 
     const points = useMemo(()=>{
         const points = [];
         for(let i = 0; i <= scrollValue.numberScrollELements; i++){
             const current = scrollValue.state === i;
-            points.push(<Point active={current}  key={i}  ></Point>)
+            points.push(<Point active={current}  key={i} onClick={()=>{updateState(i)}} ></Point>)
         }
         return points
     },[scrollValue.state])
@@ -38,8 +38,9 @@ const ScrollPoints = () =>{
 
 const Point: React.FC<PointInterface> = ({
     active = false,
+    onClick,
 }) =>{
-    return <div id="points-r"  className={classNames("w-[13px] h-[13px] rounded-[90px] m-2 flex justify-center items-center",active? "bg-green-contrast" : "bg-green-contrast-a")}>
+    return <div id="points-r" onClick={onClick} className={classNames("w-[13px] h-[13px] rounded-[90px] m-2 flex justify-center items-center cursor-pointer",active? "bg-green-contrast" : "bg-green-contrast-a")}>
         <div className={classNames("w-[5px] h-[5px] rounded-[90px] bg-green-contrast-a flex justify-center items-center")}>
             
         </div>

@@ -27,7 +27,7 @@ const RocketState = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-scrollValue.scrollStep,10]} stateScroll={scrollState}/>
+            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
             <Rocket scale={9} position={[0,-2,0]}/>
             <Astronaut 
                 scale={0.5} 

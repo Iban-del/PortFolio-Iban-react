@@ -28,7 +28,7 @@ const Currently = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-scrollValue.scrollStep,10]} stateScroll={scrollState}/>
+            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />
 
             <Rocket

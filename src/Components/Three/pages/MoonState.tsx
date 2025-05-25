@@ -36,7 +36,7 @@ const MoonState = ({
         <GroupComponent
             position={[0,position,0]}
         >   
-            <CameraScroll coordinate={[0,position,10]} coordinateDown={[0,position-2,-50]} stateScroll={scrollState}/>
+            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
             <pointLight intensity={1} position={[8,0,-7]}/>
 
             <Astronaut

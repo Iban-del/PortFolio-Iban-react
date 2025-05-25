@@ -8,11 +8,13 @@ const Information = () =>{
 
     return (
         <motion.div 
-            className="w-screen h-screen absolute bg-gray-900"
-            initial={{bottom:"-90%"}}
-            whileInView={{bottom:"9%"}}
+            className="w-screen h-screen absolute bg-gray-50"
+            initial={{bottom:-window.innerHeight}}
+            whileInView={{bottom:0}}
         >
-            
+            <div className="">
+                
+            </div>
         </motion.div>
     )
 }

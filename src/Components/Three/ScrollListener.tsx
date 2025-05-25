@@ -12,53 +12,36 @@ interface ListenerInterface{
 }
 
 const ScrollListener = ({
-    onScrollUp,
-    onScrollDown,
-    activeScroll,
-    setActiveScroll
-}:ListenerInterface) =>{
 
-    const {scrollValue,updateScroll} = ApplicationHook()
+}) =>{
+
+    const {scrollValue,updateScroll,updateState} = ApplicationHook()
     const {camera} = useThree()
-    const points = document.querySelectorAll("[id=points-r]")
-
-    const onWheel = (e?:WheelEvent,del?:number,n?:number) => {
-        if (activeScroll) {
-            setActiveScroll(0)
-            const delta = e?e.deltaY:del;
-            const newValue = ScrollDirection(delta,scrollValue.numberScrollELements,n??scrollValue.state,
-                () =>{onScrollUp()},
-                () =>{onScrollDown()},
-                () =>setActiveScroll(1)
+    
+    const onWheel = (e:WheelEvent) => {
+        if (scrollValue.activeScroll === 1) {
+            updateScroll('activeScroll',0);
+            const delta = e.deltaY
+            const newValue = ScrollDirection(delta,scrollValue.numberScrollELements,scrollValue.state,
+                undefined,
+                undefined,
+                () =>updateScroll('activeScroll',1)
             )
             if (newValue !== scrollValue.state) {
-                updateScroll("stageBefore", scrollValue.state);
-                updateScroll("state", newValue);
+                updateState(newValue)
             }
         }
     };
 
-    useEffect(()=>{
-        
-        for (let i = 0; i < points.length; i++) {
-            points[i].addEventListener("click",(e)=>{
-                //console.log(scrollValue,i)
-                onWheel(undefined,i-scrollValue.state,i-1)
-            });
-        }
-    },[scrollValue,activeScroll,camera])
-
     useEffect(()  => {  
         
-
         window.addEventListener("wheel", onWheel,{ passive: true });
-
-        if(!activeScroll)window.removeEventListener("wheel", onWheel);
+        if(scrollValue.activeScroll === 0)window.removeEventListener("wheel", onWheel);
 
         return () => {
             window.removeEventListener("wheel", onWheel);
         };
-    }, [scrollValue, activeScroll,camera]);
+    }, [scrollValue,camera]);
 
     return null;
 }

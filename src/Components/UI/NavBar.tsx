@@ -30,7 +30,7 @@ const NavBar = ({
         <div className="flex w-[100%] bg-transparent ">
             <motion.div
                 onHoverEnd={()=>onHoverEnd()}
-                className="m-9 flex space-x-4 bg-transparent"
+                className="m-9 flex space-x-4 bg-transparent flex-col sm:flex-row"
             >
                 <motion.svg 
                     onHoverStart={()=>onHoverStart()}
@@ -50,7 +50,7 @@ const NavBar = ({
                 <motion.div
                     initial={{left:0}}
                     whileInView={{left:20}}
-                    className="relative flex space-x-4  text-sm items-center justify-around"
+                    className="sm:relative flex space-x-4 flex-col sm:flex-row text-sm sm:items-center justify-around"
                 >
                     {buttons.map((e)=>{
                         return <Link key={e.key} onClick={e.onClick} text={e.text}></Link>

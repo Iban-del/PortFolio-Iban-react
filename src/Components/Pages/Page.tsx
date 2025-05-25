@@ -1,24 +1,21 @@
-import { motion } from "motion/react"
 import ApplicationHook from "../../hooks/ApplicationHook"
 import BottomBar from "../UI/BottomBar"
-import { useState } from "react"
 import Information from "./Information"
+import { useApplication } from "../../context/ApplicationContext"
 
 /** page avec tous le protFolio en 2d */
 const Page = () =>{
 
-    const {scrollValue} = ApplicationHook()
-    const [deploy,setDeploy] = useState(false)
-
-
+    const {scrollValue,updateApplication} = ApplicationHook()
+    const {view} = useApplication()
 
     return (
         <div className="w-screen fixed">
             {
-                scrollValue.state === scrollValue.numberScrollELements && <div> <BottomBar click={()=>setDeploy(!deploy)}/> </div>
+                (scrollValue.state === scrollValue.numberScrollELements && !view) && <BottomBar click={()=>updateApplication('view',!view)}/> 
             }
             {
-                (scrollValue.state === scrollValue.numberScrollELements && deploy) && <Information/>
+                view && <Information/>
             }
             
         </div>

@@ -6,6 +6,7 @@ import type React from "react"
 import type { Props } from "./GenericType"
 import { ScrollProvider } from "../context/ScrollContext"
 import { ScaleProvider } from "../context/BackgroundContext"
+import { ApplicationProvider } from "../context/ApplicationContext"
 
 
 
@@ -29,9 +30,11 @@ export const BackgroundRenderContext: React.FC<Props> = ({
 }) =>{
 
     return <>
-        <ScaleProvider>
-            {children}
-        </ScaleProvider>
+       
+            <ScaleProvider>
+                {children}
+            </ScaleProvider>
+        
     </>
 }
 
@@ -40,9 +43,11 @@ export const GenericRenderContext: React.FC<Props> = ({
 }) =>{
 
     return <>
-        <ScrollProvider>
-            {children}
-        </ScrollProvider>
+        <ApplicationProvider>
+            <ScrollProvider>
+                {children}
+            </ScrollProvider>
+        </ApplicationProvider>
     </>
 
 }

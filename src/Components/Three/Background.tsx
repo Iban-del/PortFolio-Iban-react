@@ -15,6 +15,8 @@ import type { PagesProps } from './Interface';
 import CameraScroll from './CameraScroll';
 import Final from './pages/Final';
 import { topDown } from './Annimation';
+import ScrollListener from './ScrollListener';
+import { useApplication } from '../../context/ApplicationContext';
 
 
 
@@ -23,6 +25,7 @@ import { topDown } from './Annimation';
 const Background = () =>{
 
     const {scrollValue} = ApplicationHook();
+    const {view} = useApplication()
     const pagesList: React.FC<PagesProps>[] = [Home, HowIAm, Currently, RocketState, MoonState,Final];
 
     useEffect(()=>{
@@ -48,9 +51,9 @@ const Background = () =>{
             <color attach="background" args={["#101218"]}></color>
             <GroupComponent responsive={true}>
                 <PerspectiveCamera makeDefault position={[0,0,10]} far={40} />
-                
+                {!view&&<ScrollListener/>}
                 <Suspense fallback={<Loader/>}>
-                    <directionalLight position={[0,0,10]} color={"#bbbbbb"} intensity={1} />
+                    <directionalLight position={[0,0,10]} color={"#8a8a8a"} intensity={1} />
                     {pages}
                 </Suspense>
             </GroupComponent>

@@ -8,7 +8,7 @@ import CameraScroll from "../CameraScroll"
 import Ground from "../Custom/Ground"
 import ApplicationHook from "../../../hooks/ApplicationHook"
 import Sphere from "../UI/Sphere"
-import { topDown } from "../Annimation"
+
 
 
 
@@ -23,7 +23,8 @@ const Final  = ({
         <GroupComponent
             position={[-2,position+scrollValue.scrollStep-4,position+scrollValue.scrollStep+90]}
         >
-            <CameraScroll coordinate={[0,position+scrollValue.scrollStep-2,-50]} coordinateDown={[0,position+scrollValue.scrollStep-2,-90]} stateScroll={scrollState}/>
+            <CameraScroll coordinate={[0,position+scrollValue.scrollStep-2,-50]} stateScroll={scrollState}/>
+            <CameraScroll coordinate={[0,position+scrollValue.scrollStep-2,-90]} stateScroll={scrollState+1}/>
             <TextComponent
                 text="Welcome"
                 color="#fff"
