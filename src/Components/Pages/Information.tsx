@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import AboutMe from "./AboutMe";
 import Project from "./Project";
 import Contact from "./Contact";
+import Currently from "./Currently";
 
 
 
@@ -51,6 +52,10 @@ const Information = () =>{
                             <div className="h-[200px]"></div>
                             <div>
                                 <Project></Project>
+                            </div>
+                            <div className="h-[200px]"></div>
+                            <div>
+                                <Currently></Currently>
                             </div>
                             <div className="h-[200px]"></div>
                             <div>

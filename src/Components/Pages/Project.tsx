@@ -5,15 +5,12 @@ import { AnimatePresence } from "motion/react";
 import { SiTypescript } from "react-icons/si";
 import { ImHtmlFive } from "react-icons/im";
 import { SiCss3 } from "react-icons/si";
-import { RiPhpFill } from "react-icons/ri";
 import { FaPython } from "react-icons/fa";
 import { GrMysql } from "react-icons/gr";
 import { DiRedis } from "react-icons/di";
-import { FaGithub } from "react-icons/fa6";
 import { IoLogoJavascript } from "react-icons/io5";
 import { FaLinesLeaning } from "react-icons/fa6";
 import { IoLeafSharp } from "react-icons/io5";
-import { TbCircleDashedLetterC } from "react-icons/tb";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { GoProjectRoadmap } from "react-icons/go";
 
@@ -57,7 +54,11 @@ const Project = () =>{
     const skills = useMemo(()=>{
         const list:Array<JSX.Element> = []
         SkillsList.forEach(project => {
-            list.push(<Card usePopUp={true} popUpContent={project.popUpContent} popUpIcon={<GoProjectRoadmap />}  key={project.title} size={cardSize} title={project.title} >{project.content}</Card>)
+            list.push(
+                <div key={project.title+"-d"} className="flex justify-center items-center">
+                    <Card usePopUp={true} popUpContent={project.popUpContent} popUpIcon={<GoProjectRoadmap />}  key={project.title} size={cardSize} title={project.title} >{project.content}</Card>
+                </div>
+            )
         })
         return list
     },[])

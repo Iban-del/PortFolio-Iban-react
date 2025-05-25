@@ -127,7 +127,11 @@ const Skills = () =>{
         const list:Array<JSX.Element> = []
         SkillsList.forEach(skill => {
             if(type[skill.type]){
-                list.push(<Card usePopUp={true} popUpContent={skill.popUpContent} popUpIcon={skill.content} key={skill.title} title={skill.title} >{skill.content}</Card>)
+                list.push(
+                    <div key={skill.title+"-d"} className="flex justify-center items-center">
+                        <Card usePopUp={true} popUpContent={skill.popUpContent} popUpIcon={skill.content} key={skill.title} title={skill.title} >{skill.content}</Card>
+                    </div>
+                )
             }
         })
         return list
