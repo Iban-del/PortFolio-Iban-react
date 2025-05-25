@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <GenericRenderContext>
+
         {/** fond d'écran */}
         <BackgroundRenderContext>
           <div className='fixed w-[100%] h-[100%] z-[-1] top-0'>
@@ -31,14 +31,20 @@ function App() {
         {/** application */}
         <ApplicationRenderContext>
           <Suspense>
-            <div className="fixed w-full h-full">
-              <NavBar buttons={buttons}></NavBar>
-              <ScrollPoints></ScrollPoints>
-              <Page/>
+            <div className="grid grid-cols-1 grid-rows-3 w-full h-screen z-1">
+              <div className="flex items-start z-2">
+                <NavBar buttons={buttons}></NavBar>
+              </div>
+              <div className="flex items-center z-2"  >
+                <ScrollPoints></ScrollPoints>
+              </div>
+              <div className="flex items-end z-2">
+                <Page/>
+              </div>
             </div>
           </Suspense>
         </ApplicationRenderContext>
-      </GenericRenderContext>
+
     </>
   )
 }

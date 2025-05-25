@@ -2,10 +2,11 @@ import { createContext, useContext, useState, type Dispatch, type SetStateAction
 import type { Context } from "../Core/GenericType";
 
 
-export type ScrollIndex = 'state'|'direction'|'numberScrollELements'|'scrollStep'|'activeScroll'
+export type ScrollIndex = 'state'|'direction'|'numberScrollELements'|'scrollStep'|'activeScroll'|'stageBefore'
 
 export interface ScrollValuesInterface {
     state:number,
+    stageBefore:number,
     direction:number,
     numberScrollELements:number,
     scrollStep:number,
@@ -14,6 +15,7 @@ export interface ScrollValuesInterface {
 
 const ScrollValues:ScrollValuesInterface = {
     state:0,
+    stageBefore:-1,
     direction:0,
     numberScrollELements:6,
     scrollStep:40,

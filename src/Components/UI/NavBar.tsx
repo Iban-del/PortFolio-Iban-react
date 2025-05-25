@@ -26,7 +26,7 @@ const NavBar = ({
     
 
 
-    return <div className="w-[100%] bg-transparent h-24">
+    return <div className="w-[100%] bg-transparent">
         <div className="flex w-[100%] bg-transparent ">
             <motion.div
                 onHoverEnd={()=>onHoverEnd()}

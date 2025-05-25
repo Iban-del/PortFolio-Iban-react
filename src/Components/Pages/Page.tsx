@@ -2,6 +2,7 @@ import { motion } from "motion/react"
 import ApplicationHook from "../../hooks/ApplicationHook"
 import BottomBar from "../UI/BottomBar"
 import { useState } from "react"
+import Information from "./Information"
 
 /** page avec tous le protFolio en 2d */
 const Page = () =>{
@@ -12,12 +13,12 @@ const Page = () =>{
 
 
     return (
-        <div className="w-screen h-screen fixed">
+        <div className="w-screen fixed">
             {
-                scrollValue.state === scrollValue.numberScrollELements && <div> <BottomBar click={setDeploy}/> </div>
+                scrollValue.state === scrollValue.numberScrollELements && <div> <BottomBar click={()=>setDeploy(!deploy)}/> </div>
             }
             {
-                deploy && <div>hello</div>
+                (scrollValue.state === scrollValue.numberScrollELements && deploy) && <Information/>
             }
             
         </div>

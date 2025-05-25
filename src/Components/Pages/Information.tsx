@@ -7,11 +7,13 @@ const Information = () =>{
     const {scrollValue} = ApplicationHook()
 
     return (
-        <div className="w-screen h-screen fixed">
-            {
-                
-            }
-        </div>
+        <motion.div 
+            className="w-screen h-screen absolute bg-gray-900"
+            initial={{bottom:"-90%"}}
+            whileInView={{bottom:"9%"}}
+        >
+            
+        </motion.div>
     )
 }
 
