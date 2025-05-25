@@ -18,7 +18,7 @@ export interface scrollAnnimationInterface {
 }
 
 
-const defaultDuration = 1;
+const defaultDuration = 1.5;
 
 export const topDown = ({
     component,
@@ -72,7 +72,7 @@ export const scrollAnnimation = ({
         duration:defaultDuration,
         repeat:0,
         yoyo: false,
-        ease:"power2.inOut",
+        ease:"power1.inOut",
         onComplete:()=>{
             onFinish()
         },

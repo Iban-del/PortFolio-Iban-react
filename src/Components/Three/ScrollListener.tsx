@@ -16,7 +16,6 @@ const ScrollListener = ({
 }) =>{
 
     const {scrollValue,updateScroll,updateState} = ApplicationHook()
-    const {camera} = useThree()
     
     const onWheel = (e:WheelEvent) => {
         if (scrollValue.activeScroll === 1) {
@@ -41,7 +40,7 @@ const ScrollListener = ({
         return () => {
             window.removeEventListener("wheel", onWheel);
         };
-    }, [scrollValue,camera]);
+    }, [scrollValue.activeScroll,scrollValue.state]);
 
     return null;
 }

@@ -26,7 +26,7 @@ const Card = ({
         <>
             <motion.div 
                 style={{height:size[0],width:size[1]}} 
-                className="shadow-xl/30 rounded-2xl "
+                className="shadow-xl/30 rounded-2xl cursor-pointer "
                 whileHover={{scale:1.1}}
                 initial={{opacity:0}}
                 animate={{opacity:1}}

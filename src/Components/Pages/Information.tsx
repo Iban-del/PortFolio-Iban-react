@@ -26,7 +26,7 @@ const Information = () =>{
                 exit={{ bottom:-window.innerHeight }}
             >
                 <div className="flex flex-col w-full h-screen">
-                    <div className="flex row-span-1 h-[57px] p-4">
+                    <div className="flex row-span-1 h-[57px] p-4 items-center">
                         <h1 className="text-5xl font-extrabold ">Informations</h1>
                         <div className="flex justify-end w-full">
                             <motion.div 
@@ -40,19 +40,23 @@ const Information = () =>{
                         </div>
                     </div>
                     <div className="overflow-auto flex justify-center">
-                        <div className="sm:w-1/2 w-full">
+                        <div className="sm:w-1/2 lg:w-[80%] w-full">
                             <div className="h-[400px] flex flex-col justify-center items-center">
                                 <AboutMe></AboutMe>
                             </div>
+                            <div className="h-[200px]"></div>
                             <div>
                                 <Skills></Skills>
                             </div>
+                            <div className="h-[200px]"></div>
                             <div>
                                 <Project></Project>
                             </div>
+                            <div className="h-[200px]"></div>
                             <div>
                                 <Contact></Contact>
                             </div>
+                            <div className="h-[200px]"></div>
                         </div>
                     </div>
                 </div>

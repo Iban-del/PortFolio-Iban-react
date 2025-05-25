@@ -13,13 +13,13 @@ const Contact = () =>{
             </div>
             
             <div className="flex justify-start items-center w-[90%]  mt-7">
-                <motion.p initial={{ opacity: 0 }} whileInView={{opacity:1}}>
+                <motion.div initial={{ opacity: 0 }} whileInView={{opacity:1}}>
                     <ul>
                         <li>
                             Github
                         </li>
                     </ul>
-                </motion.p> 
+                </motion.div> 
             </div>
         </div>
     )
