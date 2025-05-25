@@ -17,7 +17,8 @@ const BottomBar = ({
         <motion.div
             className="w-screen h-30 absolute inset-x-0 bg-gray-100/20 border-t-8 border-b-gray-50 z-100"
             initial={{bottom:-90}}
-            whileInView={{bottom:0}}
+            animate={{bottom:0}}
+            exit={{bottom:-90}}
         >
             <div className="flex w-full h-full justify-center items-center">
                 {!view && <SlArrowDown onClick={click} className="cursor-pointer" size={50} />}

@@ -5,6 +5,9 @@ html,body,.root{
   background-color:#00000000;
   color: #ffffff7e
 }
+webkit-scrollbar {
+    display: none;
+}
 
 
 /* thème app*/
@@ -34,8 +37,9 @@ html,body,.root{
 .text-green-11     { color: #93c79f; }
 .text-green-12     { color: #cbe9d1; }
 
-.bg-green-contrast { background-color: #ffffff7e; }
+.bg-green-contrast { background-color: #8a8a8a; }
 .bg-green-contrast-a { background-color: #ffffff25; }
+.bg-contrast { color: #ffffff; }
 .text-green-contrast { color: #ffffff; }
 
 .bg-green-surface  { background-color: rgba(30, 38, 32, 0.5); }
