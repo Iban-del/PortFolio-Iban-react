@@ -5,6 +5,9 @@ import ParticleGroup from "../Custom/ParticleGroup"
 import SolarSystem from "../Custom/SolarSystem"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
+import { useThreeUi } from "../../../context/ThreeUiContex"
+import { MoveTo } from "../Annimation/AnnimationCallback"
+
 
 
 
@@ -15,6 +18,8 @@ const HowIAm = ({
     scrollState
 }:PagesProps) =>{
 
+    
+    const {MainPlanet} = useThreeUi()
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
@@ -24,7 +29,11 @@ const HowIAm = ({
             position={[0,position,0]}
         >
             
-            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState} onStage={()=>{
+                if(MainPlanet.mesh.current){
+                    MoveTo([0,-40,0],MainPlanet.mesh.current)
+                }
+            }}/>
             <TextComponent responsive={true} text="Iban" position={[0,3,0]}/>
             <TextComponent responsive={true} text="Deletoille-Elizalde" position={[0,2,0]}/>
 

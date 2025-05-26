@@ -1,8 +1,8 @@
 import { useThree } from "@react-three/fiber"
-import { scrollAnnimation } from "../Annimation/GaspAnnimation"
 import { useCallback, useEffect} from "react"
 import ApplicationHook from "../../../hooks/ApplicationHook"
 import type { Coordinate } from "../Core/Type"
+import { MoveTo } from "../Annimation/AnnimationCallback"
 
 interface ScrollStageInterface {
     coordinate:Coordinate,
@@ -19,19 +19,9 @@ const ScrollStage = ({
     const {camera} = useThree()
     const {scrollValue,updateScroll} = ApplicationHook()
 
-    const annimation = (c:Coordinate) => {
-        scrollAnnimation({
-            coordinate:c,
-            component:camera,
-            onFinish:()=>{
-                active(1)
-            }
-        })
-    }
-
     const onUp = useCallback(() =>{
         if(scrollValue.state === stateScroll || stateScroll === -1){
-            annimation(coordinate)
+            MoveTo(coordinate,camera,()=>active(1))
             onStage && onStage()
         }
         

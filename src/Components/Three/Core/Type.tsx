@@ -1,5 +1,4 @@
-import type { Camera } from "@react-three/fiber";
-import type { Curve, Object3D } from "three";
+import { Camera, Group, Mesh, type Curve } from "three";
 
 export type BoxGeometryArgs = [
     width?: number,
@@ -81,3 +80,5 @@ export type RectAreaLightArgs = [
 ];
 
 export type Coordinate = [number,number,number]
+
+export type ThreeComponent = Mesh|Group|Camera

@@ -3,6 +3,7 @@ import MeshComponent from "../UI/MeshComponent"
 import Sphere from "../UI/Sphere"
 import type { Mesh } from "three"
 import Planet from "./Planet"
+import { useThreeUi } from "../../../context/ThreeUiContex"
 
 interface solarSystemInterface {
     position?:[number,number,number],
@@ -40,7 +41,6 @@ const SolarSystem = ({
         scale={size}
         position={position}
     >
-        <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} sphereArgs={[0.5,32,16,0,Math.PI*2,0,Math.PI]} />
         {planets}
 
 

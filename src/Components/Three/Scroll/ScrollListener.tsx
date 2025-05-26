@@ -4,16 +4,7 @@ import { useThree } from "@react-three/fiber";
 
 
 
-interface ListenerInterface{
-    onScrollUp:()=>void,
-    onScrollDown:()=>void,
-    activeScroll:number,
-    setActiveScroll:(e:number)=>void
-}
-
-const ScrollListener = ({
-
-}) =>{
+const ScrollListener = () =>{
 
     const {scrollValue,updateScroll,updateState} = ApplicationHook()
     

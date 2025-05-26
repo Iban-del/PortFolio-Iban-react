@@ -7,6 +7,7 @@ import type { Props } from "./GenericType"
 import { ScrollProvider } from "../context/ScrollContext"
 import { ScaleProvider } from "../context/BackgroundContext"
 import { ApplicationProvider } from "../context/ApplicationContext"
+import { ThreeUiProvider } from "../context/ThreeUiContex"
 
 
 
@@ -30,11 +31,11 @@ export const BackgroundRenderContext: React.FC<Props> = ({
 }) =>{
 
     return <>
-       
+        <ThreeUiProvider>
             <ScaleProvider>
                 {children}
             </ScaleProvider>
-        
+        </ThreeUiProvider>        
     </>
 }
 

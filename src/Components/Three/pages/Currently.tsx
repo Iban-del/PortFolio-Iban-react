@@ -6,6 +6,8 @@ import Sphere from "../UI/Sphere"
 import Rocket from "../Custom/Rocket"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
+import { useThreeUi } from "../../../context/ThreeUiContex"
+import { MoveTo } from "../Annimation/AnnimationCallback"
 
 
 const Currently = ({
@@ -15,6 +17,7 @@ const Currently = ({
     const speed = 0.005;
     const R = 2;
 
+    const {MainPlanet} = useThreeUi()
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
@@ -25,7 +28,12 @@ const Currently = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState} onStage={()=>{
+                
+                if(MainPlanet.mesh.current){
+                    MoveTo([0,-80,0],MainPlanet.mesh.current)
+                }
+            }} />
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />
 
             <Rocket

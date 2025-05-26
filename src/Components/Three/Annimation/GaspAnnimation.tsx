@@ -1,9 +1,9 @@
 import type { Camera, Group, Mesh, Object3D, PerspectiveCamera } from "three"
 import gsap from 'gsap'
-import type { Coordinate } from "../Core/Type";
+import type { Coordinate, ThreeComponent } from "../Core/Type";
 
 interface Annimationinterface{
-    component:Mesh|Group|Camera,
+    component:ThreeComponent,
     delta?:number,
     duration?:number,
     repeat?:number,

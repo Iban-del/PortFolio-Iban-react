@@ -17,6 +17,7 @@ import Final from './pages/Final';
 import { topDown } from './Annimation/GaspAnnimation';
 import ScrollListener from './Scroll/ScrollListener';
 import { useApplication } from '../../context/ApplicationContext';
+import GenericThreeUI from './Core/GenericThreeUI';
 
 
 
@@ -55,6 +56,7 @@ const Background = () =>{
                 <Suspense fallback={<Loader/>}>
                     <directionalLight position={[0,0,10]} color={"#8a8a8a"} intensity={1} />
                     {pages}
+                    <GenericThreeUI/>
                 </Suspense>
             </GroupComponent>
         </Canvas>
