@@ -1,14 +1,16 @@
 import { motion } from "motion/react"
-import { useEffect, useRef, type SyntheticEvent } from "react"
+import { useEffect, useRef, type JSX, type SyntheticEvent } from "react"
 
 export interface LinkInterface{
-    text:string,
+    text:string|JSX.Element,
+    href?:string;
     key?:string,
     onClick?: (e:MouseEvent,r:HTMLAnchorElement)=> void
 }
 
 const Link = ({
     text,
+    href,
     onClick
 }:LinkInterface)=>{
 
@@ -23,6 +25,7 @@ const Link = ({
     },[linkRef])
 
     return <motion.a
+        href={href}
         ref={linkRef}
         className="font-medium text-xl cursor-pointer"
         whileHover={{

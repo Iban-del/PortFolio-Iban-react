@@ -3,7 +3,7 @@ import { type LinkInterface } from "./Components/UI/Link"
 import Background from "./Components/Three/Background"
 import './index.css'
 import { ApplicationRenderContext, BackgroundRenderContext, GenericRenderContext } from "./Core/RenderContext"
-import { Suspense } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
 import ScrollPoints from "./Components/UI/ScrollPoints"
 import Page from "./Components/Pages/Page"
 import { useApplication } from "./context/ApplicationContext"
@@ -16,10 +16,11 @@ function App() {
   const {updateApplication} = ApplicationHook()
   const {view} = useApplication()
 
+
   const buttons:Array<LinkInterface> = [
-    {text:'Musique',key:'music',onClick:(e,r)=>{}},
+    {text:'Musique',key:'music',onClick:()=>{}},
     {text:"Me contacter",key:'contact'},
-    {text:"Mes Information",key:'info' , onClick:()=>updateApplication("view",!view)},
+    {text:"Informations",key:'info' , onClick:()=>updateApplication("view",!view)},
   ]
 
   return (

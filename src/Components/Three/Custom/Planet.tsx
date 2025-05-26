@@ -2,6 +2,7 @@ import { useRef } from "react"
 import MeshComponent from "../UI/MeshComponent"
 import Sphere from "../UI/Sphere"
 import Torus from "../UI/Torus"
+import { useApplication } from "../../../context/ApplicationContext"
 
 
 interface planetInterface {
@@ -17,7 +18,7 @@ const Planet = ({
 }:planetInterface) =>{
 
     const angle = useRef<number>(0);
-
+    
     return <MeshComponent>
         <Sphere sphereArgs={[R/10,32,16,0,Math.PI*2,0,Math.PI]} position={[R,0,0]} metalness={.5} roughness={0}  materialArgs={{emissive:"#fff",emissiveIntensity:intensity}}
             onFrame={(mesh,state,delta)=>{
@@ -27,7 +28,7 @@ const Planet = ({
                 
             }}
         />
-        <Torus torusArgs={[R,.01]} />
+        <Torus materialArgs={{emissive:"#fff",emissiveIntensity:intensity}} torusArgs={[R,.01]} />
 
     </MeshComponent>
 }

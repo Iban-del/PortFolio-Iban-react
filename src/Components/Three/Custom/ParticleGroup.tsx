@@ -9,7 +9,7 @@ import { topDown } from "../Annimation";
 const ParticleGroup = (
     numberParticle = 120,
     delta = 15,
-    particleSize= 10*Math.pow(10,-2.7)
+    particleSize= 10*Math.pow(10,-2.8)
 ) =>{
     
     const particles:Array<JSX.Element> = []
@@ -24,9 +24,6 @@ const ParticleGroup = (
     
 
     return <GroupComponent
-        // beforeRender={(group)=>{
-        //         topDown({component:group,delta:0.1,ease:"power1.inOut",duration:1})
-        // }}
     >
         {particles}
     </GroupComponent>

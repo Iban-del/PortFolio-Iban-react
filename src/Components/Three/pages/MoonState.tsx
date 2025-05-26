@@ -15,7 +15,6 @@ const MoonState = ({
     position = 0,
     scrollState
 }:PagesProps) =>{
-    const {scrollValue} = ApplicationHook()
     const astronautRef = useRef<Mesh>(null)
 
 
@@ -52,8 +51,6 @@ const MoonState = ({
                 scale={9}
                 position={[8,-2.2,-9]}
             />
-
-
             {particleGroup}
         </GroupComponent>
     )

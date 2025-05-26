@@ -6,8 +6,6 @@ import Sphere from "../UI/Sphere"
 import Rocket from "../Custom/Rocket"
 import type { PagesProps } from "../Interface"
 import CameraScroll from "../CameraScroll"
-import { useThree } from "@react-three/fiber"
-import ApplicationHook from "../../../hooks/ApplicationHook"
 
 
 const Currently = ({
@@ -16,7 +14,6 @@ const Currently = ({
 }:PagesProps) =>{
     const speed = 0.005;
     const R = 2;
-    const {scrollValue} = ApplicationHook()
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()

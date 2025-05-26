@@ -1,12 +1,11 @@
 import { useMemo } from "react"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
-import { topDown } from "../Annimation"
 import ParticleGroup from "../Custom/ParticleGroup"
 import SolarSystem from "../Custom/SolarSystem"
 import type { PagesProps } from "../Interface"
 import CameraScroll from "../CameraScroll"
-import ApplicationHook from "../../../hooks/ApplicationHook"
+
 
 
 const systemSize = 1
@@ -16,13 +15,9 @@ const HowIAm = ({
     scrollState
 }:PagesProps) =>{
 
-    const {scrollValue} = ApplicationHook()
-
-    
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
-
 
     return (
         <GroupComponent

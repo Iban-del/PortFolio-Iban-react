@@ -1,12 +1,10 @@
 import { useMemo, useRef } from "react"
 import GroupComponent from "../UI/GroupComponent"
-import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Rocket from "../Custom/Rocket"
 import Astronaut from "../Custom/Astronaut"
 import type { PagesProps } from "../Interface"
 import CameraScroll from "../CameraScroll"
-import ApplicationHook from "../../../hooks/ApplicationHook"
 
 
 const RocketState = ({
@@ -15,7 +13,7 @@ const RocketState = ({
 }:PagesProps) =>{
     const speed = 0.005;
     const R = 3.5;
-    const {scrollValue} = ApplicationHook()
+
 
     const particleGroup = useMemo(()=>{
         return ParticleGroup()

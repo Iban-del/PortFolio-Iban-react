@@ -30,8 +30,8 @@ const Card = ({
                 style={{height:size[0],width:size[1]}} 
                 className="shadow-xl/30 rounded-2xl cursor-pointer "
                 whileHover={{scale:1.1}}
+                whileInView={{opacity:1,scale:1}}
                 initial={{opacity:0,scale:0}}
-                animate={{opacity:1,scale:1}}
                 exit={{opacity:1,scale:0}}
                 whileTap={{scale:1.2}}
                 onClick={()=>{usePopUp && setShowPopUp((e)=>!e)}}

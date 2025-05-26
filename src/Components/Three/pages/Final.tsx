@@ -1,8 +1,5 @@
-import { useMemo } from "react"
-import ParticleLine from "../Custom/ParticleLine"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
-import ParticleGroup from "../Custom/ParticleGroup"
 import type { PagesProps } from "../Interface"
 import CameraScroll from "../CameraScroll"
 import Ground from "../Custom/Ground"

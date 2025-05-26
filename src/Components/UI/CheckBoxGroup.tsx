@@ -21,9 +21,9 @@ const CheckBoxGroup = ({
     const list = useMemo(()=>{
         return checkBoxList.map((ch)=>{
             return (
-                <li key={ch.title} className="border-b border-t border-gray-300  ">
+                <li key={ch.title} className="border-b border-t border-gray-300">
                     <div className="flex items-center ps-3">
-                        <input type="checkbox" onChange={ch.onChange} className="w-4 h-4 rounded-sm" defaultChecked={defaultState}/>
+                        <input type="checkbox" onChange={ch.onChange} className="w-4 h-4 rounded-sm cursor-pointer " defaultChecked={defaultState}/>
                         <label className="w-full py-3 ms-2 text-sm font-medium ">{ch.title}</label>
                     </div>
                 </li>
