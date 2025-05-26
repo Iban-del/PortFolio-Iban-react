@@ -1,5 +1,5 @@
 import type React from "react"
-import type { ConeGeometryArgs, DefaultGeometry } from "../Type"
+import type { ConeGeometryArgs, DefaultGeometry } from "../Core/Type"
 import type { MeshComponentInterface } from "./MeshComponent"
 import MeshComponent from "./MeshComponent"
 

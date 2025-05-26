@@ -3,8 +3,8 @@ import ParticleLine from "../Custom/ParticleLine"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
-import type { PagesProps } from "../Interface"
-import CameraScroll from "../CameraScroll"
+import type { PagesProps } from "../Core/Interface"
+import ScrollStage from "../Scroll/ScrollStage"
 
 
 
@@ -24,7 +24,7 @@ const Home  = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
             <TextComponent
                 text="Welcome"
                 color="#fff"

@@ -1,5 +1,5 @@
 import type React from "react"
-import type { DefaultGeometry, TorusGeometryArgs } from "../Type"
+import type { DefaultGeometry, TorusGeometryArgs } from "../Core/Type"
 import type { MeshComponentInterface } from "./MeshComponent"
 import MeshComponent from "./MeshComponent"
 

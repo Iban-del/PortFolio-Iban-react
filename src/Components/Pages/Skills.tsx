@@ -147,10 +147,11 @@ const Skills = () =>{
     return (
         <div className="p-4 h-full flex flex-col justify-evenly items-center ">
             <div className="h-[10%]">
-                <h4 className="text-2xl font-bold">SKILLS</h4>
+                <h4 className="text-4xl font-bold">SKILLS</h4>
             </div>
+            <div className="h-[100px] "></div>
             <div className="h-[90%] w-full flex flex-col justify-between">
-                <div className="w-full mb-7 mt-7">
+                <div className="w-full  mt-7">
                     <CheckBoxGroup defaultState={true} checkBoxList={InputList} />
                 </div>
                 <div className="w-full flex justify-center mb-7">

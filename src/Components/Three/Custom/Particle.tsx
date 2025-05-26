@@ -1,5 +1,5 @@
 import { Vector3 } from "three"
-import type { BoxGeometryArgs } from "../Type"
+import type { BoxGeometryArgs } from "../Core/Type"
 import Box from "../UI/Box"
 import MeshComponent from "../UI/MeshComponent"
 

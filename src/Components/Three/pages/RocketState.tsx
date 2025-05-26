@@ -3,8 +3,8 @@ import GroupComponent from "../UI/GroupComponent"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Rocket from "../Custom/Rocket"
 import Astronaut from "../Custom/Astronaut"
-import type { PagesProps } from "../Interface"
-import CameraScroll from "../CameraScroll"
+import type { PagesProps } from "../Core/Interface"
+import ScrollStage from "../Scroll/ScrollStage"
 
 
 const RocketState = ({
@@ -25,7 +25,7 @@ const RocketState = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
             <Rocket scale={9} position={[0,-2,0]}/>
             <Astronaut 
                 scale={0.5} 

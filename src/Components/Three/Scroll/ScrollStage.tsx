@@ -1,25 +1,25 @@
 import { useThree } from "@react-three/fiber"
-import ScrollListener from "./ScrollListener"
-import { scrollAnnimation } from "./Annimation"
-import { useCallback, useEffect, useState, type Dispatch, type SetStateAction } from "react"
-import ApplicationHook from "../../hooks/ApplicationHook"
-import type { Coordinate } from "./Type"
+import { scrollAnnimation } from "../Annimation/GaspAnnimation"
+import { useCallback, useEffect} from "react"
+import ApplicationHook from "../../../hooks/ApplicationHook"
+import type { Coordinate } from "../Core/Type"
 
-interface CameraScrollInterface {
-    coordinate:Coordinate
+interface ScrollStageInterface {
+    coordinate:Coordinate,
     stateScroll:number,
+    onStage?:()=>void,
 }
 
-const CameraScroll = ({
+const ScrollStage = ({
     coordinate,
     stateScroll = -1,
-}:CameraScrollInterface) =>{
+    onStage
+}:ScrollStageInterface) =>{
 
     const {camera} = useThree()
     const {scrollValue,updateScroll} = ApplicationHook()
 
     const annimation = (c:Coordinate) => {
-        
         scrollAnnimation({
             coordinate:c,
             component:camera,
@@ -32,6 +32,7 @@ const CameraScroll = ({
     const onUp = useCallback(() =>{
         if(scrollValue.state === stateScroll || stateScroll === -1){
             annimation(coordinate)
+            onStage && onStage()
         }
         
     },[scrollValue])
@@ -49,4 +50,4 @@ const CameraScroll = ({
     )
 }
 
-export default CameraScroll
+export default ScrollStage

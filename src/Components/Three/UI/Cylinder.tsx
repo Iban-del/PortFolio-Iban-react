@@ -1,5 +1,5 @@
 import type React from "react"
-import type { CylinderGeometryArgs, DefaultGeometry } from "../Type"
+import type { CylinderGeometryArgs, DefaultGeometry } from "../Core/Type"
 import type { MeshComponentInterface } from "./MeshComponent"
 import MeshComponent from "./MeshComponent"
 

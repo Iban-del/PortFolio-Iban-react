@@ -1,5 +1,5 @@
 import type React from "react"
-import type { DefaultGeometry, RingGeometryArgs } from "../Type"
+import type { DefaultGeometry, RingGeometryArgs } from "../Core/Type"
 import type { MeshComponentInterface } from "./MeshComponent"
 import MeshComponent from "./MeshComponent"
 

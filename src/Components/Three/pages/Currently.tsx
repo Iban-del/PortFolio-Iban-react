@@ -4,8 +4,8 @@ import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Sphere from "../UI/Sphere"
 import Rocket from "../Custom/Rocket"
-import type { PagesProps } from "../Interface"
-import CameraScroll from "../CameraScroll"
+import type { PagesProps } from "../Core/Interface"
+import ScrollStage from "../Scroll/ScrollStage"
 
 
 const Currently = ({
@@ -25,7 +25,7 @@ const Currently = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />
 
             <Rocket

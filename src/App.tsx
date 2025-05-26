@@ -18,9 +18,8 @@ function App() {
 
 
   const buttons:Array<LinkInterface> = [
-    {text:'Musique',key:'music',onClick:()=>{}},
-    {text:"Me contacter",key:'contact'},
     {text:"Informations",key:'info' , onClick:()=>updateApplication("view",!view)},
+    {text:"Aide",key:'help' , onClick:()=>updateApplication("view",!view)},
   ]
 
   return (

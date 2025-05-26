@@ -69,9 +69,10 @@ const Project = () =>{
     return (
         <div className="p-4 h-full flex flex-col justify-evenly items-center ">
             <div className="h-[10%]">
-                <h4 className="text-2xl font-bold">PROJETS</h4>
+                <h4 className="text-4xl font-bold">PROJETS</h4>
             </div>
-            <div className="h-[90%] w-full mt-7 mb-7 flex flex-col justify-between">
+            <div className="h-[100px] "></div>
+            <div className="h-[90%] w-full mb-7 flex flex-col justify-between">
                 <div className="w-full flex justify-center mb-7">
                     <div className="grid sm:grid-cols-3 grid-cols-1 sm:gap-10 gap-4 w-full ">
                         <AnimatePresence>

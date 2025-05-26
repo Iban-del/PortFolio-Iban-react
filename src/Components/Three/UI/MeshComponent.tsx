@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, type JSX } from "react"
 import type { Mesh, MeshStandardMaterialParameters } from "three"
 import { getScale } from "../Tools/GenericFunction";
 import BackgroundHook from "../../../hooks/BackgroundHook";
-import ScrollListener from "../ScrollListener";
+import ScrollListener from "../Scroll/ScrollListener";
 import ApplicationHook from "../../../hooks/ApplicationHook";
 
 type MeshType = JSX.IntrinsicElements['mesh'];

@@ -4,18 +4,18 @@ import { Suspense, useEffect, useMemo, useRef } from 'react';
 import Loader from './pages/Loader';
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 import GroupComponent from './UI/GroupComponent';
-import Listener from './ScrollListener';
+import Listener from './Scroll/ScrollListener';
 import HowIAm from './pages/HowIAm';
 import { PerspectiveCamera } from '@react-three/drei';
 import Currently from './pages/Currently';
 import RocketState from './pages/RocketState';
 import MoonState from './pages/MoonState';
 import ApplicationHook from '../../hooks/ApplicationHook';
-import type { PagesProps } from './Interface';
-import CameraScroll from './CameraScroll';
+import type { PagesProps } from './Core/Interface';
+import CameraScroll from './Scroll/ScrollStage';
 import Final from './pages/Final';
-import { topDown } from './Annimation';
-import ScrollListener from './ScrollListener';
+import { topDown } from './Annimation/GaspAnnimation';
+import ScrollListener from './Scroll/ScrollListener';
 import { useApplication } from '../../context/ApplicationContext';
 
 

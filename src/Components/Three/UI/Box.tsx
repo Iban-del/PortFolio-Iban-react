@@ -1,5 +1,5 @@
 
-import type { BoxGeometryArgs, DefaultGeometry } from "../Type";
+import type { BoxGeometryArgs, DefaultGeometry } from "../Core/Type";
 import MeshComponent, { type MeshComponentInterface } from "./MeshComponent";
 
 

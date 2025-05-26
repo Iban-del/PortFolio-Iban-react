@@ -2,7 +2,7 @@ import { MathUtils } from "three";
 import Particle from "./Particle";
 import GroupComponent from "../UI/GroupComponent";
 import type { JSX } from "react";
-import { topDown } from "../Annimation";
+import { topDown } from "../Annimation/GaspAnnimation";
 
 
 

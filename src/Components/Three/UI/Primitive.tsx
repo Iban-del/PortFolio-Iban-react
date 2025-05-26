@@ -1,6 +1,6 @@
 
 import { useEffect, useMemo, useRef, type JSX } from "react";
-import type {  DefaultGeometry } from "../Type";
+import type {  DefaultGeometry } from "../Core/Type";
 import MeshComponent, { type MeshComponentInterface } from "./MeshComponent";
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'

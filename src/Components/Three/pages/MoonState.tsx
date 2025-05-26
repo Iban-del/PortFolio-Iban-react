@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useRef } from "react"
 import GroupComponent from "../UI/GroupComponent"
-import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import Rocket from "../Custom/Rocket"
 import Astronaut from "../Custom/Astronaut"
 import MoonSurface from "../Custom/MoonSurface"
 import type { Mesh } from "three"
-import type { PagesProps } from "../Interface"
-import CameraScroll from "../CameraScroll"
-import ApplicationHook from "../../../hooks/ApplicationHook"
+import type { PagesProps } from "../Core/Interface"
+import ScrollStage from "../Scroll/ScrollStage"
 
 
 const MoonState = ({
@@ -35,7 +33,7 @@ const MoonState = ({
         <GroupComponent
             position={[0,position,0]}
         >   
-            <CameraScroll coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
             <pointLight intensity={1} position={[8,0,-7]}/>
 
             <Astronaut

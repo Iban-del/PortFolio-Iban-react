@@ -1,4 +1,4 @@
-import type { DefaultGeometry, RectAreaLightArgs } from "../Type";
+import type { DefaultGeometry, RectAreaLightArgs } from "../Core/Type";
 import MeshComponent, { type MeshComponentInterface } from "./MeshComponent";
 
 
