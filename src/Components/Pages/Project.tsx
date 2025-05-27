@@ -35,7 +35,7 @@ const Project = () =>{
         },
         {
             title: "Coeur Applicatif",
-            content: <ProjetDescription text="Conception d’un noyau applicatif réutilisable pour initier de nouveaux projets." languages={[<FaReact />, <FaLinesLeaning />, <GrMysql />, <RiTailwindCssFill />]} />,
+            content: <ProjetDescription text="Conception d’un noyau applicatif réutilisable pour initier de nouveaux projets." languages={[<FaReact />, <FaLinesLeaning />, <GrMysql />, <RiTailwindCssFill />, <SiTypescript />]} />,
             popUpContent: "Développement d’un socle applicatif modulaire et maintenable, conçu pour accélérer la mise en place de futurs projets tout en assurant une base solide et cohérente."
         },
         {

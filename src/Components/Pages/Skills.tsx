@@ -151,9 +151,10 @@ const Skills = () =>{
             </div>
             <div className="h-[100px] "></div>
             <div className="h-[90%] w-full flex flex-col justify-between">
-                <div className="w-full  mt-7">
+                <div className="w-full">
                     <CheckBoxGroup defaultState={true} checkBoxList={InputList} />
                 </div>
+                <div className="h-[100px] "></div>
                 <div className="w-full flex justify-center mb-7">
                     <div className="grid sm:grid-cols-5 grid-cols-2 sm:gap-10 gap-4 w-full ">
                         <AnimatePresence>
