@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, type Dispatch, type SetStateAction } from "react";
 import type { Context } from "../Core/GenericType";
+import { SCROLL_STEP } from "../Core/GlobalConstant";
 
 
 export type ScrollIndex = 'state'|'direction'|'numberScrollELements'|'scrollStep'|'activeScroll'|'stageBefore'
@@ -18,7 +19,7 @@ const ScrollValues:ScrollValuesInterface = {
     stageBefore:-1,
     direction:0,
     numberScrollELements:6,
-    scrollStep:40,
+    scrollStep:SCROLL_STEP,
     activeScroll:1
 }
 

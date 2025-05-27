@@ -4,6 +4,7 @@ import { createContext, createRef, useContext, type RefObject } from "react";
 import type { Mesh } from "three";
 import type { Context } from "../Core/GenericType";
 import type { Coordinate } from "../Components/Three/Core/Type";
+import { SCROLL_STEP } from "../Core/GlobalConstant";
 
 type Ref = RefObject<Mesh|null>
 
@@ -18,8 +19,8 @@ interface TheeUi {
 }
 
 const TheeUiList:TheeUi = {
-    MainPlanet:{mesh:createRef(),defaultCoordinate:[0,-40,0]},
-    Rocket:{mesh:createRef(),defaultCoordinate:[0,-40,10]}
+    MainPlanet:{mesh:createRef(),defaultCoordinate:[0,-SCROLL_STEP,0]},
+    Rocket:{mesh:createRef(),defaultCoordinate:[0,-(SCROLL_STEP*2),10]}
 }
 
 export const ThreeUiContex = createContext<TheeUi>(TheeUiList);
