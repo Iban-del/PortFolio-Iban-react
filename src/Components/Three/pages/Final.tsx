@@ -5,6 +5,7 @@ import ScrollStage from "../Scroll/ScrollStage"
 import Ground from "../Custom/Ground"
 import ApplicationHook from "../../../hooks/ApplicationHook"
 import Sphere from "../UI/Sphere"
+import { SCROLL_STEP } from "../../../Core/GlobalConstant"
 
 
 
@@ -20,15 +21,15 @@ const Final  = ({
         <GroupComponent
             position={[-2,position+scrollValue.scrollStep-4,position+scrollValue.scrollStep+90]}
         >
-            <ScrollStage coordinate={[0,position+scrollValue.scrollStep-2,-50]} stateScroll={scrollState}/>
-            <ScrollStage coordinate={[0,position+scrollValue.scrollStep-2,-90]} stateScroll={scrollState+1}/>
+            <ScrollStage coordinate={[0,position+SCROLL_STEP-2,-SCROLL_STEP]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position+SCROLL_STEP-2,-SCROLL_STEP-12]} stateScroll={scrollState+1}/>
             <TextComponent
                 text="Welcome"
                 color="#fff"
                 
             />
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} position={[+2,4,0]} />
-            <Ground/>
+            <Ground position={[0,1,-SCROLL_STEP*3]}/>
                 
         </GroupComponent>
     )

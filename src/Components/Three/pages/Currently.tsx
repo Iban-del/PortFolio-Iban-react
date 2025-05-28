@@ -7,7 +7,7 @@ import Rocket from "../Custom/Rocket"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
-import { MoveTo } from "../Annimation/AnnimationCallback"
+import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
 
 
@@ -32,10 +32,13 @@ const Currently = ({
             <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState} onStage={()=>{
                 
                 if(MainPlanet.mesh.current){
-                    MoveTo([0,-position+SCROLL_STEP,0],MainPlanet.mesh.current)
+                    ChangeSize(MainPlanet.mesh.current,2.5)
+                    MoveTo([0,position,0],MainPlanet.mesh.current)
                 }
             }} />
-            <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} />
+
+
+            
 
             <Rocket
                 position={[0,0,-1]}

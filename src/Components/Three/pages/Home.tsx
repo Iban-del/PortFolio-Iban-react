@@ -26,16 +26,9 @@ const Home  = ({
             position={[0,position,0]}
         >
             <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
-
-
             <TextComponent text="Welcome" color="#fff"/>
-
             {particleGroup}
-            <GroupComponent>
-                <ParticleLine position={[4,-4,-3]}/>
-                <ParticleLine position={[-4,-6,-4]}/>
-            </GroupComponent>
-                
+            
         </GroupComponent>
     )
 
