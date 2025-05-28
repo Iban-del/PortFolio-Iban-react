@@ -28,6 +28,7 @@ export const topDown = ({
     ease = "power2.inOut",
     onFinish,
 }:Annimationinterface) =>{
+    console.log(component)
     gsap.to(component.position,{
         y:'+='+delta,
         duration:duration,

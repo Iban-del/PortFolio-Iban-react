@@ -1,38 +1,41 @@
-import { useMemo } from "react"
+import { useMemo, useRef, type JSX } from "react"
 import MeshComponent from "../UI/MeshComponent"
 import Sphere from "../UI/Sphere";
+type MeshType = JSX.IntrinsicElements['mesh'];
 
-
-
-interface WaveInterface {
-    pointStep?:number;
+interface WaveInterface extends MeshType {
+    pointStep?:number,
+    amplitude?:number,
+    sphereSize?:number
 }
 
 const Wave = ({
-    pointStep = 1
+    pointStep = .2,
+    amplitude = 0.5,
+    sphereSize = 0.05,
+    ...props
 }:WaveInterface) =>{
-
 
     const points = useMemo(()=>{
         const p = []
         let x = 0;
         let z = 0;
-        let y = 0;
-        for(let i = 0; i < 10; i++){
-            y = 0;
+        for(let i = 0; i < 30; i++){
             x = 0;
-            for(let a = 0 ; a < 10; a++){
-                p.push(<Sphere key={Math.random()} position={[x,y,z]} materialArgs={{emissive:"#fff",emissiveIntensity:1}} sphereArgs={[0.5,32,16,0,Math.PI*2,0,Math.PI]} />)
-                x+= pointStep
-                y += pointStep
-            }
             z -= pointStep
+            for(let a = 0 ; a < 30; a++){
+                x += pointStep                
+                p.push(<Sphere key={Math.random()} position={[x-5,amplitude*Math.cos(x+z),z]} materialArgs={{emissive:"#fff",emissiveIntensity:1}} sphereArgs={[sphereSize,32,16,0,Math.PI*2,0,Math.PI]}/>)
+            }
+
         }
         return p
     },[])
 
     return (
-        <MeshComponent>
+        <MeshComponent
+            {...props}
+        >
             {points}
         </MeshComponent>
     )

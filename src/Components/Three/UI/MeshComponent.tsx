@@ -42,9 +42,10 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
 
     useEffect(()=>{
         if(refMesh.current){
+
             beforeRender && beforeRender(refMesh.current)
         }
-    })
+    },[])
 
     const sc = useMemo(()=>{
         if(!responsive || !scale) return 1;

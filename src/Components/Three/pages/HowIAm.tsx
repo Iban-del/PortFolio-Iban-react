@@ -7,6 +7,7 @@ import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
 import { MoveTo } from "../Annimation/AnnimationCallback"
+import { SCROLL_STEP } from "../../../Core/GlobalConstant"
 
 
 
@@ -31,7 +32,7 @@ const HowIAm = ({
             
             <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState} onStage={()=>{
                 if(MainPlanet.mesh.current){
-                    MoveTo([0,-40,0],MainPlanet.mesh.current)
+                    MoveTo([0,-SCROLL_STEP,0],MainPlanet.mesh.current)
                 }
             }}/>
             <TextComponent responsive={true} text="Iban" position={[0,3,0]}/>
