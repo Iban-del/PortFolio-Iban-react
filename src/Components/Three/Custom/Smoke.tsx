@@ -4,6 +4,7 @@ import MeshComponent from "../UI/MeshComponent"
 import { useLoader } from '@react-three/fiber'
 import { MathUtils, Mesh, TextureLoader } from 'three'
 import type { Coordinate } from "../Core/Type"
+import file from './../../../../smoke.png'
 
 interface SmokeInterface{
     numberElement?:number
@@ -25,7 +26,7 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    const smokeTexture = useLoader(TextureLoader,import.meta.env.BASE_URL +'images/smoke.png')
+    const smokeTexture = useLoader(TextureLoader,file)
 
     const moveSmoke = async (mesh:Mesh,n:number) =>{
         mesh.rotateZ(n)
