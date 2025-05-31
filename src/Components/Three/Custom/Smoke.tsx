@@ -25,7 +25,7 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    const smokeTexture = useLoader(TextureLoader,'/PortFolio-Iban-react/smoke.png')
+    const smokeTexture = useLoader(TextureLoader, import.meta.env.BASE_URL + 'smoke.png')
 
     const moveSmoke = async (mesh:Mesh,n:number) =>{
         mesh.rotateZ(n)
