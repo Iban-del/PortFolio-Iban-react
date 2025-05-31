@@ -3,7 +3,7 @@ import MeshComponent, { type MeshComponentInterface } from "../../UI/MeshCompone
 import Primitive from "../../UI/Primitive"
 import type { Mesh } from "three"
 
-const link = "./MoonSurface/scene.gltf"
+const link = "/MoonSurface/scene.gltf"
 
 interface moonSurfaceInterface extends MeshComponentInterface{
     position?:[number,number,number],
