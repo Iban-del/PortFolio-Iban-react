@@ -36,7 +36,7 @@ function App() {
         {/** application */}
         <ApplicationRenderContext>
           <Suspense>
-            <div className="sm:hidden flex h-1/2 w-full fixed z-3" onClick={()=>{
+            <div className="md:hidden flex h-1/2 w-full fixed z-3" onClick={()=>{
               scrollValue.state !== 0 && updateScroll("state",scrollValue.state-1)
             }}></div>
             <div className="grid grid-cols-1 grid-rows-3 w-full h-screen z-1">
@@ -50,7 +50,7 @@ function App() {
                 <Page/>
               </div>
             </div>
-            <div className="sm:hidden flex h-1/2 w-full fixed bottom-0 z-3" onClick={()=>{
+            <div className="md:hidden flex h-1/2 w-full fixed bottom-0 z-3" onClick={()=>{
               scrollValue.state !== scrollValue.numberScrollELements && updateScroll("state",scrollValue.state+1)
             }}></div>
           </Suspense>
