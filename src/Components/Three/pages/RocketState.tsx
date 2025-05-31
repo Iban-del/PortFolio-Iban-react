@@ -29,7 +29,7 @@ const RocketState = ({
             <Rocket scale={9} position={[0,-2,0]}/>
             <Astronaut 
                 scale={0.5} 
-                onFrame={(mesh,state,delta)=>{
+                onFrame={async (mesh,state,delta)=>{
                     angle.current += speed;
                     mesh.position.y = Math.cos(angle.current) * R;
                     mesh.rotateZ(Math.cos(angle.current) * 0.01 > 0 ?Math.cos(angle.current) * 0.01:-Math.cos(angle.current) * 0.01)

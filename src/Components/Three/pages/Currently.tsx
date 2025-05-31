@@ -1,14 +1,15 @@
 import { useMemo, useRef } from "react"
 import GroupComponent from "../UI/GroupComponent"
-import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
-import Sphere from "../UI/Sphere"
-import Rocket from "../Custom/3D/Rocket"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
 import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
-import { SCROLL_STEP } from "../../../Core/GlobalConstant"
+import Wave from "../Custom/Wave"
+import MoonSurface from "../Custom/3D/MoonSurface"
+import Astronaut from "../Custom/3D/Astronaut"
+import Sphere from "../UI/Sphere"
+
 
 
 const Currently = ({
@@ -27,32 +28,18 @@ const Currently = ({
 
     return (
         <GroupComponent
+        
             position={[0,position,0]}
         >
             <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState} onStage={()=>{
-                
                 if(MainPlanet.mesh.current){
                     ChangeSize(MainPlanet.mesh.current,2.5)
                     MoveTo([0,position,0],MainPlanet.mesh.current)
                 }
             }} />
 
-
-            
-
-            <Rocket
-                position={[0,0,-1]}
-                onFrame={(mesh,state,delta)=>{
-                    angle.current += speed;
-                    mesh.position.y = Math.cos(angle.current) * R;
-                    mesh.rotateZ(Math.cos(angle.current) * 0.01 > 0 ?Math.cos(angle.current) * 0.01:-Math.cos(angle.current) * 0.01)
-                    mesh.position.x = Math.sin(angle.current) * R;
-                }}
-            />
-
-            <TextComponent responsive={true} text="Développeur" position={[0,-2,0]}/>
-            <TextComponent responsive={true} text="d'application" position={[0,-3,0]}/>
-
+            <Sphere sphereArgs={[3,32,16,0,Math.PI*2,0,Math.PI]}  position={[0,0,0]}  materialArgs={{opacity:0.5,transparent:true}}/>
+            <Sphere sphereArgs={[1.1,32,16,0,Math.PI*2,0,Math.PI]}  position={[0,0,0.5]}  materialArgs={{opacity:0.5}}/>
             {particleGroup}
             
                 

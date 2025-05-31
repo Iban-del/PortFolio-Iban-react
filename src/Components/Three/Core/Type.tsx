@@ -69,7 +69,7 @@ export type TorusGeometryArgs = [
 export type DefaultGeometry = {
     color?:string,
     metalness?:number,
-    roughness?:number
+    roughness?:number,
 }
 
 export type RectAreaLightArgs = [

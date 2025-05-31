@@ -1,14 +1,16 @@
 import { createContext, useContext, useState, type Dispatch, type SetStateAction } from "react"
 import type { Context } from "../Core/GenericType"
 
-export type ApplicationIndex = "view"
+export type ApplicationIndex = "view"|"helpView"
 
 export interface  ApplicationInterface {
-    view:boolean
+    view:boolean,
+    helpView:boolean
 }
 
 export const ApplicationDefaultValues:ApplicationInterface ={
-    view:false
+    view:false,
+    helpView:false
 }
 
 

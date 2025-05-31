@@ -16,7 +16,6 @@ const RectAreaLight: React.FC<RectAreaLightInterface>  = ({
         <MeshComponent
             {...propsEvent}          
         >
-            
             <rectAreaLight rotation={[-Math.PI / 2, 0, 0]} args={rectAreaLightArgs}></rectAreaLight>
         </MeshComponent>
     )

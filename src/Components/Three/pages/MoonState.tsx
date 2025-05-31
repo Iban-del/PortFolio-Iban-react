@@ -41,9 +41,9 @@ const MoonState = ({
                 ref={astronautRef}
             />
 
-            {/* <MoonSurface
+            <MoonSurface
                 position={[0,-5,-10]}
-            /> */}
+            />
 
             <Rocket
                 scale={9}

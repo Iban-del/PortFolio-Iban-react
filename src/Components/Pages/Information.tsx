@@ -16,7 +16,7 @@ import Currently from "./Currently";
 /** page avec tous le protFolio en 2d */
 const Information = () =>{
 
-    const {scrollValue,updateApplication} = ApplicationHook()
+    const {updateApplication} = ApplicationHook()
 
     return (
         

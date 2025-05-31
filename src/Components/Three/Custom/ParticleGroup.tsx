@@ -16,6 +16,7 @@ const ParticleGroup = (
 
     for(let i = 0; i < numberParticle; i++){
         particles.push(<Particle 
+            
             boxArgs={[particleSize,particleSize,0]}
             position={[MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta)]}
             key={i}
@@ -24,6 +25,7 @@ const ParticleGroup = (
     
 
     return <GroupComponent
+        
     >
         {particles}
     </GroupComponent>

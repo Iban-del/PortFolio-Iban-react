@@ -2,6 +2,7 @@ import { useRef, type JSX } from "react"
 import MeshComponent, { type MeshComponentInterface } from "../../UI/MeshComponent"
 import Primitive from "../../UI/Primitive"
 import type { Mesh } from "three"
+import Smoke from "../Smoke"
 
 const link = "/Rocket/scene.gltf"
 
@@ -21,7 +22,6 @@ const Rocket = ({
         position={position}
     >
         <Primitive ref={rocketRef} scale={1} link={link}></Primitive>
-
     </MeshComponent>
 }
 

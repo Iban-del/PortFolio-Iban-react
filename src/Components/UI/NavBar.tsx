@@ -30,7 +30,7 @@ const NavBar = ({
         <div className="flex w-[100%] bg-transparent ">
             <motion.div
                 onHoverEnd={()=>onHoverEnd()}
-                className="m-9 flex space-x-4 bg-transparent flex-col sm:flex-row"
+                className="m-9 flex space-x-4 bg-transparent flex-col sm:flex-row z-4"
             >
                 <motion.svg 
                     onHoverStart={()=>onHoverStart()}

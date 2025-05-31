@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useLoader, useThree } from '@react-three/fiber'
 import Home from './pages/Home';
 import { Suspense, useEffect, useMemo } from 'react';
 import Loader from './pages/Loader';
@@ -10,6 +10,12 @@ import type { PagesProps } from './Core/Interface';
 import ScrollListener from './Scroll/ScrollListener';
 import { useApplication } from '../../context/ApplicationContext';
 import GenericThreeUI from './Core/GenericThreeUI';
+import { TextureLoader } from 'three';
+import HowIAm from './pages/HowIAm';
+import Currently from './pages/Currently';
+import RocketState from './pages/RocketState';
+import MoonState from './pages/MoonState';
+import Final from './pages/Final';
 
 
 
@@ -17,13 +23,16 @@ import GenericThreeUI from './Core/GenericThreeUI';
 
 const Background = () =>{
 
-    const {scrollValue} = ApplicationHook();
-    const {view} = useApplication()
-    const pagesList: React.FC<PagesProps>[] = [Home];
+    const {scrollValue,updateScroll} = ApplicationHook();
+    const {view,helpView} = useApplication()
+    const pagesList: React.FC<PagesProps>[] = [Home,HowIAm,Currently,RocketState,MoonState];
+    
+    const authorizedScroll = (!view && !helpView)
 
     useEffect(()=>{
+        updateScroll("numberScrollELements",pagesList.length-1)
         RectAreaLightUniformsLib.init()
-    })
+    },[])
 
     const pages = useMemo(()=>{
         let y = 0;
@@ -44,9 +53,10 @@ const Background = () =>{
             <color attach="background" args={["#000000"]}></color>
             <GroupComponent responsive={true}>
                 <PerspectiveCamera makeDefault position={[0,0,10]} far={40} />
-                {!view&&<ScrollListener/>}
+                <BackgoundScene/>
+                {authorizedScroll &&<ScrollListener/>}
                 <Suspense fallback={<Loader/>}>
-                    <directionalLight position={[0,0,10]} color={"#8fffa8a8a"} intensity={1} />
+                    <directionalLight position={[0,0,10]} color={"#8fffa8a8a"} intensity={.1} />
                     {pages}
                     <GenericThreeUI/>
                 </Suspense>
@@ -54,5 +64,15 @@ const Background = () =>{
         </Canvas>
     )
 }
+
+const BackgoundScene = () =>{
+    const { scene } = useThree();
+    const backgroundTexture = useLoader(TextureLoader, '/background.jpg')
+    useEffect(()=>{
+        //scene.background = backgroundTexture;
+    },[])
+    return null
+}
+
 
 export default Background;

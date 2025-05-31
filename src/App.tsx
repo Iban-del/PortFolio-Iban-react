@@ -13,13 +13,13 @@ import ApplicationHook from "./hooks/ApplicationHook"
 
 function App() {
 
-  const {updateApplication} = ApplicationHook()
-  const {view} = useApplication()
+  const {updateApplication,scrollValue,updateScroll} = ApplicationHook()
+  const {view,helpView} = useApplication()
 
 
   const buttons:Array<LinkInterface> = [
     {text:"Informations",key:'info' , onClick:()=>updateApplication("view",!view)},
-    {text:"Aide",key:'help' , onClick:()=>updateApplication("view",!view)},
+    {text:"Aide",key:'help' , onClick:()=>updateApplication("helpView",!helpView)},
   ]
 
   return (
@@ -36,17 +36,23 @@ function App() {
         {/** application */}
         <ApplicationRenderContext>
           <Suspense>
+            <div className="sm:hidden flex h-1/2 w-full fixed z-3" onClick={()=>{
+              scrollValue.state !== 0 && updateScroll("state",scrollValue.state-1)
+            }}></div>
             <div className="grid grid-cols-1 grid-rows-3 w-full h-screen z-1">
-              <div className="flex items-start z-2">
+              <div className="flex items-start">
                 <NavBar buttons={buttons}></NavBar>
               </div>
-              <div className="flex items-center z-2"  >
+              <div className="flex items-center"  >
                 <ScrollPoints></ScrollPoints>
               </div>
-              <div className="flex items-end z-2">
+              <div className="flex items-end">
                 <Page/>
               </div>
             </div>
+            <div className="sm:hidden flex h-1/2 w-full fixed bottom-0 z-3" onClick={()=>{
+              scrollValue.state !== scrollValue.numberScrollELements && updateScroll("state",scrollValue.state+1)
+            }}></div>
           </Suspense>
         </ApplicationRenderContext>
 

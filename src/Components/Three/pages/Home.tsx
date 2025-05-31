@@ -1,11 +1,10 @@
 import { useMemo } from "react"
-import ParticleLine from "../Custom/ParticleLine"
 import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
-import Wave from "../Custom/Wave"
+import Smoke from "../Custom/Smoke"
 
 
 
@@ -27,9 +26,9 @@ const Home  = ({
             position={[0,position,0]}
         >
             <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
-            {/* <TextComponent text="Welcome" color="#fff"/>
-            {particleGroup} */}
-
+            <TextComponent text="Welcome" color="#fff"/>
+            <Smoke opacity={1} color="#fff" />
+            {particleGroup}
             
         </GroupComponent>
     )
