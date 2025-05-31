@@ -20,7 +20,7 @@ const SolarSystem = ({
     useEffect(()=>{
         if(systemRef.current){
             systemRef.current.rotateX(90)
-            systemRef.current.rotateY(30)
+            
         }
     },[])
 
