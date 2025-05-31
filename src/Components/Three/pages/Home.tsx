@@ -4,7 +4,7 @@ import TextComponent from "../UI/Text"
 import ParticleGroup from "../Custom/ParticleGroup"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
-import Smoke from "../Custom/Smoke"
+// import Smoke from "../Custom/Smoke"
 
 
 

@@ -7,7 +7,7 @@ import { useThreeUi } from "../../../context/ThreeUiContex"
 import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
 import MoonSurface from "../Custom/3D/MoonSurface"
-import Smoke from "../Custom/Smoke"
+// import Smoke from "../Custom/Smoke"
 
 
 
