@@ -25,9 +25,9 @@ const Home  = ({
         <GroupComponent
             position={[0,position,0]}
         >
-            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
+            <ScrollStage coordinate={[0,position,10]} stateScroll={0}/>
             <TextComponent text="Welcome" color="#fff"/>
-            <Smoke opacity={1} color="#fff" />
+            <Smoke position={[0,0,-1]} opacity={1} color="#fff" />
             {particleGroup}
             
         </GroupComponent>

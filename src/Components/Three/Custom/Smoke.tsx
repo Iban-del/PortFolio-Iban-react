@@ -8,7 +8,7 @@ import type { Coordinate } from "../Core/Type"
 interface SmokeInterface{
     numberElement?:number
     velocityFactor?:number
-    ZPosition?:number
+    position?:Coordinate
     delta?:number
     size?:number
     opacity?:number
@@ -21,7 +21,7 @@ const Smoke = ({
     delta = 5,
     size = 15,
     opacity = 0.5,
-    ZPosition = -2,
+    position = [0,0,0],
     color = '#fff'
 }:SmokeInterface) =>{
 
@@ -34,14 +34,14 @@ const Smoke = ({
         const list:Array<JSX.Element> = []
         for(let i = 0; i < numberElement; i++){
             const n =Math.floor(Math.random() * 3) - 1;
-            const position:Coordinate = [MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta),ZPosition]
-            list.push(<Box color={color} boxArgs={[size,size,0.1]} key={i+"-smoke"} position={position} onFrame={mesh=>moveSmoke(mesh,n/velocityFactor)}  materialArgs={{map:smokeTexture,transparent:true,opacity:opacity}} ></Box>)
+            const position:Coordinate = [MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta),0]
+            list.push(<Box color={color} boxArgs={[size,size,0.001]} key={i+"-smoke"} position={position} onFrame={mesh=>moveSmoke(mesh,n/velocityFactor)}  materialArgs={{map:smokeTexture,transparent:true,opacity:opacity}} ></Box>)
         }
         return list
     },[])
 
     return (
-        <MeshComponent>
+        <MeshComponent position={position}>
             {smokeContainer}
         </MeshComponent>
     )

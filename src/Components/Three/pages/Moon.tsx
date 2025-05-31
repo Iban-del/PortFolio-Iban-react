@@ -8,13 +8,12 @@ import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
 import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
+import MoonSurface from "../Custom/3D/MoonSurface"
+import Smoke from "../Custom/Smoke"
 
 
 
-
-const systemSize = 1
-
-const HowIAm = ({
+const Moon = ({
     position = 0,
     scrollState
 }:PagesProps) =>{
@@ -30,22 +29,19 @@ const HowIAm = ({
             position={[0,position,0]}
         >
             
-            <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState} onStage={()=>{
+            <ScrollStage coordinate={[0,position,10]} stateScroll={3} onStage={()=>{
                 if(MainPlanet.mesh.current){
                     ChangeSize(MainPlanet.mesh.current,1)
-                    MoveTo([0,-SCROLL_STEP,0],MainPlanet.mesh.current)
+                    MoveTo([0,-SCROLL_STEP*2,1],MainPlanet.mesh.current)
                 }
             }}/>
-            <TextComponent responsive={true} text="Iban" position={[0,3,0]}/>
-            <TextComponent responsive={true} text="Deletoille-Elizalde" position={[0,2,0]}/>
-
+            <MoonSurface position={[0,-4,-20]}/>
+            <Smoke position={[0,-10,8]}/>
             {particleGroup}
-            <SolarSystem size={[systemSize,systemSize,systemSize]}/>
-                
         </GroupComponent>
     )
 
 }
 
 
-export default HowIAm
+export default Moon

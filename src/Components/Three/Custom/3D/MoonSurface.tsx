@@ -20,7 +20,7 @@ const MoonSurface = ({
         {...props}
         position={position}
     >
-        <Primitive ref={rocketRef} scale={1} link={link}></Primitive>
+        <Primitive useTexture={true} ref={rocketRef} scale={1} link={link}></Primitive>
 
     </MeshComponent>
 }

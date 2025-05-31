@@ -12,6 +12,7 @@ export interface BoxInterface extends MeshComponentInterface,DefaultGeometry{
     link:string
     primitiveArgs?:PrimitiveProps,
     colorObject?:string,
+    useTexture?:boolean,
     scalePrimitive?:[number|number|number] | number
 }
 
@@ -20,6 +21,7 @@ const Primitive: React.FC<BoxInterface>  = ({
     primitiveArgs,
     colorObject = "#fff",
     scalePrimitive = 1,
+    useTexture = false,
     materialArgs,
     ...propsEvent
 }) =>{
@@ -31,7 +33,7 @@ const Primitive: React.FC<BoxInterface>  = ({
 
     useEffect(()=>{
         newInstance.traverse((child)=>{
-            if((child as any).isMesh){
+            if((child as any).isMesh && !useTexture){
                 (child as any).material = new MeshStandardMaterial({ color: colorObject,...materialArgs})
             }
         })
