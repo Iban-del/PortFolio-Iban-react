@@ -42,7 +42,7 @@ const Smoke = ({
             list.push(<Box color={color} boxArgs={[size,size,0.001]} key={i+"-smoke"} position={position} onFrame={mesh=>moveSmoke(mesh,n/velocityFactor)}  materialArgs={{map:smokeTexture,transparent:true,opacity:opacity}} ></Box>)
         }
         return list
-    },[])
+    },[numberElement, delta, color, size, opacity, velocityFactor, smokeTexture])
 
     return (
         <MeshComponent position={position}>
