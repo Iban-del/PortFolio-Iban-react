@@ -26,9 +26,9 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    console.log(base + '/dist/smoke.png')
+    console.log(base + 'dist/smoke.png')
 
-    const smokeTexture = useLoader(TextureLoader,  base + 'smoke.png')
+    const smokeTexture = useLoader(TextureLoader,  base + 'dist/smoke.png')
     const moveSmoke = async (mesh:Mesh,n:number) =>{
         mesh.rotateZ(n)
     }
