@@ -1,0 +1,27 @@
+import { motion } from "motion/react"
+
+export interface LinkInterface{
+    text:string,
+    key:string
+    href?:string
+}
+
+const Link = ({
+    text,
+    key,
+    href = '#'
+}:LinkInterface)=>{
+
+    return <motion.a
+        href={href}
+        className="font-medium text-xl"
+        whileHover={{
+            color:'#ffffff63'
+        }}
+    >
+        {text}
+    </motion.a>
+
+}
+
+export default Link

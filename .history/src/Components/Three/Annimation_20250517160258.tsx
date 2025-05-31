@@ -1,0 +1,7 @@
+interface Annimationinterface {
+
+}
+
+const topDown = () =>{
+
+}

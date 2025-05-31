@@ -1,0 +1,4 @@
+import { useContext } from "react";
+
+
+const scrollContext = useContext<number>(0);

@@ -1,0 +1,7 @@
+type AnnimationType = [
+    
+]
+
+const topDown = () =>{
+
+}
