@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base:'/portfolio-iban-react/'
+  base:'/Portfolio-iban-react/'
 })
