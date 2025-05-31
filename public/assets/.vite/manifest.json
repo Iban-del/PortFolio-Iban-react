@@ -1,18 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-DAWFZ3zg.js",
+    "file": "index-BfpA5vaR.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-B_Kj-22S.css"
-    ],
-    "assets": [
-      "assets/smoke-B86MKLNt.png"
+      "index-B_Kj-22S.css"
     ]
-  },
-  "src/assets/smoke.png": {
-    "file": "assets/smoke-B86MKLNt.png",
-    "src": "src/assets/smoke.png"
   }
 }
