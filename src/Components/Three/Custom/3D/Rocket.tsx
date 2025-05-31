@@ -1,18 +1,18 @@
 import { useRef, type JSX } from "react"
-import MeshComponent, { type MeshComponentInterface } from "../UI/MeshComponent"
-import Primitive from "../UI/Primitive"
+import MeshComponent, { type MeshComponentInterface } from "../../UI/MeshComponent"
+import Primitive from "../../UI/Primitive"
 import type { Mesh } from "three"
 
-const link = "/MoonSurface/scene.gltf"
+const link = "/Rocket/scene.gltf"
 
-interface moonSurfaceInterface extends MeshComponentInterface{
+interface rocketInterface extends MeshComponentInterface{
     position?:[number,number,number],
 }
 
-const MoonSurface = ({
+const Rocket = ({
     position = [0,0,0],
     ...props
-}:moonSurfaceInterface) =>{
+}:rocketInterface) =>{
 
     const rocketRef = useRef<Mesh>(null)
 
@@ -25,4 +25,4 @@ const MoonSurface = ({
     </MeshComponent>
 }
 
-export default MoonSurface
+export default Rocket

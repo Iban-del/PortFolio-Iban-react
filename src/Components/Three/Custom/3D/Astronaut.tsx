@@ -1,6 +1,6 @@
 import { useRef, type JSX } from "react"
-import MeshComponent, { type MeshComponentInterface } from "../UI/MeshComponent"
-import Primitive from "../UI/Primitive"
+import MeshComponent, { type MeshComponentInterface } from "../../UI/MeshComponent"
+import Primitive from "../../UI/Primitive"
 import type { Mesh } from "three"
 
 const link = "/Astronaut/scene.gltf"

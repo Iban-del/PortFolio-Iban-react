@@ -2,7 +2,7 @@ import GroupComponent from "../UI/GroupComponent"
 import TextComponent from "../UI/Text"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
-import Ground from "../Custom/Ground"
+import Ground from "../Custom/3D/Ground"
 import ApplicationHook from "../../../hooks/ApplicationHook"
 import Sphere from "../UI/Sphere"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
@@ -29,7 +29,7 @@ const Final  = ({
                 
             />
             <Sphere materialArgs={{emissive:"#fff",emissiveIntensity:1}} position={[+2,4,0]} />
-            <Ground position={[0,1,-SCROLL_STEP*3]}/>
+            {/* <Ground position={[0,1,-SCROLL_STEP*3]}/> */}
                 
         </GroupComponent>
     )

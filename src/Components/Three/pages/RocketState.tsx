@@ -1,8 +1,8 @@
 import { useMemo, useRef } from "react"
 import GroupComponent from "../UI/GroupComponent"
 import ParticleGroup from "../Custom/ParticleGroup"
-import Rocket from "../Custom/Rocket"
-import Astronaut from "../Custom/Astronaut"
+import Rocket from "../Custom/3D/Rocket"
+import Astronaut from "../Custom/3D/Astronaut"
 import type { PagesProps } from "../Core/Interface"
 import ScrollStage from "../Scroll/ScrollStage"
 

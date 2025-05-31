@@ -1,20 +1,12 @@
-import { Canvas, useThree } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import Home from './pages/Home';
-import { Suspense, useEffect, useMemo, useRef } from 'react';
+import { Suspense, useEffect, useMemo } from 'react';
 import Loader from './pages/Loader';
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 import GroupComponent from './UI/GroupComponent';
-import Listener from './Scroll/ScrollListener';
-import HowIAm from './pages/HowIAm';
 import { PerspectiveCamera } from '@react-three/drei';
-import Currently from './pages/Currently';
-import RocketState from './pages/RocketState';
-import MoonState from './pages/MoonState';
 import ApplicationHook from '../../hooks/ApplicationHook';
 import type { PagesProps } from './Core/Interface';
-import CameraScroll from './Scroll/ScrollStage';
-import Final from './pages/Final';
-import { topDown } from './Annimation/GaspAnnimation';
 import ScrollListener from './Scroll/ScrollListener';
 import { useApplication } from '../../context/ApplicationContext';
 import GenericThreeUI from './Core/GenericThreeUI';
@@ -27,7 +19,7 @@ const Background = () =>{
 
     const {scrollValue} = ApplicationHook();
     const {view} = useApplication()
-    const pagesList: React.FC<PagesProps>[] = [Home, HowIAm, Currently, RocketState, MoonState,Final];
+    const pagesList: React.FC<PagesProps>[] = [Home];
 
     useEffect(()=>{
         RectAreaLightUniformsLib.init()
@@ -49,12 +41,12 @@ const Background = () =>{
             shadows
         >
             <ambientLight intensity={.1} color={"#fff"}/>
-            <color attach="background" args={["#101218"]}></color>
+            <color attach="background" args={["#000000"]}></color>
             <GroupComponent responsive={true}>
                 <PerspectiveCamera makeDefault position={[0,0,10]} far={40} />
                 {!view&&<ScrollListener/>}
                 <Suspense fallback={<Loader/>}>
-                    <directionalLight position={[0,0,10]} color={"#8a8a8a"} intensity={1} />
+                    <directionalLight position={[0,0,10]} color={"#8fffa8a8a"} intensity={1} />
                     {pages}
                     <GenericThreeUI/>
                 </Suspense>

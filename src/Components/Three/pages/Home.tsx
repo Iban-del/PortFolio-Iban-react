@@ -10,6 +10,7 @@ import Wave from "../Custom/Wave"
 
 
 
+
 const Home  = ({
     position = 0,
     scrollState
@@ -26,8 +27,9 @@ const Home  = ({
             position={[0,position,0]}
         >
             <ScrollStage coordinate={[0,position,10]} stateScroll={scrollState}/>
-            <TextComponent text="Welcome" color="#fff"/>
-            {particleGroup}
+            {/* <TextComponent text="Welcome" color="#fff"/>
+            {particleGroup} */}
+
             
         </GroupComponent>
     )

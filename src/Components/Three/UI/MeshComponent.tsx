@@ -41,8 +41,8 @@ const MeshComponent: React.FC<MeshComponentInterface> = ({
     })
 
     useEffect(()=>{
-        if(refMesh.current){
-
+        if(refMesh.current){ 
+            console.log(refMesh.current)
             beforeRender && beforeRender(refMesh.current)
         }
     },[])

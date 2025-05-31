@@ -9,7 +9,7 @@ interface RingInterface extends MeshComponentInterface, DefaultGeometry{
 }
 
 const Ring: React.FC<RingInterface> = ({
-    ringArgs = [],
+    ringArgs,
     materialArgs,
     color = '#fff',
     metalness = 0.9,
