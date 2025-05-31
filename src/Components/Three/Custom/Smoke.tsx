@@ -26,7 +26,7 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    console.log(base + 'smoke.png')
+    console.log(base + '/dist/smoke.png')
 
     const smokeTexture = useLoader(TextureLoader,  base + 'smoke.png')
     const moveSmoke = async (mesh:Mesh,n:number) =>{
