@@ -1,8 +1,6 @@
-import { AnimatePresence, motion } from "motion/react"
+import { motion } from "motion/react"
 import ApplicationHook from "../../hooks/ApplicationHook"
 import { SlSizeActual } from "react-icons/sl";
-import { useApplication } from "../../context/ApplicationContext";
-import Card from "../UI/Card";
 import Skills from "./Skills";
 import AboutMe from "./AboutMe";
 import Project from "./Project";

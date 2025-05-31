@@ -1,4 +1,4 @@
-import { useMemo, useRef, type JSX } from "react"
+import { useMemo, type JSX } from "react"
 import MeshComponent from "../UI/MeshComponent"
 import Sphere from "../UI/Sphere";
 type MeshType = JSX.IntrinsicElements['mesh'];

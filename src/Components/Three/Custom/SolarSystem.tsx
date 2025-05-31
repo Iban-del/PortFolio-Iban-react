@@ -1,9 +1,7 @@
 import { useEffect, useMemo, useRef } from "react"
 import MeshComponent from "../UI/MeshComponent"
-import Sphere from "../UI/Sphere"
 import type { Mesh } from "three"
 import Planet from "./Planet"
-import { useThreeUi } from "../../../context/ThreeUiContex"
 
 interface solarSystemInterface {
     position?:[number,number,number],
@@ -29,7 +27,7 @@ const SolarSystem = ({
     const planets = useMemo(()=>{
         const planetsList = []
         for(let i = 1; i <= numberPlanet;i++){
-            planetsList.push(<Planet key={i} R={maxSize/i} speed={i/200} intensity={i/100} />)
+            planetsList.push(<Planet key={i+"-solar"} R={maxSize/i} speed={i/200} intensity={i/100} />)
         }
         return planetsList
     },[])

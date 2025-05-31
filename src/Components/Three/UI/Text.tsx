@@ -1,6 +1,6 @@
 import type React from "react"
 import type { DefaultGeometry } from "../Core/Type"
-import {  useThree, type Vector3 } from "@react-three/fiber";
+import { type Vector3 } from "@react-three/fiber";
 import { Text } from '@react-three/drei';
 import type { MeshComponentInterface } from "./MeshComponent";
 import MeshComponent from "./MeshComponent";

@@ -1,4 +1,4 @@
-import type { Camera, Group, Mesh, Object3D, PerspectiveCamera } from "three"
+import type { Object3D, PerspectiveCamera } from "three"
 import gsap from 'gsap'
 import type { Coordinate, ThreeComponent } from "../Core/Type";
 

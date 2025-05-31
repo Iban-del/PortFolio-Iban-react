@@ -12,7 +12,8 @@ import { useApplication } from '../../context/ApplicationContext';
 import GenericThreeUI from './Core/GenericThreeUI';
 import System from './pages/System';
 import Moon from './pages/Moon';
-import Ground from './pages/Ground';
+import Galaxy from './pages/Galaxy';
+import Final from './pages/Final';
 
 
 
@@ -20,14 +21,13 @@ import Ground from './pages/Ground';
 
 const Background = () =>{
 
-    const {scrollValue,updateScroll} = ApplicationHook();
+    const {scrollValue} = ApplicationHook();
     const {view,helpView} = useApplication()
-    const pagesList: React.FC<PagesProps>[] = [Home,System,Moon,Ground];
+    const pagesList: React.FC<PagesProps>[] = [Home,Galaxy,System,Moon,Final];
     
     const authorizedScroll = (!view && !helpView)
 
     useEffect(()=>{
-        //updateScroll("numberScrollELements",pagesList.length-1)
         RectAreaLightUniformsLib.init()
     },[])
 
@@ -53,10 +53,10 @@ const Background = () =>{
             <ambientLight intensity={.1} color={"#fff"}/>
             <color attach="background" args={["#000000"]}></color>
             <GroupComponent responsive={true}>
-                <PerspectiveCamera makeDefault position={[0,0,10]} far={40} />
+                <PerspectiveCamera makeDefault position={[0,0,10]} far={20} />
                 {authorizedScroll &&<ScrollListener/>}
                 <Suspense fallback={<Loader/>}>
-                    <directionalLight position={[0,0,10]} color={"#8fffa8a8a"} intensity={.2} castShadow />
+                    <directionalLight position={[0,0,10]} color={"#fff"} intensity={.2} castShadow />
                     {pages}
                     <GenericThreeUI/>
                 </Suspense>

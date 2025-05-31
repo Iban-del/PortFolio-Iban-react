@@ -1,4 +1,4 @@
-import { useMemo, useState, type JSX } from "react"
+import { useMemo, type JSX } from "react"
 import { FaReact } from "react-icons/fa";
 import Card from "../UI/Card";
 import { AnimatePresence } from "motion/react";

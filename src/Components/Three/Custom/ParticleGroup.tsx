@@ -2,7 +2,6 @@ import { MathUtils } from "three";
 import Particle from "./Particle";
 import GroupComponent from "../UI/GroupComponent";
 import type { JSX } from "react";
-import { topDown } from "../Annimation/GaspAnnimation";
 
 
 
@@ -16,7 +15,7 @@ const ParticleGroup = (
 
     for(let i = 0; i < numberParticle; i++){
         particles.push(<Particle 
-            
+
             boxArgs={[particleSize,particleSize,0]}
             position={[MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta)]}
             key={i}

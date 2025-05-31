@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import { useEffect, useRef, type JSX, type SyntheticEvent } from "react"
+import { useEffect, useRef, type JSX } from "react"
 
 export interface LinkInterface{
     text:string|JSX.Element,

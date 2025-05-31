@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence } from "motion/react"
 import { useMemo, type JSX } from "react"
 import Card from "../UI/Card"
 import { IoIosInformationCircle } from "react-icons/io";

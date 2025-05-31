@@ -19,7 +19,7 @@ interface TheeUi {
 }
 
 const TheeUiList:TheeUi = {
-    MainPlanet:{mesh:createRef(),defaultCoordinate:[0,-SCROLL_STEP,0]},
+    MainPlanet:{mesh:createRef(),defaultCoordinate:[0,-SCROLL_STEP,-SCROLL_STEP]},
     Rocket:{mesh:createRef(),defaultCoordinate:[0,-(SCROLL_STEP*2),10]}
 }
 

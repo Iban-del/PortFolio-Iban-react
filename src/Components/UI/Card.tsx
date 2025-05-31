@@ -1,7 +1,8 @@
 import { useRef, useState, type JSX } from "react"
 import { motion } from "motion/react"
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+
+
 interface CardInterface {
     title:string
     children?: string | JSX.Element | JSX.Element[],

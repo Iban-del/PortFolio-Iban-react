@@ -21,7 +21,7 @@ const Planet = ({
     
     return <MeshComponent>
         <Sphere sphereArgs={[R/10,32,16,0,Math.PI*2,0,Math.PI]} position={[R,0,0]} metalness={.5} roughness={0}  materialArgs={{emissive:"#fff",emissiveIntensity:intensity}}
-            onFrame={async (mesh,state,delta)=>{
+            onFrame={async (mesh)=>{
                 angle.current += speed;
                 mesh.position.y = Math.cos(angle.current) * R;
                 mesh.position.x = Math.sin(angle.current) * R;

@@ -1,5 +1,5 @@
 import { useApplicationDispatch, type ApplicationIndex } from "../context/ApplicationContext"
-import { useScroll, useScrollDispatch, type ScrollIndex, type ScrollValuesInterface } from "../context/ScrollContext"
+import { useScroll, useScrollDispatch, type ScrollIndex } from "../context/ScrollContext"
 
 
 

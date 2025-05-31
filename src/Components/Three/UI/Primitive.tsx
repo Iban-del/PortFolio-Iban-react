@@ -4,7 +4,7 @@ import type {  DefaultGeometry } from "../Core/Type";
 import MeshComponent, { type MeshComponentInterface } from "./MeshComponent";
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
-import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { MeshStandardMaterial } from "three";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils.js";
 type PrimitiveProps = JSX.IntrinsicElements['group'];
 

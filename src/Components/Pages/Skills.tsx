@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type JSX } from "react"
+import { useMemo, useState, type JSX } from "react"
 import { FaReact } from "react-icons/fa";
 import CheckBoxGroup, { type inputInterface } from "../UI/CheckBoxGroup";
 import Card from "../UI/Card";

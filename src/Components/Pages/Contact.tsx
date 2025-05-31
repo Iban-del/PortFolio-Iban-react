@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "motion/react"
 import { FaGithub } from "react-icons/fa6";
 import Link from "../UI/Link";
 import type { JSX } from "react";

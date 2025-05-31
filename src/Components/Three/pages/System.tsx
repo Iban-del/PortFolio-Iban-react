@@ -16,7 +16,6 @@ const systemSize = 1
 
 const System = ({
     position = 0,
-    scrollState
 }:PagesProps) =>{
 
     
@@ -27,20 +26,20 @@ const System = ({
 
     return (
         <GroupComponent
-            position={[0,position,0]}
+            position={[0,-SCROLL_STEP,position]}
         >
             
-            <ScrollStage coordinate={[0,position,10]} stateScroll={1} onStage={()=>{
+            <ScrollStage coordinate={[0,-SCROLL_STEP,position+10]} stateScroll={3} onStage={()=>{
                 if(MainPlanet.mesh.current){
                     ChangeSize(MainPlanet.mesh.current,1)
-                    MoveTo([0,-SCROLL_STEP,0],MainPlanet.mesh.current)
+                    MoveTo([0,-SCROLL_STEP,position],MainPlanet.mesh.current)
                 }
             }}/>
 
-            <ScrollStage coordinate={[0,-20,2]} stateScroll={2} onStage={()=>{
+            <ScrollStage coordinate={[0,-SCROLL_STEP,position+2]} stateScroll={4} onStage={()=>{
                 if(MainPlanet.mesh.current){
                     ChangeSize(MainPlanet.mesh.current,1)
-                    MoveTo([0,-SCROLL_STEP,0],MainPlanet.mesh.current)
+                    MoveTo([0,-SCROLL_STEP,position],MainPlanet.mesh.current)
                 }
             }}/>
             

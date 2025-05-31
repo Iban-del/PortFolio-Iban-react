@@ -6,12 +6,11 @@ import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
 import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
-import MoonSurface from "../Custom/3D/MoonSurface"
-import Smoke from "../Custom/Smoke"
+import Spirale from "../Custom/Spirale"
 
 
 
-const Moon = ({
+const Final = ({
     position = 0,
 }:PagesProps) =>{
 
@@ -25,14 +24,13 @@ const Moon = ({
         <GroupComponent
             position={[0,position,-SCROLL_STEP]}
         >
-            <ScrollStage coordinate={[0,position,-SCROLL_STEP+10]} stateScroll={5} onStage={()=>{
+            <ScrollStage coordinate={[0,position,-SCROLL_STEP+10]} stateScroll={6} onStage={()=>{
                 if(MainPlanet.mesh.current){
                     ChangeSize(MainPlanet.mesh.current,1)
                     MoveTo([0,position,-SCROLL_STEP],MainPlanet.mesh.current)
                 }
             }}/>
-            <MoonSurface position={[0,-4,-20]}/>
-            <Smoke numberElement={8} position={[0,-10,8]}/>
+            <Spirale/>
             {particleGroup}
         </GroupComponent>
     )
@@ -40,4 +38,4 @@ const Moon = ({
 }
 
 
-export default Moon
+export default Final

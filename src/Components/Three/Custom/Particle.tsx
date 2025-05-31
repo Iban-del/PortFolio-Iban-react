@@ -1,9 +1,7 @@
-import { Vector3 } from "three"
 import type { BoxGeometryArgs } from "../Core/Type"
 import Box from "../UI/Box"
 import MeshComponent from "../UI/MeshComponent"
-import { topDown } from "../Annimation/GaspAnnimation"
-import { AnnimatePosition } from "../Annimation/AnnimationCallback"
+
 
 interface particleInterface {
     position?:[number,number,number]
