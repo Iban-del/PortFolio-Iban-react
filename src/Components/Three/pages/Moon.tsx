@@ -32,7 +32,7 @@ const Moon = ({
                 }
             }}/>
             <MoonSurface position={[0,-4,-20]}/>
-            <Smoke numberElement={8} position={[0,-10,8]}/>
+            {/* <Smoke numberElement={8} position={[0,-10,8]}/> */}
             {particleGroup}
         </GroupComponent>
     )
