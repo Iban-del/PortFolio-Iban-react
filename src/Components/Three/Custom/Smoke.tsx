@@ -4,7 +4,8 @@ import MeshComponent from "../UI/MeshComponent"
 import { useLoader } from '@react-three/fiber'
 import { MathUtils, Mesh, TextureLoader } from 'three'
 import type { Coordinate } from "../Core/Type"
-import smoke from './assets/smoke.png';
+import smoke from '../../../assets/smoke.png';
+
 
 interface SmokeInterface{
     numberElement?:number
