@@ -31,6 +31,7 @@ const Final = ({
                 }
             }}/>
             <Spirale/>
+            <Spirale q={-1} />
             {particleGroup}
         </GroupComponent>
     )

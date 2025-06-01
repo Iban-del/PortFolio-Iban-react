@@ -18,7 +18,7 @@ const Wave = ({
     number =  40,
     ...props
 }:WaveInterface) =>{
-    const points = useMemo(()=>{
+    const points = useMemo(async()=>{
         const p = []
         let x = 0;
         let z = 0;
@@ -32,9 +32,9 @@ const Wave = ({
                     key={Math.random()} 
                     position={[x-5,f*amplitude,z]} 
                     //materialArgs={{emissive:"#fff",emissiveIntensity:t}} 
-                    boxArgs={[sphereSize+0.5,0.01,0.0001]}
+                    boxArgs={[sphereSize+1,0.01,0.001]}
                     beforeRender={async (mesh)=>{
-                        AnnimatePosition(mesh,f*(-(amplitude*2)))
+                        await AnnimatePosition(mesh,f*(-(amplitude*2)))
                     }}
                 />)
             }

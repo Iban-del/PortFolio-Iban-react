@@ -29,11 +29,11 @@ const Moon = ({
             <ScrollStage coordinate={[0,position,-SCROLL_STEP+10]} stateScroll={5} onStage={()=>{
                 if(MainPlanet.mesh.current){
                     ChangeSize(MainPlanet.mesh.current,1)
-                    MoveTo([0,position,-SCROLL_STEP],MainPlanet.mesh.current)
+                    MoveTo([0,position,-SCROLL_STEP+7],MainPlanet.mesh.current)
                 }
             }}/>
             {/* <MoonSurface position={[0,-4,-20]}/> */}
-            <Wave sphereSize={0.1} number={50} amplitude={0.2}  position={[0,-2,4]}/>
+            <Wave sphereSize={0.1} number={20} amplitude={0.2}  position={[3,-1,8]}/>
             <Smoke numberElement={8} position={[0,-10,8]}/>
             {particleGroup}
         </GroupComponent>

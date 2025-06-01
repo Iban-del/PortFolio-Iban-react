@@ -4,14 +4,15 @@ import Particle from "./Particle"
 
 interface SpiraleInterface{
     numberElement?:number
-    
+    q?:number
 }
 
 const Spirale = ({
-    numberElement = 500
+    numberElement = 100,
+    q=1
 }:SpiraleInterface) =>{
 
-    const maxTheta =  2.5*Math.PI;
+    const maxTheta =  Math.PI;
 
     const r = (theta:number) =>{
         return 1+1*theta
@@ -27,7 +28,7 @@ const Spirale = ({
                 key={i+"-spiral"}
                 boxArgs={[Math.random()/100,Math.random(),0]}
                 position={[
-                    R*Math.cos(theta),
+                    q*(R*Math.cos(theta)),
                     R*Math.sin(theta),
                     0
                 ]}
