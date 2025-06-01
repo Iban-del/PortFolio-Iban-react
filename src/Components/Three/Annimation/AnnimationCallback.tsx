@@ -41,10 +41,10 @@ export const AnnimatePosition = async (
     gsap.to(component.position,{
         y:'+='+delta,
         repeat:-1,
-        duration:ANNIMATION_D+1,
+        duration:ANNIMATION_D+2,
         yoyo:true,
-        ease:'power1.inOut',
-        onComplete:()=>{
+        ease:'none',
+        onRepeat:()=>{
             onFinish && onFinish()
         },
     })

@@ -4,6 +4,8 @@ import ScrollStage from "../Scroll/ScrollStage"
 import { useMemo } from "react";
 import ParticleGroup from "../Custom/ParticleGroup";
 import Gl from "../Custom/Galaxy";
+import MeshComponent from "../UI/MeshComponent";
+import Smoke from "../Custom/Smoke";
 
 
 
@@ -27,6 +29,10 @@ const Galaxy = ({
             <ScrollStage coordinate={[0,position,-1]} stateScroll={2} onStage={()=>{}}/>
             <Gl/>
             {particleGroup}
+            <MeshComponent position={[0,0,-15]}>
+                <Smoke delta={9} />
+                {particleGroup}
+            </MeshComponent>
             
             
         </GroupComponent>
