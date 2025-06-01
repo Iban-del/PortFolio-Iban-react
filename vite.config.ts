@@ -2,20 +2,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
 export default defineConfig({
-  server:{
-    origin:"https://iban-del.github.io/PortFolio-Iban-react"
-  },
-  base: '/assets',
+  base: '/PortFolio-Iban-react/',
+  plugins: [react(),tailwindcss(),],
   build: {
-    assetsInlineLimit: 0,
-    manifest:true,
-    outDir:'public/assets',
-    assetsDir:''
+    outDir: 'dist',
+    assetsInlineLimit: 0, 
+    manifest: true, 
   },
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
 })

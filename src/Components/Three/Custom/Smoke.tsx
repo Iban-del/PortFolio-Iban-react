@@ -27,7 +27,8 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    const smokeTexture = useLoader(TextureLoader,'/smoke.png')
+    const smokeTexture = useLoader(TextureLoader, import.meta.env.BASE_URL + 'images/smoke.png')
+
     if (!smokeTexture) return null
 
     const moveSmoke = async (mesh:Mesh,n:number) =>{
