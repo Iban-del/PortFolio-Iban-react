@@ -125,13 +125,13 @@
   ],
   "images": [
     {
-      "uri": "textures/moon_baseColor.png"
+      "uri": "textures/moon_baseColor.webp"
     },
     {
-      "uri": "textures/moon_metallicRoughness.png"
+      "uri": "textures/moon_metallicRoughness.webp"
     },
     {
-      "uri": "textures/moon_normal.png"
+      "uri": "textures/moon_normal.webp"
     }
   ],
   "materials": [
