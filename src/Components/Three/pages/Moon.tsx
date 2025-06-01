@@ -6,8 +6,8 @@ import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
 import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
-// import MoonSurface from "../Custom/3D/MoonSurface"
-// import Smoke from "../Custom/Smoke"
+import MoonSurface from "../Custom/3D/MoonSurface"
+import Smoke from "../Custom/Smoke"
 
 
 
@@ -31,8 +31,8 @@ const Moon = ({
                     MoveTo([0,position,-SCROLL_STEP],MainPlanet.mesh.current)
                 }
             }}/>
-            {/* <MoonSurface position={[0,-4,-20]}/> */}
-            {/* <Smoke numberElement={8} position={[0,-10,8]}/> */}
+            <MoonSurface position={[0,-4,-20]}/>
+            <Smoke numberElement={8} position={[0,-10,8]}/>
             {particleGroup}
         </GroupComponent>
     )
