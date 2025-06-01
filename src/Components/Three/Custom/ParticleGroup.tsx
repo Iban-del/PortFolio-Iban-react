@@ -7,7 +7,7 @@ import type { JSX } from "react";
 
 const ParticleGroup = (
     numberParticle = 120,
-    delta = 15,
+    delta = [15,15,15],
     particleSize= 10*Math.pow(10,-2.8)
 ) =>{
     
@@ -17,7 +17,7 @@ const ParticleGroup = (
         particles.push(<Particle 
 
             boxArgs={[particleSize,particleSize,0]}
-            position={[MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta),MathUtils.randFloatSpread(delta)]}
+            position={[MathUtils.randFloatSpread(delta[0]),MathUtils.randFloatSpread(delta[1]),MathUtils.randFloatSpread(delta[2])]}
             key={i}
         />)
     }   

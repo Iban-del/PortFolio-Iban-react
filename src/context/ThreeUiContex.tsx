@@ -15,12 +15,10 @@ interface ThreeUiType{
 
 interface TheeUi {
     MainPlanet:ThreeUiType,
-    Rocket:ThreeUiType,
 }
 
 const TheeUiList:TheeUi = {
-    MainPlanet:{mesh:createRef(),defaultCoordinate:[0,-SCROLL_STEP,-SCROLL_STEP]},
-    Rocket:{mesh:createRef(),defaultCoordinate:[0,-(SCROLL_STEP*2),10]}
+    MainPlanet:{mesh:createRef(),defaultCoordinate:[0,-SCROLL_STEP,-SCROLL_STEP*2]},
 }
 
 export const ThreeUiContex = createContext<TheeUi>(TheeUiList);

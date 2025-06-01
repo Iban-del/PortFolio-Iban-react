@@ -35,10 +35,11 @@ export const ChangeSize = async (
 
 export const AnnimatePosition = async (
     component:ThreeComponent,
+    delta:number,
     onFinish?:()=>void
 ) =>{
     gsap.to(component.position,{
-        y:'+='+0.2,
+        y:'+='+delta,
         repeat:-1,
         duration:ANNIMATION_D+1,
         yoyo:true,

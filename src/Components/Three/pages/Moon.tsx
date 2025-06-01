@@ -8,6 +8,7 @@ import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
 // import MoonSurface from "../Custom/3D/MoonSurface"
 import Smoke from "../Custom/Smoke"
+import Wave from "../Custom/Wave"
 
 
 
@@ -32,6 +33,7 @@ const Moon = ({
                 }
             }}/>
             {/* <MoonSurface position={[0,-4,-20]}/> */}
+            <Wave sphereSize={0.01} position={[1,-2,4]}/>
             <Smoke numberElement={8} position={[0,-10,8]}/>
             {particleGroup}
         </GroupComponent>
