@@ -53,7 +53,7 @@ const Background = () =>{
             <ambientLight intensity={.1} color={"#fff"}/>
             <color attach="background" args={["#000000"]}></color>
             <GroupComponent responsive={true}>
-                <PerspectiveCamera makeDefault position={[0,0,10]} far={25} />
+                <PerspectiveCamera makeDefault position={[0,0,25]} far={25} />
                 {authorizedScroll &&<ScrollListener/>}
                 <Suspense fallback={<Loader/>}>
                     <directionalLight position={[0,0,10]} color={"#fff"} intensity={.2} castShadow />
