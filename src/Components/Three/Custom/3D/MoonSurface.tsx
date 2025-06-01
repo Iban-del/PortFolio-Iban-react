@@ -2,9 +2,7 @@ import { useRef } from "react"
 import MeshComponent, { type MeshComponentInterface } from "../../UI/MeshComponent"
 import Primitive from "../../UI/Primitive"
 import type { Mesh } from "three"
-const base = import.meta.env.BASE_URL;
 
-const link = base + 'MoonSurface/scene.gltf'
 
 interface moonSurfaceInterface extends MeshComponentInterface{
     position?:[number,number,number],
@@ -21,7 +19,7 @@ const MoonSurface = ({
         {...props}
         position={position}
     >
-        <Primitive useTexture={false} ref={rocketRef} scale={1} link={link}></Primitive>
+        <Primitive useTexture={false} ref={rocketRef} scale={1} link={import.meta.env.BASE_URL + 'MoonSurface/scene.gltf'}></Primitive>
 
     </MeshComponent>
 }
