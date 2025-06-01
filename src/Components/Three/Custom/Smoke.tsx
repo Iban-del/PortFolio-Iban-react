@@ -27,7 +27,7 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    const smokeTexture = useLoader(TextureLoader, import.meta.env.BASE_URL + 'images/smoke.png')
+    const smokeTexture = useLoader(TextureLoader, import.meta.env.BASE_URL + 'smoke.webp')
 
     if (!smokeTexture) return null
 
