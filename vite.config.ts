@@ -6,6 +6,7 @@ export default defineConfig({
   base: '/PortFolio-Iban-react/',
   plugins: [react(),tailwindcss(),],
   build: {
+    minify: 'esbuild',
     outDir: 'dist',
     assetsInlineLimit: 0, 
     manifest: true, 
