@@ -8,6 +8,7 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
     outDir: 'dist',
+    cssCodeSplit: true,
     assetsInlineLimit: 0, 
     manifest: true, 
   },
