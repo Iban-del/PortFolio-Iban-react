@@ -29,7 +29,7 @@ const Project = () =>{
 
     const SkillsList: Array<ProjectInterface> = [
         {
-            title: "Gestion Enseigants",
+            title: "Gestion Enseignants",
             content: <ProjetDescription text="Création d’un outil numérique pour la gestion des activités d’enseignement du personnel universitaire." languages={[<IoLeafSharp />, <FaLinesLeaning />, <GrMysql />, <IoLogoJavascript />]} />,
             popUpContent: "Ce projet vise à faciliter la gestion des plannings, des cours et des affectations des enseignants dans un cadre universitaire à l’aide de technologies web robustes et dynamiques."
         },
