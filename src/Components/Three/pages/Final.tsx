@@ -32,7 +32,7 @@ const Final = ({
                 }
             }}/>
             <MeshComponent>
-                <TextComponent position={[0, 0, 0]} text="Ce n'est que le début." color="#fff" />
+                <TextComponent position={[0, 0, window.innerWidth < 1026? -10:0]} text="Ce n'est que le début." color="#fff" />
             </MeshComponent>
             {particleGroup}
         </GroupComponent>
