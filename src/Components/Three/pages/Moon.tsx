@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import React, { useMemo } from "react"
 import GroupComponent from "../UI/GroupComponent"
 import ParticleGroup from "../Custom/ParticleGroup"
 import type { PagesProps } from "../Core/Interface"
@@ -8,7 +8,9 @@ import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
 // import MoonSurface from "../Custom/3D/MoonSurface"
 import Smoke from "../Custom/Smoke"
-import Wave from "../Custom/Wave"
+import Box from "../UI/Box"
+import type { Vector3 } from "@react-three/fiber"
+import type { Mesh } from "three"
 
 
 
@@ -18,9 +20,34 @@ const Moon = ({
 
     
     const {MainPlanet} = useThreeUi()
+    const coordinateCube:Array<Vector3>=[
+        [-4, 1, -3],
+        [3, 3, -4],
+        [-4, 0, 4],
+        [5, 2, 2],
+        [-3, -3, -1],
+        [2, -1, 3],
+        [-3, 3, -4],
+        [4, 0, -2]
+    ]
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
+    const moveBox = async (mesh:Mesh,n:number) =>{
+        mesh.rotateZ(n)
+        mesh.rotateY(n)
+        mesh.rotateX(n)
+    }
+
+    const BoxList = useMemo(()=>{
+        const cubeList:Array<React.ReactElement> = []
+        coordinateCube.forEach(element=>{
+            cubeList.push(<Box position={element} onFrame={mesh=>moveBox(mesh,0.001*Math.PI)}/>)
+        })
+        return cubeList
+    },[])
+
+  
 
     return (
         <GroupComponent
@@ -33,7 +60,8 @@ const Moon = ({
                 }
             }}/>
             {/* <MoonSurface position={[0,-4,-20]}/> */}
-            <Wave sphereSize={0.1} number={20} amplitude={0.2}  position={[3,-1,8]}/>
+            {BoxList}
+            
             <Smoke numberElement={8} position={[0,-10,8]}/>
             {particleGroup}
         </GroupComponent>

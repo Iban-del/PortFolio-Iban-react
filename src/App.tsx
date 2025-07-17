@@ -1,5 +1,5 @@
-import NavBar from "./Components/UI/NavBar"
-import { type LinkInterface } from "./Components/UI/Link"
+import NavBar, { type LinkInterface } from "./Components/UI/NavBar"
+
 import Background from "./Components/Three/Background"
 import './index.css'
 import { ApplicationRenderContext, BackgroundRenderContext } from "./Core/RenderContext"
@@ -41,7 +41,7 @@ function App() {
             }}></div>
             <div className="grid grid-cols-1 grid-rows-3 w-full h-screen z-1">
               <div className="flex items-start">
-                <NavBar buttons={buttons}></NavBar>
+                <NavBar buttons={buttons} logo="Hello!"></NavBar>
               </div>
               <div className="flex items-center"  >
                 <ScrollPoints></ScrollPoints>

@@ -6,7 +6,8 @@ import ScrollStage from "../Scroll/ScrollStage"
 import { useThreeUi } from "../../../context/ThreeUiContex"
 import { ChangeSize, MoveTo } from "../Annimation/AnnimationCallback"
 import { SCROLL_STEP } from "../../../Core/GlobalConstant"
-import Spirale from "../Custom/Spirale"
+import MeshComponent from "../UI/MeshComponent"
+import TextComponent from "../UI/Text"
 
 
 
@@ -26,12 +27,13 @@ const Final = ({
         >
             <ScrollStage coordinate={[0,position,-SCROLL_STEP+10]} stateScroll={6} onStage={()=>{
                 if(MainPlanet.mesh.current){
-                    ChangeSize(MainPlanet.mesh.current,1)
-                    MoveTo([0,position,-SCROLL_STEP],MainPlanet.mesh.current)
+                    ChangeSize(MainPlanet.mesh.current,0.01)
+                    MoveTo([0,position,-SCROLL_STEP-10],MainPlanet.mesh.current)
                 }
             }}/>
-            <Spirale/>
-            <Spirale q={-1} />
+            <MeshComponent>
+                <TextComponent position={[0, 0, 0]} text="Ce n'est que le début." color="#fff" />
+            </MeshComponent>
             {particleGroup}
         </GroupComponent>
     )

@@ -6,6 +6,8 @@ import ParticleGroup from "../Custom/ParticleGroup";
 import Gl from "../Custom/Galaxy";
 import MeshComponent from "../UI/MeshComponent";
 import Smoke from "../Custom/Smoke";
+import ApplicationHook from "../../../hooks/ApplicationHook";
+import TextComponent from "../UI/Text";
 
 
 
@@ -15,7 +17,7 @@ import Smoke from "../Custom/Smoke";
 const Galaxy = ({
     position = 0,
 }:PagesProps) =>{
-    
+    const {scrollValue} = ApplicationHook()
     const particleGroup = useMemo(()=>{
         return ParticleGroup()
     },[])
@@ -32,6 +34,12 @@ const Galaxy = ({
             <MeshComponent position={[0,0,-15]}>
                 <Smoke delta={9} />
                 {particleGroup}
+                {scrollValue.state == 2 &&
+                    <MeshComponent>
+                        <TextComponent position={[0,0,-2]} text="Apprenti" color="#fff"/>
+                        <TextComponent position={[0,-1,-2]} text="Développeur" color="#fff"/>
+                    </MeshComponent>
+                }
             </MeshComponent>
             
             

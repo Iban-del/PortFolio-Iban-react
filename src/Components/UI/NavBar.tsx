@@ -1,74 +1,103 @@
+
 import { useState } from "react";
-import type { LinkInterface } from "./Link";
-import Link from "./Link";
-import { motion , AnimatePresence } from "motion/react"
+import { motion, AnimatePresence } from "framer-motion";
 
-export interface NavBarInterface{
-    buttons:Array<LinkInterface>
-
+export interface LinkInterface {
+    key: string;
+    text: string;
+    onClick?: () => void;
 }
 
-/** NavBar */
-const NavBar = ({
-    buttons
-}:NavBarInterface) =>{
+export interface NavBarInterface {
+    buttons: Array<LinkInterface>;
+    logo?: string;
+}
 
-    const [showButton,setShowButton] = useState(false);
+const NavBar = ({ buttons, logo = "" }: NavBarInterface) => {
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
-    const onHoverStart = () => {
-        setShowButton(true)
-    }
-    
-    const onHoverEnd = () => {
-        setShowButton(false)
-    }
-    
+    const handleLinkClick = (link: LinkInterface) => {
+        if (link.onClick) {
+        link.onClick();
+        }
+        setIsOpen(false); 
+    };
 
-
-    return <div className="w-[100%] bg-transparent">
-        <div className="flex w-[100%] bg-transparent ">
-            <motion.div
-                onHoverEnd={()=>onHoverEnd()}
-                className="m-9 flex space-x-4 bg-transparent flex-col sm:flex-row z-4"
-            >
-                <motion.svg 
-                    onHoverStart={()=>onHoverStart()}
-                    onTap={()=>setShowButton((e)=>!e)}
-                    whileHover={{rotate:30}}
-                    className="cursor-pointer relative " 
-                    width="50" 
-                    height="50" 
-                    viewBox="0 0 15 15" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z" fill="currentColor" ></path>
-                </motion.svg>
-
-                <AnimatePresence>
-                    {showButton &&
-                        <motion.div
-                            initial={{opacity:0}}
-                            animate={{opacity:1}}
-                            exit={{opacity:0}}
-                            className="sm:relative flex space-x-4 flex-col sm:flex-row text-sm sm:items-center justify-around"
-                        >
-                            {buttons.map((e)=>{
-                                return <div
-                                    key={e.key+"-NavBar"}
-                                    className="m-1"
-                                >
-                                    <Link onClick={e.onClick} text={e.text}></Link>
-                                </div>
-                            })}
-                        </motion.div>
-                    }
-                </AnimatePresence>
-            </motion.div>
+    return (
+        <nav className="w-full bg-transparent sticky top-0 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
             
-        </div>        
-    </div>
-}
+            {/* Logo */}
+            <div className="flex-shrink-0">
+                <span className="text-2xl font-bold text-white">
+                {logo}
+                </span>
+            </div>
 
-export default NavBar;
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+                {buttons.map((link) => (
+                <button
+                    key={link.key}
+                    onClick={() => handleLinkClick(link)}
+                    className="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                >
+                    {link.text}
+                </button>
+                ))}
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+                <button
+                onClick={toggleMenu}
+                className="text-white hover:bg-white/10 p-2 rounded-md transition-colors"
+                >
+                {isOpen ? (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                ) : (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                )}
+                </button>
+            </div>
+            </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+            {isOpen && (
+            <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden bg-transparent"
+            >
+                <div className="px-4 py-6 space-y-4">
+                {buttons.map((link) => (
+                    <button
+                    key={link.key}
+                    onClick={() => handleLinkClick(link)}
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:text-blue-200 hover:bg-white/10 transition-colors duration-200"
+                    >
+                    {link.text}
+                    </button>
+                ))}
+                </div>
+            </motion.div>
+            )}
+        </AnimatePresence>
+        </nav>
+    );
+};
+
+export default  NavBar

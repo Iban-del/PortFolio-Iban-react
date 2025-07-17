@@ -1,8 +1,7 @@
-import { useMemo, type JSX } from "react"
+import { useEffect, useMemo, useState, type JSX } from "react"
 import Box from "../UI/Box"
 import MeshComponent from "../UI/MeshComponent"
-import { useLoader } from '@react-three/fiber'
-import { MathUtils, Mesh, TextureLoader } from 'three'
+import { MathUtils, Mesh, Texture, TextureLoader } from 'three'
 import type { Coordinate } from "../Core/Type"
 // import smoke from '../../../assets/smoke.png';
 
@@ -27,15 +26,27 @@ const Smoke = ({
     color = '#fff'
 }:SmokeInterface) =>{
 
-    const smokeTexture = useLoader(TextureLoader, import.meta.env.BASE_URL + 'smoke.webp')
+    const [smokeTexture, setSmokeTexture] = useState<Texture | null>(null)
 
-    if (!smokeTexture) return null
+    useEffect(() => {
+        const loadTexture = async () => {
+            try {
+                const loader = new TextureLoader()
+                const texture = await loader.loadAsync(import.meta.env.BASE_URL + 'smoke.webp')
+                setSmokeTexture(texture)
+            } catch (error) {
+                console.warn('Failed to load smoke texture:', error)
+            }
+        }
+        loadTexture()
+    }, [])
 
     const moveSmoke = async (mesh:Mesh,n:number) =>{
         mesh.rotateZ(n)
     }
 
     const smokeContainer = useMemo(()=>{
+        if (!smokeTexture) return []
         const list:Array<JSX.Element> = []
         for(let i = 0; i < numberElement; i++){
             const n =Math.floor(Math.random() * 3) - 1;
