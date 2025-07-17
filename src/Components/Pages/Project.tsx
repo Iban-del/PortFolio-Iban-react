@@ -74,7 +74,7 @@ const Project = () =>{
             <div className="h-[100px] "></div>
             <div className="h-[90%] w-full mb-7 flex flex-col justify-between">
                 <div className="w-full flex justify-center mb-7">
-                    <div className="grid sm:grid-cols-3 grid-cols-1 sm:gap-10 gap-4 w-full ">
+                    <div className="grid lg:grid-cols-3 grid-cols-1 sm:gap-10 gap-4 w-full ">
                         <AnimatePresence>
                             {skills}
                         </AnimatePresence>

@@ -48,7 +48,7 @@ const Contact = () =>{
             <div className="flex justify-evenly items-center w-[90%] mt-7">
                     {
                         contactList.map((e)=>{
-                            return <Link  key={e.name} href={e.href} text={e.icon}></Link>
+                            return <Link  key={e.name+"-contact"} href={e.href} text={e.icon}></Link>
                         })
                     }
             </div>

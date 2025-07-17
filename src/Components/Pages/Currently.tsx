@@ -33,7 +33,7 @@ const Currently = () =>{
         const list:Array<JSX.Element> = []
         currently.forEach(currently => {
             list.push(
-                <div key={currently.title+"-d"} className="flex justify-center items-center">
+                <div key={currently.title+"-d-c"} className="flex justify-center items-center">
                     <Card usePopUp={currently.usePopUp} popUpContent={currently.popUpContent} popUpIcon={<IoIosInformationCircle />}  key={currently.title} size={cardSize} title={currently.title} >{currently.content}</Card>
                 </div>
             )

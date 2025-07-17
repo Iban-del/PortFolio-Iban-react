@@ -42,7 +42,7 @@ const Moon = ({
     const BoxList = useMemo(()=>{
         const cubeList:Array<React.ReactElement> = []
         coordinateCube.forEach(element=>{
-            cubeList.push(<Box position={element} onFrame={mesh=>moveBox(mesh,0.001*Math.PI)}/>)
+            cubeList.push(<Box key={Math.random()+"-box"} position={element} onFrame={mesh=>moveBox(mesh,0.001*Math.PI)}/>)
         })
         return cubeList
     },[])
